@@ -1,0 +1,37 @@
+variables:
+  REL_VERSION: "20.3.0-beta"
+
+default:
+  image: guiren/gitbook
+
+# add 'node_modules' to cache for speeding up builds
+cache:
+  paths:
+    - node_modules/ # Node modules and dependencies
+
+# the 'pages' job will deploy and build your site to the 'public' path
+pages:
+  stage: deploy
+  script:
+    - gitbook install
+    - gitbook build . public # build to public path
+  artifacts:
+    paths:
+      - public
+    expire_in: 1 week
+  only:
+    - master # this job will affect only the 'master' branch
+
+manual:
+  stage: build
+  script:
+    - gitbook install
+    - gitbook build
+  only:
+    - master
+  artifacts:
+    name: "grms-manual-$env:REL_VERSION-$env:CI_COMMIT_SHORT_SHA"
+    paths:
+      - _book
+  tags:
+    - docker

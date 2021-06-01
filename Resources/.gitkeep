@@ -1,0 +1,7 @@
+
+# Ignore everything in this directory 
+
+项目的资源包，
+包括高质量测试算例集、算例数据质量评估报告。
+
+# Except this file !.gitkeep 

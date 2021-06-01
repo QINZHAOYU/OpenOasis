@@ -1,0 +1,8 @@
+
+# Ignore everything in this directory 
+
+项目的发布版本，
+包括模型可执行程序、模型动态链接库、模型静态链接库；
+包括算法详细说明文档、算法测试分析文档、算法使用说明文档。
+
+# Except this file !.gitkeep 

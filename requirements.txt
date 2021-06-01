@@ -1,0 +1,5 @@
+scikit_opt==0.6.3
+torch==1.8.1+cu111
+numpy==1.20.2
+pyswmm==1.0.1  
+sko==0.5.7
