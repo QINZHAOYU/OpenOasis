@@ -2,16 +2,16 @@
 
 <center>
 
-![logo](./resource/logo/logo.png)   
+![logo](../Resources/logo/logo.png)   
 
-**Open-Oasis，开放的绿洲，一个开放的物理世界机理模型学习项目。**
+**Open-Oasis，开源绿洲，一个物理世界机理模型的开放实验项目。**
 
 </center>
 
 ---------------------------------------------------------------------------
 
-# System Of Carbon Circulation
-**开放绿洲·碳循环系统**  
+## System Of Carbon Circulation
+*开源绿洲·碳循环系统*  
 
 本单元主要解决研究范围内的碳循环过程。
 
