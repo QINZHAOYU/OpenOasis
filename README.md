@@ -8,9 +8,9 @@
 
 # [开源绿洲 OpenOasis](https://github.com/OurForce2020/OpenOasis)
 
-简体中文 | [english](./README_EN.md)
+简体中文 | [english](./Docs/README_en.md)
 
-[![PyPI](https://img.shields.io/pypi/v/open-oasis)](https://pypi.org/project/open-oasis/)[![Release](https://img.shields.io/github/release/OpenOasis/OpenOasis.svg)](https://github.com/OurForce2020/OpenOasis/releases)[![Build Status](https://travis-ci.org/OpenOasis/OpenOasis.svg?branch=develop)](https://travis-ci.org//OurForce2020/OpenOasis)![Platform](https://img.shields.io/badge/platform-windows%20|%20linux%20.svg)[![Documentation Status](https://img.shields.io/badge/中文文档-最新-brightgreen.svg)](https://openoasis.org.cn/documentation/docs/zh/guides/index_cn.html)[![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE)[![Join the chat at https://gitter.im/guofei9987/scikit-opt](https://badges.gitter.im/OurForce2020/OpenOasis.svg)](https://gitter.im/OurForce2020/OpenOasis?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![PyPI](https://img.shields.io/pypi/v/open-oasis)](https://pypi.org/project/open-oasis/) [![Release](https://img.shields.io/github/release/OpenOasis/OpenOasis.svg)](https://github.com/OurForce2020/OpenOasis/releases) [![Build Status](https://travis-ci.org/OpenOasis/OpenOasis.svg?branch=develop)](https://travis-ci.org//OurForce2020/OpenOasis) ![Platform](https://img.shields.io/badge/platform-windows%20|%20linux%20.svg)[![Documentation Status](https://img.shields.io/badge/中文文档-最新-brightgreen.svg)](https://openoasis.org.cn/documentation/docs/zh/guides/index_cn.html) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](LICENSE) [![Join the chat at https://gitter.im/guofei9987/scikit-opt](https://badges.gitter.im/OurForce2020/OpenOasis.svg)](https://gitter.im/OurForce2020/OpenOasis?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 **开源绿洲，一个物理世界机理模型的开放实验项目:**
@@ -28,7 +28,16 @@
 
 [系统水循环](./SystemWaterCirculation/README.md)  
 [系统热流动](./SystemThermalCirculation/README.md)  
-[系统碳循环](./SystemCarbonCirculation/README.md)  
+[系统碳循环](./SystemCarbonCirculation/README.md)
+
+---------------------------------------------------------------------------
+
+## 开源绿洲 · 绿洲智能
+
+基于对系统中物质和能量的流动、循环过程的感知、探索和模拟，尝试采用深度强化学习来
+实现针对特定情景的系统调控和事件决策。
+
+[绿洲智能](./OasisAgent/README.md)  
 
 ---------------------------------------------------------------------------
 
