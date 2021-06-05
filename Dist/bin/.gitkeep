@@ -1,0 +1,7 @@
+
+# Ignore everything in this directory 
+
+项目的发布版本，
+包括模型可执行程序；
+
+# Except this file !.gitkeep 

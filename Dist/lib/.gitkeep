@@ -1,0 +1,7 @@
+
+# Ignore everything in this directory 
+
+项目的发布版本，
+包括模型模型动态链接库、模型静态链接库；
+
+# Except this file !.gitkeep 

@@ -1,0 +1,7 @@
+
+# Ignore everything in this directory 
+
+项目的发布版本，
+包括模型数据处理和综合调度python封装包；
+
+# Except this file !.gitkeep 
