@@ -23,7 +23,8 @@
 
 [流体力学理论（NS方程组）](./NavierStokeEquations.md)
 [水动力学理论（SV方程组）](./SaintVenantEquations.md)
-[新安江产汇流理论](./XAJTheoryFrame.md)
+[新安江模型理论](./XAJModel.md)
+[HIMS 模型理论](./HIMSModel.md)
 
 
 ### System Carbon Circulation
