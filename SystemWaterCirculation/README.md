@@ -43,6 +43,7 @@
 整个流域的水文响应通过对各子流域或子单元的水文响应进行叠加计算得到。
 
 [新安江产汇流模型](./HydrologicModel/XajModel/README.md)    
+[HIMS 产汇流模型](./HydrologicModel/HimsModel/README.md) 
 
 ---------------------------------------------------------------------------
 
