@@ -19,6 +19,10 @@
 
 [协同开发方案](./NOTICE.md)
 
+### Computing Methods
+
+[数值计算方法](./ComputingMethods.md)
+
 ### System Water Circulation
 
 [流体力学理论（NS方程组）](./NavierStokeEquations.md)
