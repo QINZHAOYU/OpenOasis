@@ -1,8 +1,6 @@
-<center>
-
-[![logo](../Resources/logo/logo.png)](https://github.com/OurForce2020/OpenOasis)
-
-</center>
+<p align="center">
+  <a href="https://github.com/OurForce2020/OpenOasis"><img src="../Resources/logo/logo.png" alt=""></a>
+</p>
 
 ---------------------------------------------------------------------------
 
@@ -10,7 +8,7 @@
 
 *流体力学·NS方程组*  
 
-<center>
+<div align="center">
 
 **流场理论**，将流体运动看作是充满一定空间而由无数流体质点组成的连续介质运动。其中，
 运动流体所占据的空间，叫做 **流场**。
@@ -31,7 +29,7 @@
 采用欧拉法，将目光聚焦在空间内水流的流动情况，分析对象是空间点处的运动要素变化情况，
 而不去追究具体的流体质点的运动轨迹。
 
-</center>
+</div>
 
 ---------------------------------------------------------------------------
 
@@ -39,7 +37,7 @@
 
 *流速、加速度、密度 和 压力*
 
-<center>
+<div align="center">
 
 一般情况下，同一时刻不同空间点 (x, y, z) 上流体的运动要素是不同的，即使在同一点上
 运动要素也是随时间 t 变化的。
@@ -102,7 +100,7 @@ $$\frac{\mathrm{d}\rho}{\mathrm{d}t} = \frac{\partial \rho}{\partial t} + u_x\fr
 
 $$\frac{\mathrm{d}p}{\mathrm{d}t} = \frac{\partial p}{\partial t} + u_x\frac{\partial p}{\partial x} + u_y\frac{\partial p}{\partial y} + u_z\frac{\partial p}{\partial z}$$
 
-</center>
+</div>
 
 *--- 注意：---*
 1. 在推导过程中忽略了高阶微量（二阶及以上）。
@@ -144,7 +142,7 @@ u_z = f_z(t) \\
 
 *流线 和 迹线*
 
-<center>
+<div align="center">
 
 **拉格朗日法**，研究流体中各个质点在不同时刻下运动的变化情况，引出迹线的概念；
 **欧拉法**，研究流场内同一时刻不同流体质点的运动情况，引出流线的概念。
@@ -182,7 +180,7 @@ $$ \frac{\mathrm{d}x}{u_x} = \frac{\mathrm{d}y}{u_y} = \frac{\mathrm{d}z}{u_z} =
 
 其中，$ u_i $ 都是 x, y, z, t 的函数；同时，时间 t 是自变量，质点坐标 x, y, z 均是 t 的函数。
 
-</center>
+</div>
 
 *--- 注意：---*
 1. 流线是流场的一个瞬时快照；迹线是不同时刻质点位置集合。
