@@ -280,8 +280,88 @@ $$\begin{cases}
 
 ---------------------------------------------------------------------------
 
+### Eddy & Potenial Flow
+
+*涡流 和 势流*
+
+<div align="center">
+
+按照流体质点本身有无旋转，将流体运动分为 **有涡流** 和 **无涡流**。
+涡是指流体质点绕其自身轴旋转的运动，与通常的旋转运动不同。
+
+<img src="./imgs/6.jpg" width=400 height=180>
+
+对于无涡流，
+$$\begin{cases}
+\omega_x = \frac{1}{2}(\frac{\partial u_z}{\partial y} - \frac{\partial u_y}{\partial z}) = 0, \Rightarrow \frac{\partial u_z}{\partial y} = \frac{\partial u_y}{\partial z} \\
+\omega_y = \frac{1}{2}(\frac{\partial u_x}{\partial z} - \frac{\partial u_z}{\partial x}) = 0, \Rightarrow \frac{\partial u_x}{\partial z} = \frac{\partial u_z}{\partial x} \\
+\omega_z = \frac{1}{2}(\frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y}) = 0, \Rightarrow \frac{\partial u_y}{\partial x} = \frac{\partial u_x}{\partial y} \\
+\end{cases}$$
+
+**势函数**，对某一标量函数 $ \varphi $ 求梯度，得到矢量 $ \upsilon $，则称 $ \varphi $ 为 $ \upsilon $ 的势函数。
+势函数是某些矢量场上关于空间位置处势能的函数，是对场中能量的刻画。
+例如重力场，重力势函数 $mg*z$ 在 x,y,z 方向上的偏导就是重力势能在不同方向上的变化速度，即重力。
+同理，流速场上可能存在流速势函数，势函数对 x,y,z 的偏导就是流速势在不同方向的变化速度，即流速。
+
+若存在流场势函数$\varphi$，则有
+$$\begin{cases}
+u_x = \frac{\partial \varphi}{\partial x} \\
+u_y = \frac{\partial \varphi}{\partial y} \\
+u_z = \frac{\partial \varphi}{\partial z} \\
+\end{cases}$$
+
+在 x,y,z 方向继续求导，有
+$$\begin{cases}
+\frac{\partial^2 \varphi}{\partial x \partial y} = \frac{\partial u_x}{\partial y} = \frac{\partial u_y}{\partial x}  \\
+\frac{\partial^2 \varphi}{\partial x \partial z} = \frac{\partial u_x}{\partial z} = \frac{\partial u_z}{\partial x}  \\
+\frac{\partial^2 \varphi}{\partial z \partial y} = \frac{\partial u_z}{\partial y} = \frac{\partial u_y}{\partial z}  \\
+\end{cases}$$
+
+由此可知，若流场中的流体是无涡流，则必然存在流速势函数。所以，无涡流又称 **势流**，继而
+$$\begin{gather*}
+\frac{\partial \varphi}{\partial x}\mathrm{d}x + \frac{\partial \varphi}{\partial y}\mathrm{d}y + \frac{\partial \varphi}{\partial z}\mathrm{d}z = u_x\mathrm{d}x + u_y\mathrm{d}y + u_z\mathrm{d}z \\
+\mathrm{d}\varphi = u_x\mathrm{d}x + u_y\mathrm{d}y + u_z\mathrm{d}z \end{gather*}$$
 
 
+<img src="./imgs/7.jpg" width=440 height=240>
 
+有涡流可用旋转角速度的矢量来表征，即 **涡流场**；类似流速场，可以引入 涡线 和 涡束等概念。
+**涡线**，某一瞬时涡量场中一条几何曲线，线上各质点在同一瞬时的旋转角速度都与该曲线相切。
+$$ \frac{\mathrm{d}x}{\omega_x} = \frac{\mathrm{d}y}{\omega_y} = \frac{\mathrm{d}z}{\omega_z} $$
 
+类似于流线，涡线本身不会相交；恒定流下，涡线形状保持不变。
+
+**涡束**，类似于流束，任意取一微小面积，通过该面积上的各点做出一束涡线空间，即微小涡束。
+在微小涡束断面上各点的旋转角速度可以认为是相等的。
+**涡旋通量**，类似于流量，是微小涡束的横断面的面积与其上的旋转角速度之积，又称 **涡旋强度**。
+
+<img src="./imgs/8.jpg" width=440 height=260>
+
+在流场中取任意的封闭周线，将流速矢量沿周线的积分，称为 **速度环量** ，可以表示涡旋强度。
+在上图中，封闭周线 C 上取微小弧段 Δs，弧段上流速 u 与左手定则绕行下的切线的夹角为 α，
+$$ \Gamma = lim \sum {u\cos(\alpha)\Delta s} = \oint_{C} u\cos(\alpha)\mathrm{d}s = \oint_{C} u\cos(u, \mathrm{d}s)\mathrm{d}s $$
+
+$\Gamma$ 即为沿封闭周线 C 的速度环量；如果周线上切向速度与周线绕行方向相同，则速度环量为正。
+依解析几何，两直线夹角的余弦等于两直线方向余弦的对应乘机之和：
+$$\begin{align*}
+cos(\alpha) &= \cos(u, \mathrm{d}s) \\
+&= \cos(u,x)\cos(\mathrm{d}s,x) + \cos(u,y)\cos(\mathrm{d}s,y) + \cos(u,z)\cos(\mathrm{d}s,z) \\
+&= \frac{u_x}{u}\frac{\mathrm{d}x}{\mathrm{d}s} + \frac{u_y}{u}\frac{\mathrm{d}y}{\mathrm{d}s} + \frac{u_z}{u}\frac{\mathrm{d}z}{\mathrm{d}s}\\
+\end{align*}$$
+
+$$\Rightarrow u\cos(\alpha)\mathrm{d}s = u_x\mathrm{d}x + u_y\mathrm{d}y + u_z\mathrm{d}z $$
+
+$$\Rightarrow \Gamma = \oint_{c} (u_x\mathrm{d}x + u_y\mathrm{d}y + u_z\mathrm{d}z) $$
+
+如果流体运动是无涡的，则必然存在流速势函数，则有：
+$$ \Gamma = \oint_{c} \mathrm{d}\varphi = [\varphi]_{A}^{A} = 0 $$
+
+由此，在无涡流场中的任意封闭周线的速度环量都是 0。
+
+</div>
+
+*--- 注意：---*
+1. 环线积分中绕行方向遵循左手定则，即绕行过程中保持左手位于环内。
+
+---------------------------------------------------------------------------
 
