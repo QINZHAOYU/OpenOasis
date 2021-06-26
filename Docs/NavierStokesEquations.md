@@ -16,7 +16,7 @@
 不同时刻，流场中每个流体质点都有各自的空间位置、流速、加速度、压强等，研究流体运动
 规律就是求解流场中这些运动要素的变化情况。
 
-分析方法是在流场中任意取出一个 **微小平行六面体** 来研究，应用机械运动的一般原理，
+分析方法是在流场中任意取出一个 **微分平行六面体** 来研究，应用机械运动的一般原理，
 求出表达流体运动规律的微分方程。
 在该方法中，将流体运动看作是三维流动，各项运动要素均是空间坐标 (x, y, z) 的函数。
 
@@ -184,9 +184,99 @@ $$ \frac{\mathrm{d}x}{u_x} = \frac{\mathrm{d}y}{u_y} = \frac{\mathrm{d}z}{u_z} =
 
 *--- 注意：---*
 1. 流线是流场的一个瞬时快照；迹线是不同时刻质点位置集合。
-质点运动的各时刻下、在当前位置上，迹线与流速相切；但同时刻回看之前位置，流速已经改变、不再相切。
+质点运动各时刻下、当前位置上，迹线与流速相切；但同时回看，之前位置上流速已经改变、不再相切。
 
 2. 恒定流中，迹线与流线重合。
+
+---------------------------------------------------------------------------
+
+### The Basic Form of Particle Motion
+
+*质点运动的基本形式*
+
+<div align="center">
+
+<img src="./imgs/3.jpg" width=240 height=280>
+<img src="./imgs/4.jpg" width=440 height=280>
+
+在流体中取一个微分平行六面体，各边长 dx, dy, dz；其中，角点 P(x, y, z) 处速度矢量 u(ux, uy, uz)； 
+其它角点处速度可以通过 **泰勒级数** 表达。
+由于六面体各个角点速度不同，经过时间dt 之后，不仅其位置发生移动，而且其形状也将发生变化。
+作为组成六面体的每个面都将发生这种变化，因此可以取一个面来分析整个微分六面体的运动情况。
+
+这里，选取 x-z 平面上 PQRS 作分析对象：
+$$\begin{cases}
+点P, (u_x, u_y, u_z) \\
+点Q, (u_x + \frac{\partial u_x}{\partial x}\mathrm{d}x, u_y + \frac{\partial u_y}{\partial x}\mathrm{d}x, u_z + \frac{\partial u_z}{\partial x}\mathrm{d}x) \\
+点S, (u_x + \frac{\partial u_x}{\partial z}\mathrm{d}z, u_y + \frac{\partial u_y}{\partial z}\mathrm{d}z, u_z + \frac{\partial u_z}{\partial z}\mathrm{d}z) \\
+点R, (u_x + \frac{\partial u_x}{\partial x}\mathrm{d}x + \frac{\partial u_x}{\partial z}\mathrm{d}z, u_y + \frac{\partial u_y}{\partial x}\mathrm{d}x + \frac{\partial u_y}{\partial z}\mathrm{d}z, u_z + \frac{\partial u_z}{\partial x}\mathrm{d}x + \frac{\partial u_z}{\partial z}\mathrm{d}z) \\
+\end{cases}$$
+
+**位置平移**，分析面 PQRS 各角点速度，ux, uz是共有的速度组成部分；暂时不考虑角点 Q,R,S 分速度
+与角点P 的相差部分，则面PQRS 将沿 x 轴移动 uxdt、沿 y 轴移动 uydt，从而到达面P'Q1R1S1 位置。
+在此过程中，面 PQRS 位置发生移动，但是其形状大小均未发生变化。
+由此推论，ux, uy, uz 是整个微分平行六面体在 x, y, z 方向的**位移速度**。
+
+**线变形**，分析面 PQRS 各角点速度，点R 对 S、点Q 对 P在 x 方向均有相同的速度差值 $ \frac{\partial u_x}{x}\mathrm{d}x $，
+所以，经过时间 dt 之后，边线 SR、PQ 在 x 方向的变形均为 $ \frac{\partial u_x}{x}\mathrm{d}x\mathrm{d}t $；同理，边 PS、QR 在 z 方向
+的变形均为 $ \frac{\partial u_z}{z}\mathrm{d}z\mathrm{d}t $。因此，面 PQRS经过时间 dt、经过平移和边线变形之后，变成矩形 P'Q2R2S2.
+在各坐标轴方向每秒边线单位长度的变形称为 **线变形速率**，又称 **线应变**。
+根据定义，微分平行六面体在各坐标轴方向的线变形速率 ( 线应变) 即为：
+$$\begin{cases}
+x 方向,  \frac{\frac{\partial u_x}{x}\mathrm{d}x\mathrm{d}t}{\mathrm{d}x\mathrm{d}t} = \frac{\partial u_x}{x} \\
+y 方向,  \frac{\frac{\partial u_y}{y}\mathrm{d}y\mathrm{d}t}{\mathrm{d}y\mathrm{d}t} = \frac{\partial u_y}{y} \\
+z 方向,  \frac{\frac{\partial u_z}{z}\mathrm{d}z\mathrm{d}t}{\mathrm{d}z\mathrm{d}t} = \frac{\partial u_z}{z} \\
+\end{cases}$$
+
+现在，分析矩形平面各角点与边线垂直方向上的分速度差异对运动的影响。
+边线PQ、沿z 方向上，角点Q 的分速度与P 相差 $ \frac{\partial u_z}{\partial x}\mathrm{d}x $，经时间dt 后角点Q 将比P 多移动 $ \frac{\partial u_z}{\partial x}\mathrm{d}x\mathrm{d}t $；
+边线PS、沿x 方向上，角点S 的分速度与P 相差 $ \frac{\partial u_x}{\partial z}\mathrm{d}z $ ，经时间dt 后角点S 将比P 多移动 $ \frac{\partial u_x}{\partial z}\mathrm{d}z\mathrm{d}t $ ；
+前者使边线PQ 逆时针偏转角度 $ \mathrm{d}\beta $，后者使边线PS 顺时针偏转角度 $ \mathrm{d}\alpha $；
+最后，经过平移、线变形、边线偏转，微分矩形平面PQRS 转变为平行四边形 P'Q'R'S'，由图分析知：
+$$\begin{cases}
+\mathrm{d}\alpha \approx \tan(\alpha) = \frac{\frac{\partial u_x}{\partial z}\mathrm{d}z\mathrm{d}t}{\mathrm{d}z + \frac{\partial u_z}{\partial z}\mathrm{d}z\mathrm{d}t}, \Rightarrow \mathrm{d}\alpha = \frac{\partial u_x}{\partial z}\mathrm{d}t \\
+\mathrm{d}\beta \approx \tan(\beta) = \frac{\frac{\partial u_z}{\partial x}\mathrm{d}x\mathrm{d}t}{\mathrm{d}x + \frac{\partial u_x}{\partial x}\mathrm{d}x\mathrm{d}t}, \Rightarrow \mathrm{d}\beta = \frac{\partial u_z}{\partial x}\mathrm{d}t \\
+\end{cases}$$
+
+对于因为边线偏转导致的矩形平面 P'Q2R2S2 的变形过程，其实可以分解为两个部分：角变形 和 旋转。
+
+**角变形**，边线P'Q2 首先逆时针偏转角度 $ \mathrm{d}\alpha - \gamma $，而边线P'S2 同时顺时针偏转角度 $ \mathrm{d}\beta + \gamma $，
+要求两个偏转角度相等。如此，矩形平面P'Q2R2S2变形为平行四边形P'Q3R3S3，二者等分角线重合，
+所以矩形平面 P'Q2R2S2 此时只有直角纯变形。由于角变形中两条边线的偏转角度是相等的，所以有：
+$$ \mathrm{d}\alpha - \gamma = \mathrm{d}\beta + \gamma, \Rightarrow \gamma = \frac{\mathrm{d}\alpha - \mathrm{d}\beta}{2} $$
+
+绕各坐标轴方向每秒直角边线的角度变形称为 **角变形速率**，又称 **角应变**。
+$$ y 方向，\theta_y = \frac{\mathrm{d}\alpha - \gamma}{\mathrm{d}t} = \frac{1}{2}(\frac{\mathrm{d}\alpha + \mathrm{d}\beta}{\mathrm{d}t}) = \frac{1}{2}(\frac{\partial u_x}{\partial z} + \frac{\partial u_z}{\partial x})$$
+
+由此推论，微分六面体的角变形速率：
+$$\begin{cases}
+\theta_x = \frac{1}{2}(\frac{\partial u_y}{\partial z} + \frac{\partial u_z}{\partial y}) \\
+\theta_y = \frac{1}{2}(\frac{\partial u_x}{\partial z} + \frac{\partial u_z}{\partial x}) \\
+\theta_z = \frac{1}{2}(\frac{\partial u_x}{\partial y} + \frac{\partial u_y}{\partial x}) \\
+\end{cases}$$
+
+**旋转**，平行四边形P'Q3R3S3 绕通过P' 点的 y方向的轴顺时针旋转角度 $ \gamma $ 变成P'Q'R'S'。
+( 旋转是由于边线偏转角度 $ \mathrm{d}\alpha, \mathrm{d}\beta $ 不等所产生的。P'Q3R3S3 的等分角线P'M 将旋转 $ \gamma $ 到达P'M'。)
+
+绕各坐标轴方向每秒平面的纯旋转角称为 **旋转角速度**。
+$$ y 方向，\omega_y = \frac{\gamma}{\mathrm{d}t} = \frac{1}{2}(\frac{\mathrm{d}\alpha - \mathrm{d}\beta}{2}) = \frac{1}{2}(\frac{\partial u_x}{\partial z} - \frac{\partial u_z}{\partial x}) $$
+
+由此推论，微分六面体的旋转角速度：
+$$\begin{cases}
+\omega_x = \frac{1}{2}(\frac{\partial u_z}{\partial y} - \frac{\partial u_y}{\partial z}) \\
+\omega_y = \frac{1}{2}(\frac{\partial u_x}{\partial z} - \frac{\partial u_z}{\partial x}) \\
+\omega_z = \frac{1}{2}(\frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y}) \\
+\end{cases}$$
+
+综上分析，微分平行六面体最普遍的运动形式均由平移、线应变、角应变、旋转四种基本形式所组成；
+当微分六面体无限缩小，即变成质点，故流体质点运动的基本形式也是平移、线应变、角应变、旋转。
+
+</div>
+
+*--- 注意：---*
+1. 分析微分平行六面体时，一般假设速度分量沿坐标轴正方向增大。
+2. 推导偏转角度时，分母中忽略高阶项（二阶及以上）。
+3. 记忆旋转角速度时，可以通过右手定则坐标系结合定义辅助记忆。
 
 ---------------------------------------------------------------------------
 
