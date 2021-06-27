@@ -165,6 +165,10 @@ $$ \frac{dx}{u_x} = \frac{dy}{u_y} = \frac{dz}{u_z} = \frac{ds}{u} $$
 
 其中，$ u_i $ 都是 x, y, z, t 的函数；求取流速场内某时刻 t 下流线时，把 t 作为常数代入该方程，积分即可。
 
+<img src="./imgs/10.jpg" width=420 height=180>
+
+**流束**，流场中任意取一微小面积，通过该面积上的各点作出的一束流线群；**流管**，即流束空间的表面积。
+
 **迹线**，是流体流动时，其中某一流体质点在不同时刻下流动经历的路线。
 
 在上图中，若将微分段 ds 看作流体质点在时间 dt 内的位移，dx、dy、dz 表示位移 ds 在各轴上投影。
@@ -331,7 +335,7 @@ $$ \frac{\mathrm{d}x}{\omega_x} = \frac{\mathrm{d}y}{\omega_y} = \frac{\mathrm{d
 
 类似于流线，涡线本身不会相交；恒定流下，涡线形状保持不变。
 
-**涡束**，类似于流束，任意取一微小面积，通过该面积上的各点做出一束涡线空间，即微小涡束。
+**涡束**，类似于流束，任意取一微小面积，通过该面积上的各点作出一束涡线空间，即微小涡束。
 在微小涡束断面上各点的旋转角速度可以认为是相等的。
 **涡旋通量**，类似于流量，是微小涡束的横断面的面积与其上的旋转角速度之积，又称 **涡旋强度**。
 
@@ -341,7 +345,7 @@ $$ \frac{\mathrm{d}x}{\omega_x} = \frac{\mathrm{d}y}{\omega_y} = \frac{\mathrm{d
 在上图中，封闭周线 C 上取微小弧段 Δs，弧段上流速 u 与左手定则绕行下的切线的夹角为 α，
 $$ \Gamma = lim \sum {u\cos(\alpha)\Delta s} = \oint_{C} u\cos(\alpha)\mathrm{d}s = \oint_{C} u\cos(u, \mathrm{d}s)\mathrm{d}s $$
 
-$\Gamma$ 即为沿封闭周线 C 的速度环量；如果周线上切向速度与周线绕行方向相同，则速度环量为正。
+$\Gamma$ 即为沿封闭周线C 的速度环量；如果周线上切向速度与周线绕行方向相同，则速度环量为正。
 依解析几何，两直线夹角的余弦等于两直线方向余弦的对应乘机之和：
 $$\begin{align*}
 cos(\alpha) &= \cos(u, \mathrm{d}s) \\
@@ -363,5 +367,98 @@ $$ \Gamma = \oint_{c} \mathrm{d}\varphi = [\varphi]_{A}^{A} = 0 $$
 *--- 注意：---*
 1. 环线积分中绕行方向遵循左手定则，即绕行过程中保持左手位于环内。
 
+2. 曲线积分中，直角坐标系与极坐标系的转换（注意积分区间的转换）： 
+
+$$\begin{align*}
+\int_{L} O(x,y,z)\mathrm{d}x + P(x,y,z)\mathrm{d}y + Q(x,y,z)\mathrm{d}z &= \int_{L} O\cos\alpha \mathrm{d}s + P\cos\beta\mathrm{d}s + Q\cos\gamma\mathrm{d}s \\
+&= \int_{L} (O\cos\alpha + P\cos\beta + Q\cos\gamma) \mathrm{d}s \\
+\mathrm{d}s = \mathrm{d}\theta * r
+\end{align*}$$
+
 ---------------------------------------------------------------------------
+
+### The Continuity Equation of Fluid Motion
+
+*流体运动的连续性方程*
+
+<div align="center">
+
+因流体是连续介质，若在流场中任意选定一个封闭空间，在某一给定时间段中流入封闭空间的流体质量
+与流出的流体质量之差应该等于该封闭空间内因密度变化引起的流体质量变化。
+如果流体是不可压缩的均质流体，则封闭空间流进与流出的流体质量应该相等。
+以上质量守恒关系以数学分析表达成微分方程，即称为**流体运动的连续性方程**。
+
+<img src="./imgs/9.jpg" width=440 height=260>
+
+流场中一微分平行六面体，边长为 dx, dy, dz，形心A(x,y,z) 速度 u(ux,uy,uz)、密度 ρ。经微小时段 dt，
+
+自左面流入的流体质量：$q_{i} = (\rho - \frac{\partial \rho}{\partial x}\frac{\mathrm{d}x}{2})(u_x - \frac{\partial u_x}{\partial x}\frac{\mathrm{d}x}{2})\mathrm{d}y\mathrm{d}z\mathrm{d}t$
+
+自右面流出的流体质量：$q_{o} = (\rho + \frac{\partial \rho}{\partial x}\frac{\mathrm{d}x}{2})(u_x + \frac{\partial u_x}{\partial x}\frac{\mathrm{d}x}{2})\mathrm{d}y\mathrm{d}z\mathrm{d}t$
+
+dt 时段内，x 方向流入与流出六面体的质量差：
+$$\Delta m_x = q_o - q_i = - (u_x \frac{\partial \rho}{\partial x} + \rho \frac{\partial u_x}{\partial x})\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t = - \frac{\partial \rho u_x}{\partial x}\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t$$
+
+同理，在 y,z 方向流入与流出六面体的质量差：
+$$\begin{gather*}
+\Delta m_y = - \frac{\partial \rho u_y}{\partial y}\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t \\ 
+\Delta m_z = - \frac{\partial \rho u_z}{\partial z}\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t
+\end{gather*}$$
+
+dt 时段内，六面体内流体密度由 $\rho$ 变为 $\rho + \frac{\partial \rho}{\partial t}$，引起的质量变化
+$$\Delta m = \frac{\partial \rho}{\partial t}\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t $$
+
+dt 时段内，微分平行六面体内流体的质量守恒（介质连续）原理：
+$$\begin{gather*}
+\Delta m = \Delta m_x + \Delta m_y + \Delta m_z \\
+\frac{\partial \rho}{\partial t}\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t = - [\frac{\partial \rho u_x}{\partial x} + \frac{\partial \rho u_y}{\partial y} + \frac{\partial \rho u_z}{\partial z}]\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t \\
+\end{gather*}$$
+
+除以 $\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t$ 之后得到， **可压缩流体非恒定流的连续性方程**：
+$$\frac{\partial \rho}{\partial t} + [\frac{\partial \rho u_x}{\partial x} + \frac{\partial \rho u_y}{\partial y} + \frac{\partial \rho u_z}{\partial z}] = 0$$
+
+对不可压缩流体，ρ 为常数、与空间时间无关，连续性方程简化：
+$$\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} = 0 \,\, \mathrm{Or} \,\, \mathrm{div}\, \textbf{u} = 0$$
+
+由于 $\frac{\partial u_x}{\partial x}, \frac{\partial u_y}{\partial y},\frac{\partial u_z}{\partial z}$ 表示微分六面体沿 x，y，z 方向的线变形速率，故微分平行六面体的体积变化：
+$$(\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} )\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t$$
+
+对不可压缩流体，微分平行六面体经平移和线变形体积大小不变，角变形和旋转亦不改变体积大小。
+$$\begin{align*}
+\iiint_{V} \mathrm{div}\, \textbf{u} \,\mathrm{d}V &= \iiint_{V} (\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} )\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t \\
+&= \iint_{S} u_n \mathrm{d}s \\
+&= 0 \\
+\end{align*}$$
+
+S是体积V 的封闭表面积；un是S 上各点处的流速在该处外法线方向的投影；$\iint_{S} u_n \mathrm{d}s$ 即速度通量。
+
+分析恒定流下的流管，由于流管侧表面上 un = 0，故
+$$\iint_{S} u_n \mathrm{d}s = - \iint_{A_i} u_i\mathrm{d}A_i + \iint_{A_o} u_o\mathrm{d}A_o = 0 $$
+
+Ai,ui 是流管流入横断面的面积、流速； Ao,uo 是流管流出横断面的面积、流速。
+$$\begin{gather*}
+\iint_{A_i} u_i\mathrm{d}A_i = \iint_{A_o} u_o\mathrm{d}A_o \\
+Q_i = Q_o
+\end{gather*}$$
+
+恒定流时流管一端有流量流入，对不可压缩流体，另一端必然有相等的流量流出。
+
+</div>
+
+*--- 注意：---*
+1. 分析微分六面体内质量变化时，认为六面体空间是固定的、不变的。
+
+2. 计算微分六面体中面上流量时，以形心流速作面上平均流速；或者说，求速度通量时ux在面上线性分布。
+
+3. $\mathrm{div}\, \textbf{u}$ 称为速度散度，结果为标量。
+
+4. 通过高斯定理，可以将体积积分转换为曲面积分。
+
+---------------------------------------------------------------------------
+
+
+
+
+
+
 
