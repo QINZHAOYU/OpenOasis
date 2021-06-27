@@ -353,9 +353,10 @@ cos(\alpha) &= \cos(u, \mathrm{d}s) \\
 &= \frac{u_x}{u}\frac{\mathrm{d}x}{\mathrm{d}s} + \frac{u_y}{u}\frac{\mathrm{d}y}{\mathrm{d}s} + \frac{u_z}{u}\frac{\mathrm{d}z}{\mathrm{d}s}\\
 \end{align*}$$
 
-$$\Rightarrow u\cos(\alpha)\mathrm{d}s = u_x\mathrm{d}x + u_y\mathrm{d}y + u_z\mathrm{d}z $$
-
-$$\Rightarrow \Gamma = \oint_{c} (u_x\mathrm{d}x + u_y\mathrm{d}y + u_z\mathrm{d}z) $$
+$$\begin{align*}
+&\Rightarrow u\cos(\alpha)\mathrm{d}s = u_x\mathrm{d}x + u_y\mathrm{d}y + u_z\mathrm{d}z \\
+&\Rightarrow \Gamma = \oint_{c} (u_x\mathrm{d}x + u_y\mathrm{d}y + u_z\mathrm{d}z)
+\end{align*}$$
 
 如果流体运动是无涡的，则必然存在流速势函数，则有：
 $$ \Gamma = \oint_{c} \mathrm{d}\varphi = [\varphi]_{A}^{A} = 0 $$
@@ -388,7 +389,7 @@ $$\begin{align*}
 如果流体是不可压缩的均质流体，则封闭空间流进与流出的流体质量应该相等。
 以上质量守恒关系以数学分析表达成微分方程，即称为**流体运动的连续性方程**。
 
-<img src="./imgs/9.jpg" width=440 height=260>
+<img src="./imgs/9.jpg" width=440 height=220>
 
 流场中一微分平行六面体，边长为 dx, dy, dz，形心A(x,y,z) 速度 u(ux,uy,uz)、密度 ρ。经微小时段 dt，
 
