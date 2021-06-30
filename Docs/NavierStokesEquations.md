@@ -667,7 +667,7 @@ $$ U - \frac{p}{\rho} - \frac{u^2}{2} = \textbf{const} $$
 若质量力只有重力：  
 $$\mathrm{d}U = f_x\mathrm{d}x + f_y\mathrm{d}y + f_z\mathrm{d}z = -g\mathrm{d}z$$
 
-对上式两端积分，代入整理，得到伯努利方程：  
+对上式两端积分，代入整理得到 **伯努利方程** ：  
 $$z + \frac{p}{\rho g} + \frac{v^2}{2g} = \textbf{const}$$
 
 分析方程推导采用的假设，对于条件 $\left 
@@ -737,6 +737,48 @@ $$\mathrm{d}(U - \frac{p}{\rho} - \frac{u^2}{2} - \frac{\partial \varphi}{\parti
 积分，得到  
 $$U - \frac{p}{\rho} - \frac{u^2}{2} - \frac{\partial \varphi}{\partial t} = C(t)$$
 
+方程说明，在理想流体的势流场内，在某一指定时刻 t，任何位置处的 $(U - \frac{p}{\rho} - \frac{u^2}{2} - \frac{\partial \varphi}{\partial t})$ 均相同，  
+均等于某一常数 C，但在不同时刻有不同常数，所以积分常数 C 是时间的函数。
+
+当质量力仅重力，$U = -gz + C_o$，得到 **理想流体非恒定无涡流的能量方程**， 又称 **拉格朗日方程**：  
+$$z + \frac{p}{\rho g} + \frac{u^2}{2g} + \frac{1}{g}\frac{\partial \varphi}{\partial t} = C_{}{'}(t)$$
+
+非恒定涡流时，只有当流场中各点的流速方向始终不变时，才能积分。此时，  
+流线与迹线重合。此时，  
+以 dx, dy, dz 表示同一流线上坐标的微分增量。  
+
+以流线坐标的微分增量 dx, dy, dz 分别乘以葛罗米柯方程组，然后相加得到：  
+$$\begin{gather*}
+\frac{\partial}{\partial x}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}x + \frac{\partial}{\partial y}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}y + \frac{\partial}{\partial z}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}z \\
+  \\
+= \frac{\partial u_x}{\partial t}\mathrm{d}x + \frac{\partial u_y}{\partial t}\mathrm{d}y + \frac{\partial u_z}{\partial t}\mathrm{d}z
+\end{gather*}$$
+
+因为 $(U - \frac{p}{\rho} - \frac{u^2}{2})$ 是空间时间的函数，若用于同一流线，则空间位置可以用沿流线长度表示：  
+$$(U - \frac{p}{\rho} - \frac{u^2}{2}) = f_1(x, y, z, t) = f_2(s, t)$$
+
+所以，则有  
+$$\begin{align*}
+\mathrm{d}(U - \frac{p}{\rho} - \frac{u^2}{2}) = \frac{\partial}{\partial s}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}s + \frac{\partial}{\partial t}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}t \\
+= \frac{\partial}{\partial x}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}x + \frac{\partial}{\partial y}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}y + \frac{\partial}{\partial z}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}z + \frac{\partial}{\partial t}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}t
+\end{align*}$$
+
+由此，可得  
+$$ \frac{\partial}{\partial x}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}x + \frac{\partial}{\partial y}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}y + \frac{\partial}{\partial z}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}z = \frac{\partial}{\partial s}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}s$$
+
+代入，得到  
+$$\frac{\partial}{\partial s}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}s = \frac{\partial u_x}{\partial t}\mathrm{d}x + \frac{\partial u_y}{\partial t}\mathrm{d}y + \frac{\partial u_z}{\partial t}\mathrm{d}z$$
+
+根据流线方程，可得 $\mathrm{d}x = u_x\frac{\mathrm{d}s}{u}，\mathrm{d}y = u_y\frac{\mathrm{d}s}{u}，\mathrm{d}z = u_z\frac{\mathrm{d}s}{u}$，代入：  
+$$\frac{\partial}{\partial s}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}s = \frac{1}{u}(u_x\frac{\partial u_x}{\partial t} + u_y\frac{\partial u_y}{\partial t} + u_z\frac{\partial u_z}{\partial t})\mathrm{d}s$$
+
+因为 $u^2 = u_x^2 + u_y^2 + u_z^2$，所以 $u\frac{\partial u}{\partial t} = (u_x\frac{\partial u_x}{\partial t} + u_y\frac{\partial u_y}{\partial t} + u_z\frac{\partial u_z}{\partial t})$  
+$$\frac{\partial}{\partial s}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}s = \frac{\partial u}{\partial t}\mathrm{d}s$$
+
+当质量力仅为重力时，积分可得 **理想流体涡流的能量方程**：  
+$$z + \frac{p}{\rho g} + \frac{u^2}{2g} + \frac{1}{g}\int \frac{\partial u}{\partial t}\mathrm{d}s = C $$
+
+方程适用于流线与迹线重合的理想流体非恒定流，而且只能用于同一根流线上。
 
 </div>
 
