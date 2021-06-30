@@ -13,7 +13,7 @@
 **流场理论**，将流体运动看作是充满一定空间而由无数流体质点组成的连续介质运动。其中，  
 运动流体所占据的空间，叫做 **流场**。  
 
-不同时刻，流场中每个流体质点都有各自的空间位置、流速、加速度、压强等，研究流体运动  
+不同时刻，流场中不同位置的流体质点有各自的流速、加速度、压强、密度，研究流体运动  
 规律就是求解流场中这些运动要素的变化情况。  
 
 分析方法是在流场中任意取出一个 **微分平行六面体** 来研究，应用机械运动的一般原理，  
@@ -35,7 +35,7 @@
 
 ### Velocity、Acceleration、Density & Pressure
 
-*流速、加速度、密度 和 压力*
+*流速、加速度、密度 和 压强*
 
 <div align="center">
 
@@ -76,11 +76,13 @@ $$\begin{cases}
 \frac{\partial u_x}{\partial z}\mathrm{d}z = 0 \\
 \end{cases}$$
 
-更一般的情况下，流体质点的 **加速度 $a$** 在个方向的投影：  
+更一般的情况下，流体质点的 **加速度 $a$** 在个方向的投影 ：  
 
 $$\begin{cases}
 a_x = \frac{\mathrm{d}u_x}{\mathrm{d}t} = \frac{\partial u_x}{\partial t} + \frac{\partial u_x}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t} + \frac{\partial u_x}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t} + \frac{\partial u_x}{\partial z}\frac{\mathrm{d}z}{\mathrm{d}t}\\
+  \\
 a_y = \frac{\mathrm{d}u_y}{\mathrm{d}t} = \frac{\partial u_y}{\partial t} + \frac{\partial u_y}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t} + \frac{\partial u_y}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t} + \frac{\partial u_y}{\partial z}\frac{\mathrm{d}z}{\mathrm{d}t}\\
+  \\
 a_z = \frac{\mathrm{d}u_z}{\mathrm{d}t} = \frac{\partial u_z}{\partial t} + \frac{\partial u_z}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t} + \frac{\partial u_z}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t} + \frac{\partial u_z}{\partial z}\frac{\mathrm{d}z}{\mathrm{d}t}\\
 \end{cases}$$
 
@@ -88,7 +90,9 @@ a_z = \frac{\mathrm{d}u_z}{\mathrm{d}t} = \frac{\partial u_z}{\partial t} + \fra
 
 $$\begin{cases}
 a_x = \frac{\mathrm{d}u_x}{\mathrm{d}t} = \frac{\partial u_x}{\partial t} + u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} + u_z\frac{\partial u_x}{\partial z}\\
+  \\
 a_y = \frac{\mathrm{d}u_y}{\mathrm{d}t} = \frac{\partial u_y}{\partial t} + u_x\frac{\partial u_y}{\partial x} + u_y\frac{\partial u_y}{\partial y} + u_z\frac{\partial u_y}{\partial z}\\
+  \\
 a_z = \frac{\mathrm{d}u_z}{\mathrm{d}t} = \frac{\partial u_z}{\partial t} + u_x\frac{\partial u_z}{\partial x} + u_y\frac{\partial u_z}{\partial y} + u_z\frac{\partial u_z}{\partial z}\\
 \end{cases}$$
 
@@ -211,8 +215,11 @@ $$ \frac{\mathrm{d}x}{u_x} = \frac{\mathrm{d}y}{u_y} = \frac{\mathrm{d}z}{u_z} =
 这里，选取 x-z 平面上 PQRS 作分析对象：  
 $$\begin{cases}
 点P, (u_x, u_y, u_z) \\
+  \\
 点Q, (u_x + \frac{\partial u_x}{\partial x}\mathrm{d}x, u_y + \frac{\partial u_y}{\partial x}\mathrm{d}x, u_z + \frac{\partial u_z}{\partial x}\mathrm{d}x) \\
+  \\
 点S, (u_x + \frac{\partial u_x}{\partial z}\mathrm{d}z, u_y + \frac{\partial u_y}{\partial z}\mathrm{d}z, u_z + \frac{\partial u_z}{\partial z}\mathrm{d}z) \\
+  \\
 点R, (u_x + \frac{\partial u_x}{\partial x}\mathrm{d}x + \frac{\partial u_x}{\partial z}\mathrm{d}z, u_y + \frac{\partial u_y}{\partial x}\mathrm{d}x + \frac{\partial u_y}{\partial z}\mathrm{d}z, u_z + \frac{\partial u_z}{\partial x}\mathrm{d}x + \frac{\partial u_z}{\partial z}\mathrm{d}z) \\
 \end{cases}$$
 
@@ -221,24 +228,28 @@ $$\begin{cases}
 在此过程中，面 PQRS 位置发生移动，但是其形状大小均未发生变化。  
 由此推论，ux, uy, uz 是整个微分平行六面体在 x, y, z 方向的**位移速度**。  
 
-**线变形**，分析面 PQRS 各角点速度，点R 对 S、点Q 对 P在 x 方向均有相同的速度差值 $ \frac{\partial u_x}{x}\mathrm{d}x $，  
-所以，经过时间 dt 之后，边线 SR、PQ 在 x 方向的变形均为 $ \frac{\partial u_x}{x}\mathrm{d}x\mathrm{d}t $；同理，边 PS、QR 在 z 方向  
-的变形均为 $ \frac{\partial u_z}{z}\mathrm{d}z\mathrm{d}t $。因此，面 PQRS经过时间 dt、经过平移和边线变形之后，变成矩形 P'Q2R2S2.  
+**线变形**，分析面 PQRS 各角点速度，点R 对 S、点Q 对 P在 x 方向均有相同的速度差值 $ \frac{\partial u_x}{\partial x}\mathrm{d}x $，  
+所以，经过时间 dt 之后，边线 SR、PQ 在 x 方向的变形均为 $ \frac{\partial u_x}{\partial x}\mathrm{d}x\mathrm{d}t $；同理，边 PS、QR 在 z 方向  
+的变形均为 $ \frac{\partial u_z}{\partial z}\mathrm{d}z\mathrm{d}t $。因此，面 PQRS经过时间 dt、经过平移和边线变形之后，变成矩形 P'Q2R2S2.  
 在各坐标轴方向每秒边线单位长度的变形称为 **线变形速率**，又称 **线应变**。  
 根据定义，微分平行六面体在各坐标轴方向的线变形速率 ( 线应变) 即为：  
 $$\begin{cases}
-x 方向,  \frac{\frac{\partial u_x}{x}\mathrm{d}x\mathrm{d}t}{\mathrm{d}x\mathrm{d}t} = \frac{\partial u_x}{x} \\
-y 方向,  \frac{\frac{\partial u_y}{y}\mathrm{d}y\mathrm{d}t}{\mathrm{d}y\mathrm{d}t} = \frac{\partial u_y}{y} \\
-z 方向,  \frac{\frac{\partial u_z}{z}\mathrm{d}z\mathrm{d}t}{\mathrm{d}z\mathrm{d}t} = \frac{\partial u_z}{z} \\
+x 方向,  \frac{\frac{\partial u_x}{\partial x}\mathrm{d}x\mathrm{d}t}{\mathrm{d}x\mathrm{d}t} = \frac{\partial u_x}{\partial x} \\
+  \\
+y 方向,  \frac{\frac{\partial u_y}{\partial y}\mathrm{d}y\mathrm{d}t}{\mathrm{d}y\mathrm{d}t} = \frac{\partial u_y}{\partial y} \\
+  \\
+z 方向,  \frac{\frac{\partial u_z}{\partial z}\mathrm{d}z\mathrm{d}t}{\mathrm{d}z\mathrm{d}t} = \frac{\partial u_z}{\partial z} \\
 \end{cases}$$
 
-现在，分析矩形平面各角点与边线垂直方向上的分速度差异对运动的影响。  
+现在，分析矩形平面各角点与边线垂直方向上的分速度差异对运动的影响:    
+
 边线PQ、沿z 方向上，角点Q 的分速度与P 相差 $ \frac{\partial u_z}{\partial x}\mathrm{d}x $，经时间dt 后角点Q 将比P 多移动 $ \frac{\partial u_z}{\partial x}\mathrm{d}x\mathrm{d}t $；  
 边线PS、沿x 方向上，角点S 的分速度与P 相差 $ \frac{\partial u_x}{\partial z}\mathrm{d}z $ ，经时间dt 后角点S 将比P 多移动 $ \frac{\partial u_x}{\partial z}\mathrm{d}z\mathrm{d}t $ ；  
 前者使边线PQ 逆时针偏转角度 $ \mathrm{d}\beta $，后者使边线PS 顺时针偏转角度 $ \mathrm{d}\alpha $；  
 最后，经过平移、线变形、边线偏转，微分矩形平面PQRS 转变为平行四边形 P'Q'R'S'，由图分析知：  
 $$\begin{cases}
 \mathrm{d}\alpha \approx \tan(\alpha) = \frac{\frac{\partial u_x}{\partial z}\mathrm{d}z\mathrm{d}t}{\mathrm{d}z + \frac{\partial u_z}{\partial z}\mathrm{d}z\mathrm{d}t}, \Rightarrow \mathrm{d}\alpha = \frac{\partial u_x}{\partial z}\mathrm{d}t \\
+  \\
 \mathrm{d}\beta \approx \tan(\beta) = \frac{\frac{\partial u_z}{\partial x}\mathrm{d}x\mathrm{d}t}{\mathrm{d}x + \frac{\partial u_x}{\partial x}\mathrm{d}x\mathrm{d}t}, \Rightarrow \mathrm{d}\beta = \frac{\partial u_z}{\partial x}\mathrm{d}t \\
 \end{cases}$$
 
@@ -255,20 +266,23 @@ $$ y 方向，\theta_y = \frac{\mathrm{d}\alpha - \gamma}{\mathrm{d}t} = \frac{1
 由此推论，微分六面体的角变形速率：  
 $$\begin{cases}
 \theta_x = \frac{1}{2}(\frac{\partial u_y}{\partial z} + \frac{\partial u_z}{\partial y}) \\
+  \\
 \theta_y = \frac{1}{2}(\frac{\partial u_x}{\partial z} + \frac{\partial u_z}{\partial x}) \\
+  \\
 \theta_z = \frac{1}{2}(\frac{\partial u_x}{\partial y} + \frac{\partial u_y}{\partial x}) \\
 \end{cases}$$
 
 **旋转**，平行四边形P'Q3R3S3 绕通过P' 点的 y方向的轴顺时针旋转角度 $ \gamma $ 变成P'Q'R'S'。  
 ( 旋转是由于边线偏转角度 $ \mathrm{d}\alpha, \mathrm{d}\beta $ 不等所产生的。P'Q3R3S3 的等分角线P'M 将旋转 $ \gamma $ 到达P'M'。)  
-
-绕各坐标轴方向每秒平面的纯旋转角称为 **旋转角速度**。  
+绕各坐标轴方向每秒平面的纯旋转角，称为 **旋转角速度**。  
 $$ y 方向，\omega_y = \frac{\gamma}{\mathrm{d}t} = \frac{1}{2}(\frac{\mathrm{d}\alpha - \mathrm{d}\beta}{2}) = \frac{1}{2}(\frac{\partial u_x}{\partial z} - \frac{\partial u_z}{\partial x}) $$
 
-由此推论，微分六面体的旋转角速度：  
+由此推论，微分六面体各方向的旋转角速度：  
 $$\begin{cases}
 \omega_x = \frac{1}{2}(\frac{\partial u_z}{\partial y} - \frac{\partial u_y}{\partial z}) \\
+  \\
 \omega_y = \frac{1}{2}(\frac{\partial u_x}{\partial z} - \frac{\partial u_z}{\partial x}) \\
+  \\
 \omega_z = \frac{1}{2}(\frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y}) \\
 \end{cases}$$
 
@@ -298,7 +312,9 @@ $$\begin{cases}
 对于无涡流，  
 $$\begin{cases}
 \omega_x = \frac{1}{2}(\frac{\partial u_z}{\partial y} - \frac{\partial u_y}{\partial z}) = 0, \Rightarrow \frac{\partial u_z}{\partial y} = \frac{\partial u_y}{\partial z} \\
+  \\
 \omega_y = \frac{1}{2}(\frac{\partial u_x}{\partial z} - \frac{\partial u_z}{\partial x}) = 0, \Rightarrow \frac{\partial u_x}{\partial z} = \frac{\partial u_z}{\partial x} \\
+  \\
 \omega_z = \frac{1}{2}(\frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y}) = 0, \Rightarrow \frac{\partial u_y}{\partial x} = \frac{\partial u_x}{\partial y} \\
 \end{cases}$$
 
@@ -308,16 +324,18 @@ $$\begin{cases}
 同理，流速场上可能存在流速势函数，势函数对 x,y,z 的偏导就是流速势在不同方向的变化速度，即流速。  
 
 若存在流场势函数$\varphi$，则有  
-$$\begin{cases}
-u_x = \frac{\partial \varphi}{\partial x} \\
-u_y = \frac{\partial \varphi}{\partial y} \\
-u_z = \frac{\partial \varphi}{\partial z} \\
-\end{cases}$$
+$$
+u_x = \frac{\partial \varphi}{\partial x} , \,\,\,
+u_y = \frac{\partial \varphi}{\partial y} , \,\,\,
+u_z = \frac{\partial \varphi}{\partial z} 
+$$
 
 在 x,y,z 方向继续求导，有  
 $$\begin{cases}
 \frac{\partial^2 \varphi}{\partial x \partial y} = \frac{\partial u_x}{\partial y} = \frac{\partial u_y}{\partial x}  \\
+  \\
 \frac{\partial^2 \varphi}{\partial x \partial z} = \frac{\partial u_x}{\partial z} = \frac{\partial u_z}{\partial x}  \\
+  \\
 \frac{\partial^2 \varphi}{\partial z \partial y} = \frac{\partial u_z}{\partial y} = \frac{\partial u_y}{\partial z}  \\
 \end{cases}$$
 
@@ -419,7 +437,7 @@ $$\begin{gather*}
 $$\frac{\partial \rho}{\partial t} + [\frac{\partial \rho u_x}{\partial x} + \frac{\partial \rho u_y}{\partial y} + \frac{\partial \rho u_z}{\partial z}] = 0$$
 
 对不可压缩流体，ρ 为常数、与空间时间无关，连续性方程简化：  
-$$\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} = 0 \,\, \mathrm{Or} \,\, \mathrm{div}\, \textbf{u} = 0$$
+$$\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} = 0 \,\, \mathrm{Or} \,\, \nabla \cdot \textbf{u} = 0$$
 
 由于 $\frac{\partial u_x}{\partial x}, \frac{\partial u_y}{\partial y},\frac{\partial u_z}{\partial z}$ 表示微分六面体沿 x，y，z 方向的线变形速率，故微分平行六面体的体积变化：  
 $$(\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} )\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t$$
@@ -457,7 +475,118 @@ Q_i = Q_o
 
 ---------------------------------------------------------------------------
 
+### The Motion Equation of Ideal Fluid
 
+*理想流体的运动方程*
+
+<div align="center">
+
+假设流体是不可压缩、无粘性的，则称为 **理想流体**。基于这种假设，理想流体的动水压强具有以下特性：
+1. 动水压强总是沿着作用面的内法线方向。因为 “无粘假设”，故流体内无切应力，故作用面上仅压应力。
+2. 在理想流体中，任何点的动水压强在各个方向上的大小均相等（与静水压强相同）。
+
+<img src="./imgs/12.jpg" width=440 height=240>
+
+在理想流体流场中任意一点A(x, y, z) 处动水压强为 p，速度 ux, uy, uz。以A 为中心取一微分平行六面体，  
+其边长为 dx, dy, dz，分别平行于 x, y, z 轴。同时，  
+作用于六面体的只有表面力（动水压力）和质量力，假设单位质量的质量力在各轴方向的投影为 fx, fy, fz。  
+
+作用在六面体 x 轴方向的表面上的平均动水压强，  
+$$\textbf{左边},\,\,\, p - \frac{\partial p}{\partial x} \frac{\mathrm{d}x}{2}  \,\,\,\,\,\, ; \,\,\,\,\,\, \textbf{右边},\,\,\, p + \frac{\partial p}{\partial x} \frac{\mathrm{d}x}{2}$$
+
+根据力学原理，则有  
+$$\begin{gather*}
+f_x\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z + (p - \frac{\partial p}{\partial x})\mathrm{d}y\mathrm{d}z - (p + \frac{\partial p}{\partial x})\mathrm{d}y\mathrm{d}z = \rho\mathrm{d}x\mathrm{d}y\mathrm{d}z\frac{\mathrm{d}u_x}{\mathrm{d}t} \\
+f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} = \frac{\mathrm{d}u_x}{\mathrm{d}t} \\
+\end{gather*}$$
+
+由此推论，六面体在各方向均有类似关系，得到 **理想流体的运动方程**，又称 **欧拉方程**：  
+$$\begin{cases}
+f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} = \frac{\mathrm{d}u_x}{\mathrm{d}t} \\
+  \\
+f_y - \frac{1}{\rho}\frac{\partial p}{\partial y} = \frac{\mathrm{d}u_y}{\mathrm{d}t} \\
+  \\
+f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} = \frac{\mathrm{d}u_z}{\mathrm{d}t} \\
+\end{cases}$$
+
+方程适用不可压缩流体或可压缩气体。对于前者，密度 ρ 是常数；对于后者，ρ 为变量。
+
+对于静止流体，ux = uy = uz，由此得到 **静水力学欧拉平衡方程**：
+$$\begin{cases}
+f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} = 0 \\
+f_y - \frac{1}{\rho}\frac{\partial p}{\partial y} = 0 \\
+f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} = 0 \\
+\end{cases}$$
+
+因在流场中，加速度为时变加速度和位变加速之和，即   
+$$a_i = \frac{\mathrm{d}u_i}{\mathrm{d}t} = \frac{\partial u_i}{\partial t} + \frac{\partial u_i}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t} + \frac{\partial u_i}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t} + \frac{\partial u_i}{\partial z}\frac{\mathrm{d}z}{\mathrm{d}t} $$
+
+所以，理想流体的运动方程（欧拉方程）的展开形式为  
+$$\begin{cases}
+f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} = \frac{\partial u_x}{\partial t} + u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} + u_z\frac{\partial u_x}{\partial z} \\
+  \\
+f_y - \frac{1}{\rho}\frac{\partial p}{\partial y} = \frac{\partial u_y}{\partial t} + u_x\frac{\partial u_y}{\partial x} + u_y\frac{\partial u_y}{\partial y} + u_z\frac{\partial u_y}{\partial z} \\
+  \\
+f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} = \frac{\partial u_z}{\partial t} + u_x\frac{\partial u_z}{\partial x} + u_y\frac{\partial u_z}{\partial y} + u_z\frac{\partial u_z}{\partial z} \\
+\end{cases}$$
+
+对于不可压缩理想流体，ρ 已知，单位质量力 fx, fy, fz 已知，未知数仅为 p, ux, uy, uz。如果联解  
+欧拉方程和连续性方程，理论上，理想流体中任意点、任意时刻的流速和动水压强是可以求出的。  
+
+**葛罗米柯方程**，将旋转角速度引入欧拉方程得到的方程变形。  
+$$
+\because u = \sqrt{{u_x}^2 + {u_y}^2 + {u_z}^2} \\
+\therefore \frac{\partial}{\partial x}(\frac{u^2}{2}) = \frac{\partial}{\partial x}(\frac{{u_x}^2 + {u_y}^2 + {u_z}^2}{2}) = u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_y}{\partial x} + u_z\frac{\partial u_z}{\partial x} \\
+\Rightarrow u_x\frac{\partial u_x}{\partial x} = \frac{\partial}{\partial x}(\frac{u^2}{2}) - u_y\frac{\partial u_y}{\partial x} - u_z\frac{\partial u_z}{\partial x}
+$$
+
+将以上变形代入欧拉方程，得到  
+$$\begin{align*}
+f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} - \frac{\partial u_x}{\partial t} &= \frac{\partial}{\partial x}(\frac{u^2}{2}) - u_y\frac{\partial u_y}{\partial x} - u_z\frac{\partial u_z}{\partial x} + u_y\frac{\partial u_x}{\partial y} + u_z\frac{\partial u_x}{\partial z} \\
+&= \frac{\partial}{\partial x}(\frac{u^2}{2}) - u_y(\frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y}) + u_z(\frac{\partial u_x}{\partial z} - \frac{\partial u_z}{\partial x}) \\
+&= \frac{\partial}{\partial x}(\frac{u^2}{2}) - u_y\cdot2\omega_z + u_z\cdot2\omega_y
+\end{align*}$$
+
+整理后得到，葛罗米柯方程组
+$$\begin{cases}
+f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} - \frac{\partial u_x}{\partial t} - \frac{\partial}{\partial x}(\frac{u^2}{2}) = 2(u_z\omega_y - u_y\omega_z) \\
+  \\
+f_y - \frac{1}{\rho}\frac{\partial p}{\partial y} - \frac{\partial u_y}{\partial t} - \frac{\partial}{\partial y}(\frac{u^2}{2}) = 2(u_x\omega_z - u_z\omega_x) \\
+  \\
+f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} - \frac{\partial u_z}{\partial t} - \frac{\partial}{\partial z}(\frac{u^2}{2}) = 2(u_y\omega_x - u_x\omega_y) \\
+\end{cases}$$
+
+如果作用于流体上的质量力 fx, fy, fz 是有势的，则必然存在 **力函数 U(x, y, z, t)**，并且有：  
+$$f_x = \frac{\partial U}{\partial x}, \,\,\, f_y = \frac{\partial U}{\partial y}, \,\,\, f_z = \frac{\partial U}{\partial z}$$
+
+对于理想流体，因流体不可压缩，ρ 为常数，得到质量力有势的情况下的葛罗米柯方程组  
+$$\begin{cases}
+\frac{\partial}{\partial x}(U - \frac{p}{\rho} - \frac{u^2}{2}) - \frac{\partial u_x}{\partial t} = 2(u_z\omega_y - u_y\omega_z) \\
+  \\
+\frac{\partial}{\partial y}(U - \frac{p}{\rho} - \frac{u^2}{2}) - \frac{\partial u_y}{\partial t} = 2(u_x\omega_z - u_z\omega_x) \\
+  \\
+\frac{\partial}{\partial z}(U - \frac{p}{\rho} - \frac{u^2}{2}) - \frac{\partial u_z}{\partial t} = 2(u_y\omega_x - u_x\omega_y) \\
+\end{cases}$$
+
+方程适用理想流体恒定流和非恒定流、有涡流和无涡流；对无涡流，$\omega_x = \omega_y = \omega_z = 0$。
+
+</div>
+
+*--- 注意：---*
+
+---------------------------------------------------------------------------
+
+### The Energy Equation of Ideal Fluid
+
+*理想流体的能量方程*
+
+<div align="center">
+
+</div>
+
+*--- 注意：---*
+
+---------------------------------------------------------------------------
 
 
 
