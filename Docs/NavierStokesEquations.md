@@ -534,11 +534,13 @@ f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} = \frac{\partial u_z}{\partial
 欧拉方程和连续性方程，理论上，理想流体中任意点、任意时刻的流速和动水压强是可以求出的。  
 
 **葛罗米柯方程**，将旋转角速度引入欧拉方程得到的方程变形。  
-$$
+$$\begin{gather*}
 \because u = \sqrt{{u_x}^2 + {u_y}^2 + {u_z}^2} \\
+  \\
 \therefore \frac{\partial}{\partial x}(\frac{u^2}{2}) = \frac{\partial}{\partial x}(\frac{{u_x}^2 + {u_y}^2 + {u_z}^2}{2}) = u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_y}{\partial x} + u_z\frac{\partial u_z}{\partial x} \\
+  \\
 \Rightarrow u_x\frac{\partial u_x}{\partial x} = \frac{\partial}{\partial x}(\frac{u^2}{2}) - u_y\frac{\partial u_y}{\partial x} - u_z\frac{\partial u_z}{\partial x}
-$$
+\end{gather*}$$
 
 将以上变形代入欧拉方程，得到  
 $$\begin{align*}
@@ -572,8 +574,6 @@ $$\begin{cases}
 
 </div>
 
-*--- 注意：---*
-
 ---------------------------------------------------------------------------
 
 ### The Energy Equation of Ideal Fluid
@@ -582,9 +582,168 @@ $$\begin{cases}
 
 <div align="center">
 
+**热力学第一定律**，对于静止的热力学系统储能的增加等于外力对系统所做的功与外界传递给系统的热量之和。  
+
++ 外力做功：表面力做功 + 质量力做功；
++ 外界传热：外部传导热 + 外部辐射热；
+
+一个流体微团可以看作一个热力学系统，同时流体质点总在流动中，  
+假设系统偏离平衡态不远，则系统总能量变化率（内能和动能）等于外力的做功功率和外界的传热功率之和。  
+
+对于流体微团，系统单位能量$e_s$ 包括  
++ 系统内能 $e$，由于流体分子热运动而具有的能量；
++ 系统动能 $\frac{v^2}{2}$；
++ 系统势能 $gz$；
+
+将热力学第一定律应用于流体流动，把以上热力学关系以数学表达成微分方程，称为 **流体运动的能量方程**。  
+理想流体由于无粘性、不可压缩，所以没有内能损耗，其能量方程反应的是外部做功与流体机械能的关系。  
+
+<img src="./imgs/12.jpg" width=440 height=240>
+
+在理想流体流场中任意一点A(x, y, z) 处动水压强为 p，速度 ux, uy, uz。以A 为中心取一微分平行六面体，  
+其边长为 dx, dy, dz，分别平行于 x, y, z 轴。同时，  
+作用于六面体的只有表面力（动水压力）和质量力，假设单位质量的质量力在各轴方向的投影为 fx, fy, fz。  
+
+在 x 方向，平移速度为 ux，外力做功 Wx：  
+$$\begin{align*}
+W_x &= (f_x\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z + (p - \frac{\partial p}{\partial x})\mathrm{d}y\mathrm{d}z - (p + \frac{\partial p}{\partial x})\mathrm{d}y\mathrm{d}z)\cdot u_x\mathrm{d}t \\
+&= (f_x - \frac{\partial p}{\partial x})\mathrm{d}x\mathrm{d}y\mathrm{d}z\cdot u_x\mathrm{d}t \\
+\end{align*}$$
+
+由此推论，六面体各方向上所受外力做的功：  
+$$\begin{cases}
+W_x = (f_x - \frac{\partial p}{\partial x})\mathrm{d}x\mathrm{d}y\mathrm{d}z\cdot u_x\mathrm{d}t \\
+  \\
+W_y = (f_y - \frac{\partial p}{\partial y})\mathrm{d}x\mathrm{d}y\mathrm{d}z\cdot u_y\mathrm{d}t \\
+  \\
+W_z = (f_z - \frac{\partial p}{\partial z})\mathrm{d}x\mathrm{d}y\mathrm{d}z\cdot u_z\mathrm{d}t \\
+\end{cases}$$
+
+理想流体中不考虑热量（内能），则根据热力学第一定律：  
+$$\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z\cdot\frac{\mathrm{d} e_s}{\mathrm{d} t} = \frac{\mathrm{d}(W_x + W_y + W_z)}{\mathrm{d}t}$$
+
+理想流体中，动水压强 p 仅在 z 方向变化，故 $\frac{\partial p}{\partial x} = \frac{\partial p}{\partial y} = 0 $；同时，$e_s$中已包含重力项，故 fz=0；  
+$$\rho\frac{\mathrm{d} e_s}{\mathrm{d} t} = - \frac{\partial p}{\partial z}u_z = - \frac{\mathrm{d} p}{\mathrm{d} z}u_z  \,\, \Rightarrow \,\,  \rho\mathrm{d}(\frac{v^2}{2} + gz) = - \frac{\mathrm{d} p}{\mathrm{d} z}u_z\mathrm{d} t = \mathrm{d} p
+$$
+
+两边积分，得到 **理想流体恒定流的绝对运动的能量方程**，又称 **伯努利方程**：  
+$$z + \frac{p}{\rho g} + \frac{v^2}{2g} = \textbf{const}$$
+
+方程适用流体的固体边界对地球没有相对运动、质量力只有重力的理想流体。
+
+
+如果从葛罗米柯方程出发，采用新思路，推导 **恒定流** 理想流体的能量方程：
+
+恒定流时，$\frac{\partial u_x}{\partial t} = \frac{\partial u_y}{\partial t} = \frac{\partial u_z}{\partial t} = 0$，方程组简化为  
+$$\begin{cases}
+\frac{\partial}{\partial x}(U - \frac{p}{\rho} - \frac{u^2}{2}) = 2(u_z\omega_y - u_y\omega_z) \\
+  \\
+\frac{\partial}{\partial y}(U - \frac{p}{\rho} - \frac{u^2}{2})  = 2(u_x\omega_z - u_z\omega_x) \\
+  \\
+\frac{\partial}{\partial z}(U - \frac{p}{\rho} - \frac{u^2}{2})  = 2(u_y\omega_x - u_x\omega_y) \\
+\end{cases}$$
+
+以坐标微小增量 dx, dy, dz分别乘以上式，相加得到  
+$$\begin{gather*}
+\frac{\partial}{\partial x}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d} x + \frac{\partial}{\partial y}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d} y + \frac{\partial}{\partial z}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d} z \\
+  \\
+= 2 [(u_z\omega_y - u_y\omega_z)\mathrm{d} x + (u_x\omega_z - u_z\omega_x)\mathrm{d} y + (u_y\omega_x - u_x\omega_y)\mathrm{d} z]
+\end{gather*}$$
+
+因为恒定流时，各运动要素与时间无关，故左边实际为对空间坐标的全微分：
+$$
+\mathrm{d}(U - \frac{p}{\rho} - \frac{u^2}{2}) = 2\left 
+|\begin{array}{}
+\mathrm{d}x &\mathrm{d}y  &\mathrm{d}z  \\
+\omega_x &\omega_y &\omega_z  \\
+u_x &u_y &u_z \\
+\end{array}
+\right|
+$$
+
+如果右端矩阵为0，则方程一定可以积分，此时：  
+$$ U - \frac{p}{\rho} - \frac{u^2}{2} = \textbf{const} $$
+
+若质量力只有重力：  
+$$\mathrm{d}U = f_x\mathrm{d}x + f_y\mathrm{d}y + f_z\mathrm{d}z = -g\mathrm{d}z$$
+
+对上式两端积分，代入整理，得到伯努利方程：  
+$$z + \frac{p}{\rho g} + \frac{v^2}{2g} = \textbf{const}$$
+
+分析方程推导采用的假设，对于条件 $\left 
+|\begin{array}{}
+\mathrm{d}x &\mathrm{d}y  &\mathrm{d}z  \\
+\omega_x &\omega_y &\omega_z  \\
+u_x &u_y &u_z \\
+\end{array}
+\right| = 0$ 成立的场景：  
+1. $\omega_x = \omega_y = \omega_z = 0$，即无涡流流体（有势流）适用；
+2. $u_x = u_y = u_z = 0$，即静止态流体适用；
+3. $\frac{\mathrm{d}x}{u_x} = \frac{\mathrm{d}y}{u_y} = \frac{\mathrm{d}z}{u_z}$，即流线方程，即方程适用理想流体恒定流速场的同一根流线各点；
+4. $\frac{\mathrm{d}x}{\omega_x} = \frac{\mathrm{d}y}{\omega_y} = \frac{\mathrm{d}z}{\omega_z}$，即涡线方程，即方程适用理想流体恒定涡流的同一根涡线上各点；
+5. $\frac{u_x}{\omega_x} = \frac{u_y}{\omega_y} = \frac{u_z}{\omega_z}$，即恒定流中以流线和涡线相重合为特征的螺旋流，即方程适用于螺旋流。
+
+<img src="./imgs/13.jpg" width=460 height=220>
+
+以上推导中，如果作用于流体的质量力除重力还有离心惯性力时，如上所示的离心水泵，以等角速度 $\omega$旋转。  
+假设在叶片中运动的流体严格地沿叶片的对称线方向运动，即  
+叶轮入口断面 1-1、出口断面 2-2 处 **相对速度** v1、v2 均与叶片对称线相切。  
+断面 1-1、断面 2-2处 **圆周速度**为 u1、u2，半径分别为 r1、r2；则有 $u_1 = \omega r_1，u_2 = \omega r_2$。
+
+此时，流体单位质量力情况：  
+$$\begin{cases}
+f_x = \omega^2 r \cos \alpha = \omega^2 x \\
+f_y = \omega^2 r \cos \alpha = \omega^2 y \\
+f_z = -g \\
+\end{cases}$$
+
+此时，则有  
+$$\mathrm{d}U = f_x\mathrm{d}x + f_y\mathrm{d}y + f_z\mathrm{d}z = \omega^2 x \mathrm{d}x + \omega^2 y \mathrm{d}y - g\mathrm{d}z$$
+
+积分，得到  
+$$U = \frac{\omega^2 (x^2 + y^2)}{2} - gz + C $$
+
+因伯努利方程适用于流速场中流线，恒定流下流线与迹线重合，故相对运动采用相对速度下：  
+$$\frac{p}{\rho} + \frac{v^2}{2} - U = \textbf{const}$$
+
+代入得到， **相对运动** 的伯努利方程：  
+$$\frac{p}{\rho} + \frac{v^2}{2} - \frac{\omega^2 r^2}{2} + gz = C$$
+
+如果从葛罗米柯方程出发，推导 **非恒定流** 理想流体的能量方程：  
+非恒定无涡流时，存在以下约束：  
+$$\begin{cases}
+\omega_x = \omega_y = \omega_z = 0 \\
+u_x = \frac{\partial \varphi}{\partial x}, u_y = \frac{\partial \varphi}{\partial y}, u_z = \frac{\partial \varphi}{\partial z}  \\
+\end{cases}$$
+
+于是，则有  
+$$\frac{\partial u_x}{\partial t} = \frac{\partial}{\partial t}(\frac{\partial \varphi}{\partial x}),\,\, \frac{\partial u_y}{\partial t} = \frac{\partial}{\partial t}(\frac{\partial \varphi}{\partial y}),\,\, \frac{\partial u_z}{\partial t} = \frac{\partial}{\partial t}(\frac{\partial \varphi}{\partial z}) $$
+
+进而，则有  
+$$\frac{\partial u_x}{\partial t} = \frac{\partial}{\partial x}(\frac{\partial \varphi}{\partial t}),\,\, \frac{\partial u_y}{\partial t} = \frac{\partial}{\partial y}(\frac{\partial \varphi}{\partial t}),\,\, \frac{\partial u_z}{\partial t} = \frac{\partial}{\partial z}(\frac{\partial \varphi}{\partial t})$$
+
+所以，则有  
+$$\begin{cases}
+\frac{\partial}{\partial x}(U - \frac{p}{\rho} - \frac{u^2}{2} -\frac{\partial \varphi}{\partial t}) = 0 \\
+  \\
+\frac{\partial}{\partial y}(U - \frac{p}{\rho} - \frac{u^2}{2} -\frac{\partial \varphi}{\partial t}) = 0 \\
+  \\
+\frac{\partial}{\partial z}(U - \frac{p}{\rho} - \frac{u^2}{2} -\frac{\partial \varphi}{\partial t}) = 0 \\
+\end{cases}$$
+
+以坐标的微小增量 dx, dy, dz分别乘以上式，相加得到   
+$$\mathrm{d}(U - \frac{p}{\rho} - \frac{u^2}{2} - \frac{\partial \varphi}{\partial t}) = 0$$
+
+积分，得到  
+$$U - \frac{p}{\rho} - \frac{u^2}{2} - \frac{\partial \varphi}{\partial t} = C(t)$$
+
+
 </div>
 
 *--- 注意：---*
+1. 螺旋流，指流体质点既沿着流线方向运动，同时在运动过程中绕流线旋转。
+
+2. 离心力 $f = m\frac{v^2}{r} = m{\omega^2}r$。
 
 ---------------------------------------------------------------------------
 
