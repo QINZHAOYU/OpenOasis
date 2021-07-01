@@ -533,7 +533,7 @@ f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} = \frac{\partial u_z}{\partial
 对于不可压缩理想流体，ρ 已知，单位质量力 fx, fy, fz 已知，未知数仅为 p, ux, uy, uz。如果联解  
 欧拉方程和连续性方程，理论上，理想流体中任意点、任意时刻的流速和动水压强是可以求出的。  
 
-**葛罗米柯方程**，将旋转角速度引入欧拉方程得到的方程变形。  
+欧拉方程引入旋转角速度，得到  
 $$\begin{gather*}
 \because u = \sqrt{{u_x}^2 + {u_y}^2 + {u_z}^2} \\
   \\
@@ -549,7 +549,7 @@ f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} - \frac{\partial u_x}{\partial
 &= \frac{\partial}{\partial x}(\frac{u^2}{2}) - u_y\cdot2\omega_z + u_z\cdot2\omega_y
 \end{align*}$$
 
-整理后得到，葛罗米柯方程组
+整理后可得到，**葛罗米柯方程组**
 $$\begin{cases}
 f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} - \frac{\partial u_x}{\partial t} - \frac{\partial}{\partial x}(\frac{u^2}{2}) = 2(u_z\omega_y - u_y\omega_z) \\
   \\
@@ -558,7 +558,7 @@ f_y - \frac{1}{\rho}\frac{\partial p}{\partial y} - \frac{\partial u_y}{\partial
 f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} - \frac{\partial u_z}{\partial t} - \frac{\partial}{\partial z}(\frac{u^2}{2}) = 2(u_y\omega_x - u_x\omega_y) \\
 \end{cases}$$
 
-如果作用于流体上的质量力 fx, fy, fz 是有势的，则必然存在 **力函数 U(x, y, z, t)**，并且有：  
+如果作用于流体上的质量力 fx, fy, fz 是有势的，则必然存在 **力函数 $U(x, y, z, t)$**，并且有：  
 $$f_x = \frac{\partial U}{\partial x}, \,\,\, f_y = \frac{\partial U}{\partial y}, \,\,\, f_z = \frac{\partial U}{\partial z}$$
 
 对于理想流体，因流体不可压缩，ρ 为常数，得到质量力有势的情况下的葛罗米柯方程组  
@@ -582,7 +582,7 @@ $$\begin{cases}
 
 <div align="center">
 
-**热力学第一定律**，对于静止的热力学系统储能的增加等于外力对系统所做的功与外界传递给系统的热量之和。  
+**热力学第一定律**，一个静止的热力学系统储能的增加等于外力对系统所做的功与外界传递给系统的热量之和。  
 
 + 外力做功：表面力做功 + 质量力做功；
 + 外界传热：外部传导热 + 外部辐射热；
@@ -623,7 +623,7 @@ W_z = (f_z - \frac{\partial p}{\partial z})\mathrm{d}x\mathrm{d}y\mathrm{d}z\cdo
 $$\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z\cdot\frac{\mathrm{d} e_s}{\mathrm{d} t} = \frac{\mathrm{d}(W_x + W_y + W_z)}{\mathrm{d}t}$$
 
 理想流体中，动水压强 p 仅在 z 方向变化，故 $\frac{\partial p}{\partial x} = \frac{\partial p}{\partial y} = 0 $；同时，$e_s$中已包含重力项，故 fz=0；  
-$$\rho\frac{\mathrm{d} e_s}{\mathrm{d} t} = - \frac{\partial p}{\partial z}u_z = - \frac{\mathrm{d} p}{\mathrm{d} z}u_z  \,\, \Rightarrow \,\,  \rho\mathrm{d}(\frac{v^2}{2} + gz) = - \frac{\mathrm{d} p}{\mathrm{d} z}u_z\mathrm{d} t = \mathrm{d} p
+$$\rho\frac{\mathrm{d} e_s}{\mathrm{d} t} = - \frac{\partial p}{\partial z}u_z = - \frac{\mathrm{d} p}{\mathrm{d} z}u_z  \,\, \Rightarrow \,\,  \rho\mathrm{d}(\frac{v^2}{2} + gz) = - \frac{\mathrm{d} p}{\mathrm{d} z}u_z\mathrm{d} t = -\mathrm{d} p
 $$
 
 两边积分，得到 **理想流体恒定流的绝对运动的能量方程**，又称 **伯努利方程**：  
@@ -667,7 +667,7 @@ $$ U - \frac{p}{\rho} - \frac{u^2}{2} = \textbf{const} $$
 若质量力只有重力：  
 $$\mathrm{d}U = f_x\mathrm{d}x + f_y\mathrm{d}y + f_z\mathrm{d}z = -g\mathrm{d}z$$
 
-对上式两端积分，代入整理得到 **伯努利方程** ：  
+对上式两端积分，代入整理后得到 **伯努利方程**：  
 $$z + \frac{p}{\rho g} + \frac{v^2}{2g} = \textbf{const}$$
 
 分析方程推导采用的假设，对于条件 $\left 
@@ -685,7 +685,7 @@ u_x &u_y &u_z \\
 
 <img src="./imgs/13.jpg" width=460 height=220>
 
-以上推导中，如果作用于流体的质量力除重力还有离心惯性力时，如上所示的离心水泵，以等角速度 $\omega$旋转。  
+以上推导中，如果作用于流体的质量力除重力还有 **离心惯性力**，如上所示的离心水泵，以等角速度 $\omega$旋转。  
 假设在叶片中运动的流体严格地沿叶片的对称线方向运动，即  
 叶轮入口断面 1-1、出口断面 2-2 处 **相对速度** v1、v2 均与叶片对称线相切。  
 断面 1-1、断面 2-2处 **圆周速度**为 u1、u2，半径分别为 r1、r2；则有 $u_1 = \omega r_1，u_2 = \omega r_2$。
@@ -731,7 +731,7 @@ $$\begin{cases}
 \frac{\partial}{\partial z}(U - \frac{p}{\rho} - \frac{u^2}{2} -\frac{\partial \varphi}{\partial t}) = 0 \\
 \end{cases}$$
 
-以坐标的微小增量 dx, dy, dz分别乘以上式，相加得到   
+以坐标的微分增量 dx, dy, dz分别乘以上式，相加得到   
 $$\mathrm{d}(U - \frac{p}{\rho} - \frac{u^2}{2} - \frac{\partial \varphi}{\partial t}) = 0$$
 
 积分，得到  
@@ -769,16 +769,16 @@ $$ \frac{\partial}{\partial x}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}x + 
 代入，得到  
 $$\frac{\partial}{\partial s}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}s = \frac{\partial u_x}{\partial t}\mathrm{d}x + \frac{\partial u_y}{\partial t}\mathrm{d}y + \frac{\partial u_z}{\partial t}\mathrm{d}z$$
 
-根据流线方程，可得 $\mathrm{d}x = u_x\frac{\mathrm{d}s}{u}，\mathrm{d}y = u_y\frac{\mathrm{d}s}{u}，\mathrm{d}z = u_z\frac{\mathrm{d}s}{u}$，代入：  
+根据流线方程，可得 $\mathrm{d}x = u_x\frac{\mathrm{d}s}{u}，\mathrm{d}y = u_y\frac{\mathrm{d}s}{u}，\mathrm{d}z = u_z\frac{\mathrm{d}s}{u}$，代入上式可以得到：  
 $$\frac{\partial}{\partial s}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}s = \frac{1}{u}(u_x\frac{\partial u_x}{\partial t} + u_y\frac{\partial u_y}{\partial t} + u_z\frac{\partial u_z}{\partial t})\mathrm{d}s$$
 
-因为 $u^2 = u_x^2 + u_y^2 + u_z^2$，所以 $u\frac{\partial u}{\partial t} = (u_x\frac{\partial u_x}{\partial t} + u_y\frac{\partial u_y}{\partial t} + u_z\frac{\partial u_z}{\partial t})$  
+同时因为又有 $u^2 = u_x^2 + u_y^2 + u_z^2$，所以存在 $u\frac{\partial u}{\partial t} = (u_x\frac{\partial u_x}{\partial t} + u_y\frac{\partial u_y}{\partial t} + u_z\frac{\partial u_z}{\partial t})$  
 $$\frac{\partial}{\partial s}(U - \frac{p}{\rho} - \frac{u^2}{2})\mathrm{d}s = \frac{\partial u}{\partial t}\mathrm{d}s$$
 
-当质量力仅为重力时，积分可得 **理想流体涡流的能量方程**：  
+当质量力仅为重力时，即 $U = -gz + C_o$，积分可得到 **理想流体涡流的能量方程**：  
 $$z + \frac{p}{\rho g} + \frac{u^2}{2g} + \frac{1}{g}\int \frac{\partial u}{\partial t}\mathrm{d}s = C $$
 
-方程适用于流线与迹线重合的理想流体非恒定流，而且只能用于同一根流线上。
+方程适用于流线与迹线相互重合的理想流体非恒定涡流，而且只能用于同一根流线上。
 
 </div>
 
@@ -786,6 +786,8 @@ $$z + \frac{p}{\rho g} + \frac{u^2}{2g} + \frac{1}{g}\int \frac{\partial u}{\par
 1. 螺旋流，指流体质点既沿着流线方向运动，同时在运动过程中绕流线旋转。
 
 2. 离心力 $f = m\frac{v^2}{r} = m{\omega^2}r$。
+
+3. 理想流体非恒定、涡方向不变、流线迹线重合的流动，比如刚性管道中的理想流体非恒定流。
 
 ---------------------------------------------------------------------------
 
