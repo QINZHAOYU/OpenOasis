@@ -832,8 +832,7 @@ Pz 在 x, y, z 三个方向均有分量：
 在实际流体中分离一个微分平行六面体，密度 ρ，各边长 dx, dy, dz；假设，速度沿各轴的正方向增大。  
 在 x 方向，动力平衡方程：    
 $$\begin{align*}
-f_x\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z \\
-&+ p_{xx}\mathrm{d}y\mathrm{d}z - (p_{xx} + \frac{\partial p_{xx}}{\partial x}\mathrm{d}x)\mathrm{d}y\mathrm{d}z  \\
+f_x\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z &+ p_{xx}\mathrm{d}y\mathrm{d}z - (p_{xx} + \frac{\partial p_{xx}}{\partial x}\mathrm{d}x)\mathrm{d}y\mathrm{d}z  \\
 &- \tau_{zx}\mathrm{d}x\mathrm{d}y + (\tau_{zx} + \frac{\partial \tau_{zx}}{\partial z}\mathrm{d}z)\mathrm{d}x\mathrm{d}y \\
 &- \tau_{yx}\mathrm{d}x\mathrm{d}z + (\tau_{yx} + \frac{\partial \tau_{yx}}{\partial y}\mathrm{d}y)\mathrm{d}x\mathrm{d}z \\
 &= \rho\mathrm{d}x\mathrm{d}y\mathrm{d}z\frac{\mathrm{d} u_x}{\mathrm{d}t}
