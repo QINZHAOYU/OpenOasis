@@ -842,7 +842,7 @@ f_x\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z \\
 整理，得到
 $$f_x - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \frac{1}{\rho}(\frac{\partial \tau_{zx}}{\partial z} + \frac{\partial \tau_{yx}}{\partial y}) = \frac{\mathrm{d} u_x}{\mathrm{d}t}$$
 
-由此类推，得到 **应力表示** 的 **实际流体运动的微分方程**：  
+由此类推，即 **实际流体运动的应力微分方程**：  
 $$\begin{cases}
 \frac{\mathrm{d} u_x}{\mathrm{d}t} = f_x - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \frac{1}{\rho}(\frac{\partial \tau_{zx}}{\partial z} + \frac{\partial \tau_{yx}}{\partial y})\\
   \\
