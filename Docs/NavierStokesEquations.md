@@ -96,11 +96,14 @@ a_y = \frac{\mathrm{d}u_y}{\mathrm{d}t} = \frac{\partial u_y}{\partial t} + u_x\
 a_z = \frac{\mathrm{d}u_z}{\mathrm{d}t} = \frac{\partial u_z}{\partial t} + u_x\frac{\partial u_z}{\partial x} + u_y\frac{\partial u_z}{\partial y} + u_z\frac{\partial u_z}{\partial z}\\
 \end{cases}$$
 
+流体 **速度** 在流速场内的变化率为：
+$$\frac{\mathrm{d}u}{\mathrm{d}t} = \frac{\partial u}{\partial t} + u_x\frac{\partial u}{\partial x} + u_y\frac{\partial u}{\partial y} + u_z\frac{\partial u}{\partial z}$$
+
 同样的推理过程，可以得到流体 **密度** 在流场内的变化率（密度作为标量，无方向差别）：  
 
 $$\frac{\mathrm{d}\rho}{\mathrm{d}t} = \frac{\partial \rho}{\partial t} + u_x\frac{\partial \rho}{\partial x} + u_y\frac{\partial \rho}{\partial y} + u_z\frac{\partial \rho}{\partial z}$$
 
-同样的推理过程，可以得到流体 **压力** 在流场内的变化率（压力各向同性，无方向差别）：  
+同样的推理过程，可以得到流体 **压强** 在流场内的变化率（压强各向异性，有方向差别）：  
 
 $$\frac{\mathrm{d}p}{\mathrm{d}t} = \frac{\partial p}{\partial t} + u_x\frac{\partial p}{\partial x} + u_y\frac{\partial p}{\partial y} + u_z\frac{\partial p}{\partial z}$$
 
@@ -757,7 +760,7 @@ $$z + \frac{p}{\rho g} + \frac{u^2}{2g} + \frac{1}{g}\frac{\partial \varphi}{\pa
 *------------------ * ------------------*
 
 如果从葛罗米柯方程出发，推导 **非恒定涡流** 理想流体的能量方程：
-只有当流速场中各空间点的流速方向始终不变时，才能积分。此时，  
+只有当理想流体非恒定流流场中各空间点的流速方向不随时间而变化时，方程才能积分。此时，  
 流线与迹线重合。此时，  
 以 dx, dy, dz 表示同一流线上坐标的微分增量。  
 
@@ -811,13 +814,162 @@ $$z + \frac{p}{\rho g} + \frac{u^2}{2g} + \frac{1}{g}\int \frac{\partial u}{\par
 
 <div align="center">
 
-实际流体中由于存在粘性，所以有相对运动的各层流体之间均将产生切应力。
+实际流体中由于存在粘性，所以有相对运动的各层流体之间均将产生切应力。因此，  
+分析流体质点受力时，表面力将不再沿内法线方向。
+
+在运动流体中任意划出一平面 z，作用在面上任意点 A的表面力 Pz将是倾斜方向的，  
+Pz 在 x, y, z 三个方向均有分量：  
++ $p_{zz}$，一个与 z 平面成法向（垂直）的正应力，又称为 动水压强；
++ $\tau_{zx}$，一个与 z 平面成切向（平行）、沿 x 方向的切应力；
++ $\tau_{zy}$，一个与 z 平面成切向（平行）、沿 y 方向的切应力；
+
+一般的，约定以 $p$ 表示正应力，$\tau$ 表示切应力；下加两个脚号，约定  
++ 第一个脚号表示应力作用的面与哪个轴垂直；
++ 第二个脚号表示应力作用方向与哪个轴平行。
+
+<img src="./imgs/17.jpg" width=560 height=240>
+
+在实际流体中分离一个微分平行六面体，密度 ρ，各边长 dx, dy, dz；假设，速度沿各轴的正方向增大。  
+在 x 方向，动力平衡方程：    
+$$\begin{align*}
+f_x\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z \\
+&+ p_{xx}\mathrm{d}y\mathrm{d}z - (p_{xx} + \frac{\partial p_{xx}}{\partial x}\mathrm{d}x)\mathrm{d}y\mathrm{d}z  \\
+&- \tau_{zx}\mathrm{d}x\mathrm{d}y + (\tau_{zx} + \frac{\partial \tau_{zx}}{\partial z}\mathrm{d}z)\mathrm{d}x\mathrm{d}y \\
+&- \tau_{yx}\mathrm{d}x\mathrm{d}z + (\tau_{yx} + \frac{\partial \tau_{yx}}{\partial y}\mathrm{d}y)\mathrm{d}x\mathrm{d}z \\
+&= \rho\mathrm{d}x\mathrm{d}y\mathrm{d}z\frac{\mathrm{d} u_x}{\mathrm{d}t}
+\end{align*}$$
+
+整理，得到
+$$f_x - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \frac{1}{\rho}(\frac{\partial \tau_{zx}}{\partial z} + \frac{\partial \tau_{yx}}{\partial y}) = \frac{\mathrm{d} u_x}{\mathrm{d}t}$$
+
+由此类推，得到 **应力表示** 的 **实际流体运动的微分方程**：  
+$$\begin{cases}
+\frac{\mathrm{d} u_x}{\mathrm{d}t} = f_x - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \frac{1}{\rho}(\frac{\partial \tau_{zx}}{\partial z} + \frac{\partial \tau_{yx}}{\partial y})\\
+  \\
+\frac{\mathrm{d} u_y}{\mathrm{d}t} = f_y - \frac{1}{\rho}\frac{\partial p_{yy}}{\partial y} + \frac{1}{\rho}(\frac{\partial \tau_{zy}}{\partial z} + \frac{\partial \tau_{xy}}{\partial x}) \\
+  \\
+\frac{\mathrm{d} u_z}{\mathrm{d}t} = f_z - \frac{1}{\rho}\frac{\partial p_{zz}}{\partial z} + \frac{1}{\rho}(\frac{\partial \tau_{xz}}{\partial x} + \frac{\partial \tau_{yz}}{\partial y}) \\
+\end{cases}$$
+
+方程同时适用于牛顿流体和非牛顿流体，同时适用于层流运动和湍流运动。
+
+*------------------ * ------------------*
+
+层流运动时牛顿流体， 存在 **牛顿内摩擦定律**：  
+$$\tau = \eta\frac{\mathrm{d}u}{\mathrm{d}s} = \eta\frac{\mathrm{d}\theta}{\mathrm{d}t},\,\, \eta \text{ 为动力粘性系数}$$
+
+方程表明层流运动时实际流体中角应变与流速梯度相等；粘性切应力与流速梯度成正比，与压力无关。  
+
+根据 **达朗贝尔原理**，可得到 **切应力互等定理**：  
+$$\tau_{xz} = \tau_{zx},\,\, \tau_{xy} = \tau_{yx},\,\, \tau_{yz} = \tau_{zy}$$
+
+进而，得到  
+$$\begin{cases}
+\tau_{xz} = \tau_{zx} = \eta\,\theta_y = \eta (\frac{\partial u_x}{\partial z} + \frac{\partial u_z}{\partial x})  \\
+  \\
+\tau_{xy} = \tau_{yx} = \eta\,\theta_z = \eta (\frac{\partial u_x}{\partial y} + \frac{\partial u_y}{\partial x})  \\
+  \\
+\tau_{yz} = \tau_{zy} = \eta\,\theta_x = \eta (\frac{\partial u_y}{\partial z} + \frac{\partial u_z}{\partial y})  \\
+\end{cases}$$
+
+由于实际流体中动水压强各向不相等，故采用任意三个正交方向作平均值   
+$$p = \frac{p_{xx} + p_{yy} + p_{zz}}{3}$$
+
+分析，得到  
+$$\begin{cases}
+p_{xx} = p - 2\eta\frac{\partial u_x}{\partial x} = p + p_{xx}^{'} \\
+  \\
+p_{yy} = p - 2\eta\frac{\partial u_y}{\partial y} = p + p_{yy}^{'} \\
+  \\
+p_{zz} = p - 2\eta\frac{\partial u_z}{\partial z} = p + p_{zz}^{'} \\
+\end{cases}$$
+
+方程表明实际流体的动水压强可以看作由两部分所组成，动水平均压强 + 粘滞性产生的附加正应力。  
+附加正应力的产生是沿流线的速度梯度所导致，加速时同方向质点间存在分离趋势、产生拉伸变形，  
+附加正应力为拉应力，所以质点动水压强减小；反之，附加正应力为压应力，故质点动水压强增大。
+
+综合以上的 切应力与角应变方程 和 正应力与线应变方程，得到 **层流运动下牛顿流体的本构方程组**。  
+代入实际流体运动方程，在 x 方向得到  
+$$\begin{align*}
+\frac{\mathrm{d} u_x}{\mathrm{d}t} &= \frac{\partial u_x}{\partial t} + u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} + u_z\frac{\partial u_x}{\partial z} = f_x - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \frac{1}{\rho}(\frac{\partial \tau_{zx}}{\partial z} + \frac{\partial \tau_{yx}}{\partial y}) \\
+  \\
+&= f_x - \frac{1}{\rho}(\frac{\partial p}{\partial x} - 2\eta\frac{\partial^2 u_x}{\partial x^2}) + \frac{\eta}{\rho}(\frac{\partial^2 u_x}{\partial z^2} + \frac{\partial^2 u_z}{\partial x \partial z} + \frac{\partial^2 u_y}{\partial x \partial y} + \frac{\partial^2 u_x}{\partial y^2})  \\
+  \\
+&= f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} + \frac{\eta}{\rho}(\frac{\partial^2 u_x}{\partial x^2} + \frac{\partial^2 u_x}{\partial y^2} + \frac{\partial^2 u_x}{\partial z^2}) + \frac{\eta}{\rho}\frac{\partial}{\partial x}(\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z})\\
+\end{align*}$$
+
+采用拉普拉斯算式和散度算式；运动粘性系数 $\nu = \frac{\eta}{\rho}$；进而得到**可压缩粘性牛顿流体层流运动方程**：  
+$$\begin{cases}
+\frac{\mathrm{d} u_x}{\mathrm{d}t} = f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \nabla^2 u_x + \nu \frac{ \partial}{\partial x}( \nabla \cdot u)  \\
+  \\
+\frac{\mathrm{d} u_y}{\mathrm{d}t} = f_y - \frac{1}{\rho}\frac{\partial p}{\partial y} + \nu \nabla^2 u_y + \nu \frac{ \partial}{\partial y}( \nabla \cdot u)  \\
+  \\
+\frac{\mathrm{d} u_z}{\mathrm{d}t} = f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} + \nu \nabla^2 u_z + \nu \frac{ \partial}{\partial z}( \nabla \cdot u)  \\
+\end{cases}$$
+
+对于不可压缩流体，连续性方程简化为 $\nabla \cdot u = 0$，从而得到  **不可压缩粘性牛顿流体层流运动方程**，  
+又称 **纳维 - 斯托克斯方程**：  
+$$\begin{cases}
+\frac{\mathrm{d} u_x}{\mathrm{d}t} = f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \nabla^2 u_x  \\
+  \\
+\frac{\mathrm{d} u_y}{\mathrm{d}t} = f_y - \frac{1}{\rho}\frac{\partial p}{\partial y} + \nu \nabla^2 u_y  \\
+  \\
+\frac{\mathrm{d} u_z}{\mathrm{d}t} = f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} + \nu \nabla^2 u_z  \\
+\end{cases}$$
+
+方程适用于不可压缩牛顿流体的层流运动；一般认为**非稳态**的 N-S 方程依然适用于湍流的瞬时运动。  
+N-S 方程与连续性方程组成的微分方程组，未知参数 ux,uy,uz, p，若 $\rho,\eta$ 不变，此时方程系统封闭。
+
+*------------------ * ------------------*
+
+
+
+
+
 
 
 </div>
 
-*--- 注意：---*
+*--- 注意：---*   
+1. 速度沿各轴正向增大，则 $\tau_{zx}$ 对作用面起阻滞作用，$\tau_{zx} + \frac{\partial \tau_{zx}}{\partial z}\mathrm{d}z$ 对作用面起推动作用；其他类推。
 
+2. 达朗贝尔原理，在质点运动的任一时刻，主动力F、约束力Fn 与惯性力构成平衡力系：  
+$$ F + F_N + (-m \cdot a) = 0 $$
+
+3. 切应力互等定理，相互垂直平面上，切应力成对存在且大小相等，同垂直于平面交线：  
+$$\tau_{xz} = \tau_{zx},\,\, \tau_{xy} = \tau_{yx},\,\, \tau_{yz} = \tau_{zy}$$
+
+4. 微分算子，  
+$$\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$$
+标量梯度算式，获得矢量  
+$$\nabla u = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})u = (\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \frac{\partial u}{\partial z}) = (u_x, u_y, u_z)$$  
+矢量散度算式，获得标量  
+$$\nabla\cdot \textbf{u} = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})\cdot(u_x, u_y, u_z) = \frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} $$
+标量拉普拉斯算式，获得标量
+$$\nabla^2 u = \nabla \cdot (\nabla u) = (\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2})u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}$$     
+
+5. N-S 方程可以认为是对 **玻尔兹曼方程** 在近似平衡态下（层流）的一阶近似（欧拉方程是零阶近似）。  
+
+6. 稳态 N-S 方程即恒定流 N-S 方程，但得到的稳态解仍是不稳定的，任意微小扰动会被流场无限放大。
+
+
+*--- 附录：---*  
+1. 关于 **转动** 与 **平动** ：
+    + 力（Force），改变物体平动状态；
+    + 力矩（Torque），改变物体转动状态；$T = s \times F$，力矩是位移与力的矢量积。
+    + 如果一个系统，在研究过程中，不受外力作用，那么这个系统的总动量守恒。
+    + 如果一个系统，在研究过程中，不受外力矩的作用，那么这个系统的总角动量守恒。
+    + 物体达到静平衡，$\sum F = 0 \,\,\,And\,\,\, \sum T = 0$ 。
+
+| 运动 | --- | --- | --- | --- | --- |
+| :--- | :--- | :--- | :--- | :--- | :--- | 
+| 平动 | 位移，$\mathrm{d}s$ | 速度，$v = \frac{\mathrm{d}s}{\mathrm{d}t}$ | 加速度，$a = \frac{\mathrm{d}v}{\mathrm{d}t}$ | 惯性质量，m | 力，$F = ma$
+| 转动 | 角位移，$\mathrm{d}\theta$ | 角速度，$\omega = \frac{\mathrm{d}\theta}{\mathrm{d}t}$ | 角加速度，$\alpha = \frac{\mathrm{d}\omega}{\mathrm{d}t}$ | 转动惯量，$I$ | 力矩，$T = I\alpha$|
+
+| 运动 | --- | --- | --- | --- | 
+| :--- | :--- | :--- | :--- | :--- |
+| 平动 | 动量，$P = mv$ | 动能，$E_k = \frac{1}{2}\,mv^2$ | 做功，$W = \int_{s1}^{s2}F\,\mathrm{d}s$ | 静平衡，$\sum F = 0$ |
+| 转动 | 角动量，$L = I\alpha$ | 动能，$E_k = \frac{1}{2}\,I\omega^2$ |做功，$W = \int_{\theta1}^{\theta2}T\,\mathrm{d}\theta$ | 静平衡，$\sum T = 0$ |
 
 ---------------------------------------------------------------------------
 
