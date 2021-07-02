@@ -436,6 +436,8 @@ $$\begin{gather*}
 除以 $\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t$ 之后得到， **可压缩流体非恒定流的连续性方程**：  
 $$\frac{\partial \rho}{\partial t} + [\frac{\partial \rho u_x}{\partial x} + \frac{\partial \rho u_y}{\partial y} + \frac{\partial \rho u_z}{\partial z}] = 0$$
 
+*------------------ * ------------------*
+
 对不可压缩流体，ρ 为常数、与空间时间无关，连续性方程简化：  
 $$\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} = 0 \,\, \mathrm{Or} \,\, \nabla \cdot \textbf{u} = 0$$
 
@@ -450,6 +452,8 @@ $$\begin{align*}
 \end{align*}$$
 
 S是体积V 的封闭表面积；un是S 上各点处的流速在该处外法线方向的投影；$\iint_{S} u_n \mathrm{d}s$ 即速度通量。  
+
+*------------------ * ------------------*
 
 分析恒定流下的流管，由于流管侧表面上 un = 0，故  
 $$\iint_{S} u_n \mathrm{d}s = - \iint_{A_i} u_i\mathrm{d}A_i + \iint_{A_o} u_o\mathrm{d}A_o = 0 $$
@@ -511,6 +515,8 @@ f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} = \frac{\mathrm{d}u_z}{\mathrm
 
 方程适用不可压缩流体或可压缩气体。对于前者，密度 ρ 是常数；对于后者，ρ 为变量。
 
+*------------------ * ------------------*
+
 对于静止流体，ux = uy = uz，由此得到 **静水力学欧拉平衡方程**：
 $$\begin{cases}
 f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} = 0 \\
@@ -532,6 +538,8 @@ f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} = \frac{\partial u_z}{\partial
 
 对于不可压缩理想流体，ρ 已知，单位质量力 fx, fy, fz 已知，未知数仅为 p, ux, uy, uz。如果联解  
 欧拉方程和连续性方程，理论上，理想流体中任意点、任意时刻的流速和动水压强是可以求出的。  
+
+*------------------ * ------------------*
 
 欧拉方程引入旋转角速度，得到  
 $$\begin{gather*}
@@ -631,6 +639,7 @@ $$z + \frac{p}{\rho g} + \frac{v^2}{2g} = \textbf{const}$$
 
 方程适用流体的固体边界对地球没有相对运动、质量力只有重力的理想流体。
 
+*------------------ * ------------------*
 
 如果从葛罗米柯方程出发，采用新思路，推导 **恒定流** 理想流体的能量方程：
 
@@ -706,11 +715,13 @@ $$U = \frac{\omega^2 (x^2 + y^2)}{2} - gz + C $$
 因伯努利方程适用于流速场中流线，恒定流下流线与迹线重合，故相对运动采用相对速度下：  
 $$\frac{p}{\rho} + \frac{v^2}{2} - U = \textbf{const}$$
 
-代入得到， **相对运动** 的伯努利方程：  
+得到 **相对运动** 的伯努利方程：  
 $$\frac{p}{\rho} + \frac{v^2}{2} - \frac{\omega^2 r^2}{2} + gz = C$$
 
-如果从葛罗米柯方程出发，推导非恒定流理想流体的能量方程：  
-**非恒定无涡流时**，存在以下约束：  
+*------------------ * ------------------*
+
+如果从葛罗米柯方程出发，推导 **非恒定流** 理想流体的能量方程：  
+非恒定无涡流时，存在以下约束：  
 $$\begin{cases}
 \omega_x = \omega_y = \omega_z = 0 \\
 u_x = \frac{\partial \varphi}{\partial x}, u_y = \frac{\partial \varphi}{\partial y}, u_z = \frac{\partial \varphi}{\partial z}  \\
@@ -743,7 +754,10 @@ $$U - \frac{p}{\rho} - \frac{u^2}{2} - \frac{\partial \varphi}{\partial t} = C(t
 当质量力仅重力，$U = -gz + C_o$，得到 **理想流体非恒定无涡流的能量方程**， 又称 **拉格朗日方程**：  
 $$z + \frac{p}{\rho g} + \frac{u^2}{2g} + \frac{1}{g}\frac{\partial \varphi}{\partial t} = C_{}{'}(t)$$
 
-**非恒定涡流时**，只有当流场中各点的流速方向始终不变时，才能积分。此时，  
+*------------------ * ------------------*
+
+如果从葛罗米柯方程出发，推导 **非恒定涡流** 理想流体的能量方程：
+只有当流速场中各空间点的流速方向始终不变时，才能积分。此时，  
 流线与迹线重合。此时，  
 以 dx, dy, dz 表示同一流线上坐标的微分增量。  
 
