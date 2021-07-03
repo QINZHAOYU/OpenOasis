@@ -22,11 +22,11 @@
 
 *质点无限多，要如何描述整个流体的运动规律？*  
 
-**欧拉法**，通过观察不同流体质点通过固定的空间点的运动情况来了解整个流场的流动情况，  
+**欧拉法**，通过观察不同流体质点通过**固定**的空间点的运动情况来了解整个流场的流动情况，  
 即着眼于研究各种运动要素的 **分布场**。  
 采用欧拉法，可把流场中运动要素 f 表示为空间和时间的函数：$ f = f(x, y, z, t) $。  
 
-采用欧拉法，将目光聚焦在空间内水流的流动情况，分析对象是空间点处的运动要素变化情况，    
+采用欧拉法，将目光聚焦在空间内水流流动情况，分析对象是空间点处运动要素变化情况，    
 而不去追究具体的流体质点的运动轨迹。    
 
 </div>
@@ -290,7 +290,7 @@ $$\begin{cases}
 \end{cases}$$
 
 综上分析，微分平行六面体最普遍的运动形式均由平移、线应变、角应变、旋转四种基本形式所组成；  
-当微分六面体无限缩小，即变成质点，故流体质点运动的基本形式也是平移、线应变、角应变、旋转。  
+当微分六面体**无限缩小**，即变成质点，故流体质点运动的基本形式也是平移、线应变、角应变、旋转。  
 
 </div>
 
@@ -1039,11 +1039,80 @@ $$\nabla^2 u = \nabla \cdot (\nabla u) = \frac{\partial^2 u}{\partial x^2} + \fr
 
 <div align="center">
 
+基于微分平行六面体对象，关于**控制体**的能量守恒方程的表述，采用**输运方程**的框架，得到  
+$$
+\textbf{控制体内能量时变率} +（\textbf{控制体输出能量通量} - \textbf{控制体输入能量通量}）= \\
+\textbf{外界传热速率} + \textbf{外界做功速率}
+$$
+
+<img src="./imgs/17.jpg" width=560 height=240>
+
+在实际流体中取一个微分平行六面体，密度 ρ，各边长 dx, dy, dz；假设，速度、温度沿各轴的正方向增大。
+
+单位时间内，控制体能量时间变化率：  
+$$\frac{\partial}{\partial t} (\rho e_s\mathrm{d}x\mathrm{d}y\mathrm{d}z) = \frac{\partial e_s}{\partial t}\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z + e_s\frac{\partial}{\partial t}(\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z) = \frac{\partial e_s}{\partial t}\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z$$
+
+沿 x 方向，控制体的净输出能量通量：  
+$$
+\Delta e_x = (e_s + \frac{\partial e_s}{\partial x}\mathrm{d}x)(u_x + \frac{\partial u_x}{\partial x}\mathrm{d}x)\rho\mathrm{d}y\mathrm{d}z - e_s u_x \rho \mathrm{d}y\mathrm{d}z = \frac{\partial u_x e_s}{\partial x} \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z
+$$
+
+由此类推，控制体的净输出能量通量：  
+$$\begin{cases}
+\Delta e_x = \frac{\partial u_x e_s}{\partial x} \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z \\
+  \\
+\Delta e_y = \frac{\partial u_y e_s}{\partial y} \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z \\
+  \\
+\Delta e_z = \frac{\partial u_z e_s}{\partial z} \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z \\
+\end{cases}$$
+
+由此，**控制体内单位质量能量变化率**：  
+$$\frac{\mathrm{d} e_s}{\mathrm{d} t} = \rho\frac{\partial e_s}{\partial t} + \Delta e_x + \Delta e_y + \Delta e_z = \rho(\frac{\partial e_s}{\partial t} + \frac{\partial u_x e_s}{\partial x} + \frac{\partial u_y e_s}{\partial y} + \frac{\partial u_z e_s}{\partial z}) $$
+
+单位时间内，**质量力做功速率**：  
+$$W_{m,x} = f_x u_x \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z, \,\,W_{m,y} = f_y u_y \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z, \,\,W_{m,z} = f_z u_z \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z$$
+
+在 x 方向，表面力的做功速率：  
+$$\begin{cases}
+\textbf{x 方向前后切面}，(p_{xx} + \frac{\partial p_{xx}}{\partial x}\mathrm{d}x) \mathrm{d}y\mathrm{d}z (u_x + \frac{\partial u_x}{\partial x}\mathrm{d}x) - p_{xx} u_x \mathrm{d}y\mathrm{d}z; \\
+\textbf{x 方向左右切面}，(\tau_{yx} + \frac{\partial \tau_{yx}}{\partial y}\mathrm{d}y) \mathrm{d}x\mathrm{d}z (u_x + \frac{\partial u_x}{\partial y}\mathrm{d}y) - \tau_{yx} u_x \mathrm{d}x\mathrm{d}z; \\
+\textbf{x 方向上下切面}，(\tau_{zx} + \frac{\partial \tau_{zx}}{\partial z}\mathrm{d}z) \mathrm{d}x\mathrm{d}y (u_x + \frac{\partial u_x}{\partial z}\mathrm{d}z) - \tau_{zx} u_x \mathrm{d}x\mathrm{d}y; \\
+\end{cases}$$
+
+$$\Rightarrow (\frac{\partial p_{xx} u_x}{\partial x} + \frac{\partial \tau_{yx} u_x}{\partial y} + \frac{\partial \tau_{zx} u_x}{\partial z}) \mathrm{d}x\mathrm{d}y\mathrm{d}z $$
+
+由此类推得，**表面力做功速率**：  
+$$\begin{cases}
+W_{s,x} = (\frac{\partial p_{xx} u_x}{\partial x} + \frac{\partial \tau_{yx} u_x}{\partial y} + \frac{\partial \tau_{zx} u_x}{\partial z}) \mathrm{d}x\mathrm{d}y\mathrm{d}z  \\
+W_{s,y} = (\frac{\partial p_{yy} u_y}{\partial y} + \frac{\partial \tau_{xy} u_y}{\partial x} + \frac{\partial \tau_{zy} u_y}{\partial z}) \mathrm{d}x\mathrm{d}y\mathrm{d}z  \\
+W_{s,z} = (\frac{\partial p_{zz} u_z}{\partial z} + \frac{\partial \tau_{xz} u_z}{\partial x} + \frac{\partial \tau_{yz} u_z}{\partial x}) \mathrm{d}x\mathrm{d}y\mathrm{d}z  \\
+\end{cases}$$
+
+由此，**控制体单位质量外界做功速率**：  
+$$\begin{gather*}
+\frac{\mathrm{d}W}{\mathrm{d}t} = \rho f_x u_x + \rho f_y u_y + \rho f_z u_z + \\
+\frac{\partial}{\partial x}(p_{xx}u_x + \tau_{yx} u_y + \tau_{zx} u_z) + \frac{\partial}{\partial y}(p_{yy}u_y + \tau_{xy} u_x + \tau_{zy} u_z) + \frac{\partial}{\partial z}(p_{zz} u_z + \tau_{xz} u_x + \tau_{yz} u_y)  \\
+\end{gather*}$$
+
+设单位时间内由辐射传入单位质量流体的热量为 q，则单位时间内获得**辐射热**：  
+$$q\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z$$
+
+由于导热使从高温区传导到低温区，根据**傅里叶定律**，x 方向上控制体传导热：  
+$$J_{T,x}\mathrm{d}y\mathrm{d}z - (J_{T,x} + \frac{\partial J_{T,x}}{\partial x}\mathrm{d}x)\mathrm{d}y\mathrm{d}z = \kappa \frac{\partial^2 T}{\partial x^2}\mathrm{d}x\mathrm{d}y\mathrm{d}z$$
+
+由此类推，单位时间内获得**传导热**：  
+$$(\kappa \frac{\partial^2 T}{\partial x^2} + \kappa \frac{\partial^2 T}{\partial y^2} + \kappa \frac{\partial^2 T}{\partial z^2})\mathrm{d}x\mathrm{d}y\mathrm{d}z = (\nabla^2 T) \kappa\mathrm{d}x\mathrm{d}y\mathrm{d}z $$
+
+综合以上分析，根据热力学第一定律，从而得到**不可压缩实际流体的能量方程**：    
+$$\frac{\mathrm{d} e_s}{\mathrm{d} t} = f_m \cdot u + \frac{1}{\rho} \nabla (p \cdot u) + \frac{1}{\rho} \nabla^2 (\kappa T) + q$$
 
 
 </div>
 
 *--- 注意：---*  
+1. 傅里叶定律：导热现象中，单位时间内通过给定截面的热量，正比于垂直于该截面方向上的温度梯度  
+和截面面积，而热量传递的方向则与温度升高的方向相反。  
+$$J_{T,x} = -\kappa \, \frac{\partial T}{\partial x}$$
 
 
 ---------------------------------------------------------------------------
