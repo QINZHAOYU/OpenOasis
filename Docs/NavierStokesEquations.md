@@ -921,19 +921,18 @@ $$
 \Rightarrow \rho [\frac{\partial \textbf{u}}{\partial t} + (\nabla \cdot \textbf{u}) \textbf{u}] = \rho \textbf{f} - \nabla p + \eta \nabla^2 \textbf{u}
 $$
 
-其中，方程的左端为流体单元的**动量变化率**，右端为作用在流体单元上的**各种力**：  
+其中，方程的左端为流体单元的**动量变化率（惯性项）**，方程右端为作用在流体单元上的**各种作用力**：  
 $$\begin{cases}
 \frac{\partial \textbf{u}}{\partial t}，\text{时间项，表示方程可以描述非稳态流场}； \\
   \\
-(\nabla \cdot \textbf{u})  \textbf{u}，\text{对流项，表征流场运动要素在空间中的信息传递，加大速度梯度}； \\
+(\nabla \cdot \textbf{u})  \textbf{u},\text{对流项，表征流场运动要素在空间的传递，加大速度梯度使流场更不光滑}； \\
   \\
-\rho \textbf{f}，\text{源项、惯性项（质量力），每个时刻外部环境施加的作用引起的增长率}；  \\
+\rho \textbf{f}，\text{源项（质量力），每个时刻外部环境施加的作用引起的增长率}；  \\
   \\
-\nabla p，\text{压力项，使速度场满足不可压缩条件，使速度梯度增加从而使流场更加不光滑}；  \\
+\nabla p,\text{压力项，使速度场满足不可压缩条件，使速度梯度增加从而使流场更加不光滑}；  \\
   \\
-\eta \nabla^2 \textbf{u}，\text{粘性项、扩散项（粘性力），来自分子间的动量交换，使得速度梯度变光滑}；
+\eta \nabla^2 \textbf{u},\text{粘性项、扩散项（粘性力），来自分子间的动量交换，使得速度梯度变光滑}；
 \end{cases}$$
-
 
 *------------------ * ------------------*
 
@@ -983,7 +982,6 @@ f_z = \overline{f_z} + f_{z}^{'}  \\
 对连续性方程时间平均，即可以得到：
 $$\nabla\cdot\overline{u} = 0$$
 
-
 对应力方程时间平均，x 方向可得到：  
 $$\begin{aligned}
 \rho \frac{1}{T}\int_{0}^{T} \frac{\partial u_x}{\partial t}  \mathrm{d}t = \\
@@ -997,7 +995,7 @@ $$\begin{cases}
 \frac{1}{T}\int_{0}^{T}  f_x   \mathrm{d}t = \frac{1}{T}\int_{0}^{T} \overline{f_x}  \mathrm{d}t + \frac{1}{T}\int_{0}^{T} f_{x}^{'}  \mathrm{d}t = \overline{f_x} 
 \end{cases}$$
 
-对高阶脉动项，一次时均无法消除：  
+对高阶脉动项，一次时均得到均值：  
 $$\begin{aligned}
 \frac{1}{T}\int_{0}^{T} \frac{\partial}{\partial x}(p_{xx} + u_{x}^{2})  \mathrm{d}t &= \frac{1}{T}\int_{0}^{T} \frac{\partial}{\partial x}(\overline{p_{xx}} + p_{xx}^{'}) \mathrm{d}t + \frac{1}{T}\int_{0}^{T} \frac{\partial}{\partial x}(\overline{u_x} + u_{x}^{'})^2 \mathrm{d} t  \\
 &= \frac{\partial \overline{p_{xx}}}{\partial x} + \frac{\rho}{T}\int_{0}^{T} \frac{\partial}{\partial x}(\overline{u_x}^2 + 2\overline{u_x}u_{x}^{'} + u_{x}^{'2})  \mathrm{d}t \\
@@ -1020,11 +1018,23 @@ $$\begin{cases}
 \end{cases}$$
 
 方程表明，湍流时的时均应力可以视为由两部份构成：  
-1. 时均流速 $\overline{u}$ 所构成的层流运动所产生的应力；
-2. 脉动流速 $u^{'}$产生的附加应力，又称 **雷诺应力**。
++ 时均流速 $\overline{u}$ 所构成的层流运动所产生的应力；
++ 脉动流速 $u^{'}$产生的附加应力，又称 **雷诺应力**。
 
 由于湍流瞬时运动要素用时均及脉动运动要素代替，使得方程组未知量增加6个附加正应力，但方程未增。  
 通过引入新的方程，使方程组封闭，进而配以适当的数值计算方法，如此便可以构成一个 **湍流数学模型** 。
+
+*------------------ * ------------------*
+
+对于实际流体运动，由于粘性的存在，接触固体表面会形成一层流速分布不均匀的减速薄层，即 **边界层**。  
+由此，粘性液流分成两个区域：  
+1. 在边界层外的主流，流速梯度为0，无内摩擦力发生，可以视为理想流体运动，符合势流运动规律；
+2. 在边界层内的粘性流动，流速自0 增至主流速U0，流速梯度很大，内摩擦力显著，采用 N-S 方程。
+
+在边界层内，与粘性力相比，质量力可以忽略，得到：  
+$$$$
+
+
 
 
 </div>
@@ -1078,7 +1088,7 @@ $$\nabla^2 u = \nabla \cdot (\nabla u) = \frac{\partial^2 u}{\partial x^2} + \fr
 | 运动 | --- | --- | --- | --- | 
 | :--- | :--- | :--- | :--- | :--- |
 | 平动 | 动量，$P = mv$ | 动能，$E_k = \frac{1}{2} mv^2$ | 做功，$W = \int_{s1}^{s2}F \mathrm{d}s$ | 静平衡，$\sum F = 0$ |
-| 转动 | 角动量，$L = I\alpha$ | 动能，$E_k = \frac{1}{2} I\omega^2$ |做功，$W = \int_{\theta1}^{\theta2}T \mathrm{d}\theta$ | 静平衡，$\sum T = 0$ |
+| 转动 | 角动量，$L = I\alpha$ | 角动能，$E_k = \frac{1}{2} I\omega^2$ |做功，$W = \int_{\theta1}^{\theta2}T \mathrm{d}\theta$ | 静平衡，$\sum T = 0$ |
 
 ---------------------------------------------------------------------------
 
