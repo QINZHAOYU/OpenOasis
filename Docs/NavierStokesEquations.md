@@ -76,7 +76,7 @@ $$\begin{cases}
 \frac{\partial u_x}{\partial z}\mathrm{d}z = 0 \\
 \end{cases}$$
 
-更一般的情况下，流体质点的 **加速度 $a$** 在个方向的投影 ：  
+更一般的情况下，流体质点的 **加速度 $a$** 在个方向的投影  
 
 $$\begin{cases}
 a_x = \frac{\mathrm{d}u_x}{\mathrm{d}t} = \frac{\partial u_x}{\partial t} + \frac{\partial u_x}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t} + \frac{\partial u_x}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t} + \frac{\partial u_x}{\partial z}\frac{\mathrm{d}z}{\mathrm{d}t}\\
@@ -86,15 +86,7 @@ a_y = \frac{\mathrm{d}u_y}{\mathrm{d}t} = \frac{\partial u_y}{\partial t} + \fra
 a_z = \frac{\mathrm{d}u_z}{\mathrm{d}t} = \frac{\partial u_z}{\partial t} + \frac{\partial u_z}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t} + \frac{\partial u_z}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t} + \frac{\partial u_z}{\partial z}\frac{\mathrm{d}z}{\mathrm{d}t}\\
 \end{cases}$$
 
-因为存在 $ u_x = \frac{\mathrm{d}x}{\mathrm{d}t}, u_y = \frac{\mathrm{d}y}{\mathrm{d}t}, u_z = \frac{\mathrm{d}z}{\mathrm{d}t} $，代入上式又有：  
-
-$$\begin{cases}
-a_x = \frac{\mathrm{d}u_x}{\mathrm{d}t} = \frac{\partial u_x}{\partial t} + u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} + u_z\frac{\partial u_x}{\partial z}\\
-  \\
-a_y = \frac{\mathrm{d}u_y}{\mathrm{d}t} = \frac{\partial u_y}{\partial t} + u_x\frac{\partial u_y}{\partial x} + u_y\frac{\partial u_y}{\partial y} + u_z\frac{\partial u_y}{\partial z}\\
-  \\
-a_z = \frac{\mathrm{d}u_z}{\mathrm{d}t} = \frac{\partial u_z}{\partial t} + u_x\frac{\partial u_z}{\partial x} + u_y\frac{\partial u_z}{\partial y} + u_z\frac{\partial u_z}{\partial z}\\
-\end{cases}$$
+因为存在 $ u_x = \frac{\mathrm{d}x}{\mathrm{d}t}, u_y = \frac{\mathrm{d}y}{\mathrm{d}t}, u_z = \frac{\mathrm{d}z}{\mathrm{d}t} $，代入上式得到   
 
 流体 **速度** 在流速场内的变化率为：
 $$\frac{\mathrm{d}u}{\mathrm{d}t} = \frac{\partial u}{\partial t} + u_x\frac{\partial u}{\partial x} + u_y\frac{\partial u}{\partial y} + u_z\frac{\partial u}{\partial z}$$
@@ -309,11 +301,11 @@ $$\begin{cases}
 
 对于无涡流，  
 $$\begin{cases}
-\omega_x = \frac{1}{2}(\frac{\partial u_z}{\partial y} - \frac{\partial u_y}{\partial z}) = 0, \,\,\Rightarrow \frac{\partial u_z}{\partial y} = \frac{\partial u_y}{\partial z} \\
+\omega_x = \frac{1}{2}(\frac{\partial u_z}{\partial y} - \frac{\partial u_y}{\partial z}) = 0, \Rightarrow \frac{\partial u_z}{\partial y} = \frac{\partial u_y}{\partial z} \\
   \\
-\omega_y = \frac{1}{2}(\frac{\partial u_x}{\partial z} - \frac{\partial u_z}{\partial x}) = 0, \,\,\Rightarrow \frac{\partial u_x}{\partial z} = \frac{\partial u_z}{\partial x} \\
+\omega_y = \frac{1}{2}(\frac{\partial u_x}{\partial z} - \frac{\partial u_z}{\partial x}) = 0, \Rightarrow \frac{\partial u_x}{\partial z} = \frac{\partial u_z}{\partial x} \\
   \\
-\omega_z = \frac{1}{2}(\frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y}) = 0, \,\,\Rightarrow \frac{\partial u_y}{\partial x} = \frac{\partial u_x}{\partial y} \\
+\omega_z = \frac{1}{2}(\frac{\partial u_y}{\partial x} - \frac{\partial u_x}{\partial y}) = 0, \Rightarrow \frac{\partial u_y}{\partial x} = \frac{\partial u_x}{\partial y} \\
 \end{cases}$$
 
 **势函数**，对某一标量函数 $ \varphi $ 求梯度，得到矢量 $ \upsilon $，则称 $ \varphi $ 为 $ \upsilon $ 的势函数。  
@@ -323,9 +315,9 @@ $$\begin{cases}
 
 若存在流场势函数$\varphi$，则有  
 $$
-u_x = \frac{\partial \varphi}{\partial x} , \,\,\,
-u_y = \frac{\partial \varphi}{\partial y} , \,\,\,
-u_z = \frac{\partial \varphi}{\partial z} 
+\textbf{x 方向}: u_x = \frac{\partial \varphi}{\partial x} , 
+\textbf{y 方向}: u_y = \frac{\partial \varphi}{\partial y} , 
+\textbf{z 方向}: u_z = \frac{\partial \varphi}{\partial z} 
 $$
 
 在 x,y,z 方向继续求导，有  
@@ -437,14 +429,14 @@ $$\frac{\partial \rho}{\partial t} + [\frac{\partial \rho u_x}{\partial x} + \fr
 *------------------ * ------------------*
 
 对不可压缩流体，ρ 为常数、与空间时间无关，连续性方程简化：  
-$$\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} = 0 \,\, \mathrm{Or} \,\, \nabla \cdot \textbf{u} = 0$$
+$$\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} = 0    \mathrm{Or}    \nabla \cdot \textbf{u} = 0$$
 
 由于 $\frac{\partial u_x}{\partial x}, \frac{\partial u_y}{\partial y},\frac{\partial u_z}{\partial z}$ 表示微分六面体沿 x，y，z 方向的线变形速率，故微分平行六面体的体积变化：  
 $$(\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} )\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t$$
 
 对不可压缩流体，微分平行六面体经平移和线变形体积大小不变，角变形和旋转亦不改变体积大小。  
 $$\begin{aligned}
-\iiint_{V} \mathrm{div}\, \textbf{u} \,\mathrm{d}V &= \iiint_{V} (\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} )\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t \\
+\iiint_{V} \mathrm{div}  \textbf{u}  \mathrm{d}V &= \iiint_{V} (\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} + \frac{\partial u_z}{\partial z} )\mathrm{d}x\mathrm{d}y\mathrm{d}z\mathrm{d}t \\
 &= \iint_{S} u_n \mathrm{d}s \\
 &= 0 \\
 \end{aligned}$$
@@ -471,7 +463,7 @@ Q_i = Q_o
 
 2. 计算微分六面体中面上流量时，以形心流速作面上平均流速；或者说，求速度通量时ux在面上线性分布。
 
-3. $\mathrm{div}\, \textbf{u}$ 称为速度散度，结果为标量。
+3. $\mathrm{div}  \textbf{u}$ 称为速度散度，结果为标量。
 
 4. 通过高斯定理，可以将体积积分转换为曲面积分。
 
@@ -494,7 +486,7 @@ Q_i = Q_o
 作用于六面体的只有表面力（动水压力）和质量力，假设单位质量的质量力在各轴方向的投影为 fx, fy, fz。  
 
 作用在六面体 x 轴方向的表面上的平均动水压强，  
-$$\textbf{左边},\,\,\, p - \frac{\partial p}{\partial x} \frac{\mathrm{d}x}{2}  \,\,\,\,\,\, ; \,\,\,\,\,\, \textbf{右边},\,\,\, p + \frac{\partial p}{\partial x} \frac{\mathrm{d}x}{2}$$
+$$\textbf{左边}, p - \frac{\partial p}{\partial x} \frac{\mathrm{d}x}{2}  ;  \textbf{右边}, p + \frac{\partial p}{\partial x} \frac{\mathrm{d}x}{2}$$
 
 根据力学原理，则有  
 $$\begin{gathered}
@@ -565,7 +557,7 @@ f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} - \frac{\partial u_z}{\partial
 \end{cases}$$
 
 如果作用于流体上的质量力 fx, fy, fz 是有势的，则必然存在 **力函数 $U(x, y, z, t)$**，并且有：  
-$$f_x = \frac{\partial U}{\partial x}, \,\,\, f_y = \frac{\partial U}{\partial y}, \,\,\, f_z = \frac{\partial U}{\partial z}$$
+$$f_x = \frac{\partial U}{\partial x},  f_y = \frac{\partial U}{\partial y},  f_z = \frac{\partial U}{\partial z}$$
 
 对于理想流体，因流体不可压缩，ρ 为常数，得到质量力有势的情况下的葛罗米柯方程组  
 $$\begin{cases}
@@ -629,7 +621,7 @@ W_z = (f_z - \frac{\partial p}{\partial z})\mathrm{d}x\mathrm{d}y\mathrm{d}z\cdo
 $$\rho\mathrm{d}x\mathrm{d}y\mathrm{d}z\cdot\frac{\mathrm{d} e_s}{\mathrm{d} t} = \frac{\mathrm{d}(W_x + W_y + W_z)}{\mathrm{d}t}$$
 
 理想流体中，动水压强 p 仅在 z 方向变化，故 $\frac{\partial p}{\partial x} = \frac{\partial p}{\partial y} = 0 $；同时，$e_s$中已包含重力项，故 fz=0；  
-$$\rho\frac{\mathrm{d} e_s}{\mathrm{d} t} = - \frac{\partial p}{\partial z}u_z = - \frac{\mathrm{d} p}{\mathrm{d} z}u_z  \,\, \Rightarrow \,\,  \rho\mathrm{d}(\frac{v^2}{2} + gz) = - \frac{\mathrm{d} p}{\mathrm{d} z}u_z\mathrm{d} t = -\mathrm{d} p
+$$\rho\frac{\mathrm{d} e_s}{\mathrm{d} t} = - \frac{\partial p}{\partial z}u_z = - \frac{\mathrm{d} p}{\mathrm{d} z}u_z     \Rightarrow     \rho\mathrm{d}(\frac{v^2}{2} + gz) = - \frac{\mathrm{d} p}{\mathrm{d} z}u_z\mathrm{d} t = -\mathrm{d} p
 $$
 
 两边积分，得到 **理想流体恒定流的绝对运动的能量方程**，又称 **伯努利方程**：  
@@ -700,10 +692,10 @@ u_x = \frac{\partial \varphi}{\partial x}, u_y = \frac{\partial \varphi}{\partia
 \end{cases}$$
 
 于是，则有  
-$$\frac{\partial u_x}{\partial t} = \frac{\partial}{\partial t}(\frac{\partial \varphi}{\partial x}),\,\, \frac{\partial u_y}{\partial t} = \frac{\partial}{\partial t}(\frac{\partial \varphi}{\partial y}),\,\, \frac{\partial u_z}{\partial t} = \frac{\partial}{\partial t}(\frac{\partial \varphi}{\partial z}) $$
+$$\frac{\partial u_x}{\partial t} = \frac{\partial}{\partial t}(\frac{\partial \varphi}{\partial x}),   \frac{\partial u_y}{\partial t} = \frac{\partial}{\partial t}(\frac{\partial \varphi}{\partial y}),   \frac{\partial u_z}{\partial t} = \frac{\partial}{\partial t}(\frac{\partial \varphi}{\partial z}) $$
 
 进而，则有  
-$$\frac{\partial u_x}{\partial t} = \frac{\partial}{\partial x}(\frac{\partial \varphi}{\partial t}),\,\, \frac{\partial u_y}{\partial t} = \frac{\partial}{\partial y}(\frac{\partial \varphi}{\partial t}),\,\, \frac{\partial u_z}{\partial t} = \frac{\partial}{\partial z}(\frac{\partial \varphi}{\partial t})$$
+$$\frac{\partial u_x}{\partial t} = \frac{\partial}{\partial x}(\frac{\partial \varphi}{\partial t}),   \frac{\partial u_y}{\partial t} = \frac{\partial}{\partial y}(\frac{\partial \varphi}{\partial t}),   \frac{\partial u_z}{\partial t} = \frac{\partial}{\partial z}(\frac{\partial \varphi}{\partial t})$$
 
 所以，则有  
 $$\begin{cases}
@@ -728,7 +720,7 @@ $$z + \frac{p}{\rho g} + \frac{u^2}{2g} + \frac{1}{g}\frac{\partial \varphi}{\pa
 
 *------------------ * ------------------*
 
-如果从葛罗米柯方程出发，推导 **非恒定涡流** 理想流体的能量方程：
+如果从葛罗米柯方程出发，推导 **非恒定涡流** 理想流体的能量方程：  
 只有当理想流体非恒定流流场中各空间点的流速方向不随时间而变化时，方程才能积分。此时，  
 流线与迹线重合。此时，  
 以 dx, dy, dz 表示同一流线上坐标的微分增量。  
@@ -824,20 +816,20 @@ $$\begin{cases}
 *------------------ * ------------------*
 
 层流运动时牛顿流体， 存在 **牛顿内摩擦定律**：  
-$$\tau = \eta\frac{\mathrm{d}u}{\mathrm{d}s} = \eta\frac{\mathrm{d}\theta}{\mathrm{d}t},\,\, \eta \text{ 为动力粘性系数}$$
+$$\tau = \eta\frac{\mathrm{d}u}{\mathrm{d}s} = \eta\frac{\mathrm{d}\theta}{\mathrm{d}t},   \eta \text{ 为动力粘性系数}$$
 
 方程表明层流运动时实际流体中角应变与流速梯度相等；粘性切应力与流速梯度成正比，与压力无关。  
 
 根据 **达朗贝尔原理**，可得到 **切应力互等定理**：  
-$$\tau_{xz} = \tau_{zx},\,\, \tau_{xy} = \tau_{yx},\,\, \tau_{yz} = \tau_{zy}$$
+$$\tau_{xz} = \tau_{zx},   \tau_{xy} = \tau_{yx},   \tau_{yz} = \tau_{zy}$$
 
 进而，得到  
 $$\begin{cases}
-\tau_{xz} = \tau_{zx} = \eta\,\theta_y = \eta (\frac{\partial u_x}{\partial z} + \frac{\partial u_z}{\partial x})  \\
+\tau_{xz} = \tau_{zx} = \eta \theta_y = \eta (\frac{\partial u_x}{\partial z} + \frac{\partial u_z}{\partial x})  \\
   \\
-\tau_{xy} = \tau_{yx} = \eta\,\theta_z = \eta (\frac{\partial u_x}{\partial y} + \frac{\partial u_y}{\partial x})  \\
+\tau_{xy} = \tau_{yx} = \eta \theta_z = \eta (\frac{\partial u_x}{\partial y} + \frac{\partial u_y}{\partial x})  \\
   \\
-\tau_{yz} = \tau_{zy} = \eta\,\theta_x = \eta (\frac{\partial u_y}{\partial z} + \frac{\partial u_z}{\partial y})  \\
+\tau_{yz} = \tau_{zy} = \eta \theta_x = \eta (\frac{\partial u_y}{\partial z} + \frac{\partial u_z}{\partial y})  \\
 \end{cases}$$
 
 由于实际流体中动水压强各向不相等，故采用任意三个正交方向作平均值   
@@ -926,20 +918,20 @@ f_z \\
 $$
 
 $$
-\Rightarrow \rho \,[\frac{\partial \textbf{u}}{\partial t} + (\nabla \cdot \textbf{u}) \,\textbf{u}] = \rho \textbf{f} - \nabla p + \eta \nabla^2 \textbf{u}
+\Rightarrow \rho [\frac{\partial \textbf{u}}{\partial t} + (\nabla \cdot \textbf{u}) \textbf{u}] = \rho \textbf{f} - \nabla p + \eta \nabla^2 \textbf{u}
 $$
 
 其中，方程的左端为流体单元的**动量变化率**，右端为作用在流体单元上的**各种力**：  
 $$\begin{cases}
-\frac{\partial \textbf{u}}{\partial t}，\textbf{时间项，表示方程可以描述非稳态流场}； \\
+\frac{\partial \textbf{u}}{\partial t}，\text{时间项，表示方程可以描述非稳态流场}； \\
   \\
-(\nabla \cdot \textbf{u}) \,\textbf{u}，\textbf{对流项，表征流场运动要素在空间中的信息传递，加大速度梯度}； \\
+(\nabla \cdot \textbf{u})  \textbf{u}，\text{对流项，表征流场运动要素在空间中的信息传递，加大速度梯度}； \\
   \\
-\rho \textbf{f}，\textbf{源项、惯性项（质量力），每个时刻外部环境施加的作用引起的增长率}；  \\
+\rho \textbf{f}，\text{源项、惯性项（质量力），每个时刻外部环境施加的作用引起的增长率}；  \\
   \\
-\nabla p，\textbf{压力项，使速度场满足不可压缩条件，使速度梯度增加从而使流场更加不光滑}；  \\
+\nabla p，\text{压力项，使速度场满足不可压缩条件，使速度梯度增加从而使流场更加不光滑}；  \\
   \\
-\eta \nabla^2 \textbf{u}，\textbf{粘性项、扩散项（粘性力），来自分子间的动量交换，使得速度梯度变光滑}；
+\eta \nabla^2 \textbf{u}，\text{粘性项、扩散项（粘性力），来自分子间的动量交换，使得速度梯度变光滑}；
 \end{cases}$$
 
 
@@ -994,37 +986,37 @@ $$\nabla\cdot\overline{u} = 0$$
 
 对应力方程时间平均，x 方向可得到：  
 $$\begin{aligned}
-\rho\,\frac{1}{T}\int_{0}^{T} \frac{\partial u_x}{\partial t} \,\mathrm{d}t = \\
+\rho \frac{1}{T}\int_{0}^{T} \frac{\partial u_x}{\partial t}  \mathrm{d}t = \\
 \frac{1}{T}[\rho \int_{0}^{T} f_x \mathrm{d}t - \int_{0}^{T} \frac{\partial}{\partial x}(p_{xx} + \rho u_{x}^{2}) \mathrm{d}t + \int_{0}^{T} \frac{\partial}{\partial y}(\tau_{yx} - \rho u_x u_y) \mathrm{d}t + \int_{0}^{T} \frac{\partial}{\partial z}(\tau_{zx} - \rho u_x u_z) \mathrm{d}t] 
 \end{aligned}$$
 
 其中，一阶脉动变量项因积分消失：  
 $$\begin{cases}
-\frac{1}{T}\int_{0}^{T} \frac{\partial u_x}{\partial t} \,\mathrm{d}t = \frac{1}{T}\int_{0}^{T} \frac{\partial \overline{u_x}}{\partial t} \,\mathrm{d}t + \frac{1}{T}\int_{0}^{T} \frac{\partial u_{x}^{'}}{\partial t} \,\mathrm{d}t = \frac{\partial \overline{u_x}}{\partial t} + 0 = \frac{\partial \overline{u_x}}{\partial t} \\
+\frac{1}{T}\int_{0}^{T} \frac{\partial u_x}{\partial t}  \mathrm{d}t = \frac{1}{T}\int_{0}^{T} \frac{\partial \overline{u_x}}{\partial t}  \mathrm{d}t + \frac{1}{T}\int_{0}^{T} \frac{\partial u_{x}^{'}}{\partial t}  \mathrm{d}t = \frac{\partial \overline{u_x}}{\partial t} + 0 = \frac{\partial \overline{u_x}}{\partial t} \\
   \\
-\frac{1}{T}\int_{0}^{T} \,f_x \,\,\mathrm{d}t = \frac{1}{T}\int_{0}^{T} \overline{f_x} \,\mathrm{d}t + \frac{1}{T}\int_{0}^{T} f_{x}^{'} \,\mathrm{d}t = \overline{f_x} 
+\frac{1}{T}\int_{0}^{T}  f_x   \mathrm{d}t = \frac{1}{T}\int_{0}^{T} \overline{f_x}  \mathrm{d}t + \frac{1}{T}\int_{0}^{T} f_{x}^{'}  \mathrm{d}t = \overline{f_x} 
 \end{cases}$$
 
 对高阶脉动项，一次时均无法消除：  
 $$\begin{aligned}
-\frac{1}{T}\int_{0}^{T} \frac{\partial}{\partial x}(p_{xx} + u_{x}^{2}) \,\mathrm{d}t &= \frac{1}{T}\int_{0}^{T} \frac{\partial}{\partial x}(\overline{p_{xx}} + p_{xx}^{'}) \mathrm{d}t + \frac{1}{T}\int_{0}^{T} \frac{\partial}{\partial x}(\overline{u_x} + u_{x}^{'})^2 \mathrm{d} t  \\
-&= \frac{\partial \overline{p_{xx}}}{\partial x} + \frac{\rho}{T}\int_{0}^{T} \frac{\partial}{\partial x}(\overline{u_x}^2 + 2\overline{u_x}u_{x}^{'} + u_{x}^{'2}) \,\mathrm{d}t \\
-&= \frac{\partial }{\partial x} (\overline{p_{xx}} + \rho \,\overline{u_x}^2 + \rho \,\overline{u_{x}^{'2}})
+\frac{1}{T}\int_{0}^{T} \frac{\partial}{\partial x}(p_{xx} + u_{x}^{2})  \mathrm{d}t &= \frac{1}{T}\int_{0}^{T} \frac{\partial}{\partial x}(\overline{p_{xx}} + p_{xx}^{'}) \mathrm{d}t + \frac{1}{T}\int_{0}^{T} \frac{\partial}{\partial x}(\overline{u_x} + u_{x}^{'})^2 \mathrm{d} t  \\
+&= \frac{\partial \overline{p_{xx}}}{\partial x} + \frac{\rho}{T}\int_{0}^{T} \frac{\partial}{\partial x}(\overline{u_x}^2 + 2\overline{u_x}u_{x}^{'} + u_{x}^{'2})  \mathrm{d}t \\
+&= \frac{\partial }{\partial x} (\overline{p_{xx}} + \rho  \overline{u_x}^2 + \rho  \overline{u_{x}^{'2}})
 \end{aligned}$$
 
 由此，得到  
 $$\begin{aligned}
-\rho \frac{\partial \overline{u_x}}{\partial t} = \rho \overline{f_x} &- \frac{\partial }{\partial x} (\overline{p_{xx}} + \rho \,\overline{u_x}^2 + \rho \,\overline{u_{x}^{'2}}) + \frac{\partial}{\partial y}(\overline{\tau_{yx}} - \rho \,\overline{u_x}\, \overline{u_y} - \rho \,\overline{u_{x}^{'} u_{y}^{'}}) \\
-&+ \frac{\partial}{\partial z}(\overline{\tau_{zx}} - \rho\, \overline{u_x}\,\overline{u_z} - \rho\, \overline{u_{x}^{'} u_{z}^{'}})
+\rho \frac{\partial \overline{u_x}}{\partial t} = \rho \overline{f_x} &- \frac{\partial }{\partial x} (\overline{p_{xx}} + \rho  \overline{u_x}^2 + \rho  \overline{u_{x}^{'2}}) + \frac{\partial}{\partial y}(\overline{\tau_{yx}} - \rho  \overline{u_x}  \overline{u_y} - \rho  \overline{u_{x}^{'} u_{y}^{'}}) \\
+&+ \frac{\partial}{\partial z}(\overline{\tau_{zx}} - \rho  \overline{u_x} \overline{u_z} - \rho  \overline{u_{x}^{'} u_{z}^{'}})
 \end{aligned}$$
 
 进而，得到 **湍流时均微分方程**，又称 **雷诺时均方程（RANS）**：  
 $$\begin{cases}
-\frac{\partial \overline{u_x}}{\partial t} = \overline{f_x} - \frac{\partial }{\partial x} (\overline{p_{xx}} + \frac{1}{\rho} \,\overline{u_x}^2 + \frac{1}{\rho} \,\overline{u_{x}^{'2}}) + \frac{\partial}{\partial y}(\overline{\tau_{yx}} - \frac{1}{\rho} \,\overline{u_x}\, \overline{u_y} - \frac{1}{\rho} \,\overline{u_{x}^{'} u_{y}^{'}}) + \frac{\partial}{\partial z}(\overline{\tau_{zx}} - \frac{1}{\rho}\, \overline{u_x}\,\overline{u_z} - \frac{1}{\rho}\, \overline{u_{x}^{'} u_{z}^{'}})  \\
+\frac{\partial \overline{u_x}}{\partial t} = \overline{f_x} - \frac{\partial }{\partial x} (\overline{p_{xx}} + \frac{1}{\rho}  \overline{u_x}^2 + \frac{1}{\rho}  \overline{u_{x}^{'2}}) + \frac{\partial}{\partial y}(\overline{\tau_{yx}} - \frac{1}{\rho}  \overline{u_x}  \overline{u_y} - \frac{1}{\rho}  \overline{u_{x}^{'} u_{y}^{'}}) + \frac{\partial}{\partial z}(\overline{\tau_{zx}} - \frac{1}{\rho}  \overline{u_x} \overline{u_z} - \frac{1}{\rho}  \overline{u_{x}^{'} u_{z}^{'}})  \\
   \\
-\frac{\partial \overline{u_y}}{\partial t} = \overline{f_y} - \frac{\partial }{\partial y} (\overline{p_{yy}} + \frac{1}{\rho} \,\overline{u_y}^2 + \frac{1}{\rho} \,\overline{u_{y}^{'2}}) + \frac{\partial}{\partial x}(\overline{\tau_{xy}} - \frac{1}{\rho} \,\overline{u_x}\, \overline{u_y} - \frac{1}{\rho} \,\overline{u_{x}^{'} u_{y}^{'}}) + \frac{\partial}{\partial z}(\overline{\tau_{zy}} - \frac{1}{\rho}\, \overline{u_y}\,\overline{u_z} - \frac{1}{\rho}\, \overline{u_{y}^{'} u_{z}^{'}})  \\
+\frac{\partial \overline{u_y}}{\partial t} = \overline{f_y} - \frac{\partial }{\partial y} (\overline{p_{yy}} + \frac{1}{\rho}  \overline{u_y}^2 + \frac{1}{\rho}  \overline{u_{y}^{'2}}) + \frac{\partial}{\partial x}(\overline{\tau_{xy}} - \frac{1}{\rho}  \overline{u_x}  \overline{u_y} - \frac{1}{\rho}  \overline{u_{x}^{'} u_{y}^{'}}) + \frac{\partial}{\partial z}(\overline{\tau_{zy}} - \frac{1}{\rho}  \overline{u_y} \overline{u_z} - \frac{1}{\rho}  \overline{u_{y}^{'} u_{z}^{'}})  \\
   \\
-\frac{\partial \overline{u_z}}{\partial t} = \overline{f_z} - \frac{\partial }{\partial z} (\overline{p_{zz}} + \frac{1}{\rho} \,\overline{u_z}^2 + \frac{1}{\rho} \,\overline{u_{z}^{'2}}) + \frac{\partial}{\partial x}(\overline{\tau_{xz}} - \frac{1}{\rho} \,\overline{u_x}\, \overline{u_z} - \frac{1}{\rho} \,\overline{u_{x}^{'} u_{z}^{'}}) + \frac{\partial}{\partial y}(\overline{\tau_{yz}} - \frac{1}{\rho}\, \overline{u_y}\,\overline{u_z} - \frac{1}{\rho}\, \overline{u_{y}^{'} u_{z}^{'}})  \\
+\frac{\partial \overline{u_z}}{\partial t} = \overline{f_z} - \frac{\partial }{\partial z} (\overline{p_{zz}} + \frac{1}{\rho}  \overline{u_z}^2 + \frac{1}{\rho}  \overline{u_{z}^{'2}}) + \frac{\partial}{\partial x}(\overline{\tau_{xz}} - \frac{1}{\rho}  \overline{u_x}  \overline{u_z} - \frac{1}{\rho}  \overline{u_{x}^{'} u_{z}^{'}}) + \frac{\partial}{\partial y}(\overline{\tau_{yz}} - \frac{1}{\rho}  \overline{u_y} \overline{u_z} - \frac{1}{\rho}  \overline{u_{y}^{'} u_{z}^{'}})  \\
 \end{cases}$$
 
 方程表明，湍流时的时均应力可以视为由两部份构成：  
@@ -1044,7 +1036,7 @@ $$\begin{cases}
 $$ F + F_N + (-m \cdot a) = 0 $$
 
 3. 切应力互等定理，相互垂直平面上，切应力成对存在且大小相等，同垂直于平面交线：  
-$$\tau_{xz} = \tau_{zx},\,\, \tau_{xy} = \tau_{yx},\,\, \tau_{yz} = \tau_{zy}$$
+$$\tau_{xz} = \tau_{zx},   \tau_{xy} = \tau_{yx},   \tau_{yz} = \tau_{zy}$$
 
 4. **微分算子**  
 $$\nabla = (\frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z})$$
@@ -1076,7 +1068,7 @@ $$\nabla^2 u = \nabla \cdot (\nabla u) = \frac{\partial^2 u}{\partial x^2} + \fr
     + 力矩（Torque），改变物体转动状态；$T = s \times F$，力矩是位移与力的矢量积。
     + 如果一个系统，在研究过程中，不受外力作用，那么这个系统的总动量守恒。
     + 如果一个系统，在研究过程中，不受外力矩的作用，那么这个系统的总角动量守恒。
-    + 物体达到静平衡，$\sum F = 0 \,\,\,And\,\,\, \sum T = 0$ 。
+    + 物体达到静平衡，$\sum F = 0    And    \sum T = 0$ 。
 
 | 运动 | --- | --- | --- | --- | --- |
 | :--- | :--- | :--- | :--- | :--- | :--- | 
@@ -1085,8 +1077,8 @@ $$\nabla^2 u = \nabla \cdot (\nabla u) = \frac{\partial^2 u}{\partial x^2} + \fr
 
 | 运动 | --- | --- | --- | --- | 
 | :--- | :--- | :--- | :--- | :--- |
-| 平动 | 动量，$P = mv$ | 动能，$E_k = \frac{1}{2}\,mv^2$ | 做功，$W = \int_{s1}^{s2}F\,\mathrm{d}s$ | 静平衡，$\sum F = 0$ |
-| 转动 | 角动量，$L = I\alpha$ | 动能，$E_k = \frac{1}{2}\,I\omega^2$ |做功，$W = \int_{\theta1}^{\theta2}T\,\mathrm{d}\theta$ | 静平衡，$\sum T = 0$ |
+| 平动 | 动量，$P = mv$ | 动能，$E_k = \frac{1}{2} mv^2$ | 做功，$W = \int_{s1}^{s2}F \mathrm{d}s$ | 静平衡，$\sum F = 0$ |
+| 转动 | 角动量，$L = I\alpha$ | 动能，$E_k = \frac{1}{2} I\omega^2$ |做功，$W = \int_{\theta1}^{\theta2}T \mathrm{d}\theta$ | 静平衡，$\sum T = 0$ |
 
 ---------------------------------------------------------------------------
 
@@ -1127,7 +1119,7 @@ $$\begin{cases}
 $$\frac{\mathrm{d} e_s}{\mathrm{d} t} = \rho\frac{\partial e_s}{\partial t} + \Delta e_x + \Delta e_y + \Delta e_z = \rho(\frac{\partial e_s}{\partial t} + \frac{\partial u_x e_s}{\partial x} + \frac{\partial u_y e_s}{\partial y} + \frac{\partial u_z e_s}{\partial z}) $$
 
 单位时间内，**质量力做功速率**：  
-$$W_{m,x} = f_x u_x \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z, \,\,W_{m,y} = f_y u_y \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z, \,\,W_{m,z} = f_z u_z \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z$$
+$$W_{m,x} = f_x u_x \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z,   W_{m,y} = f_y u_y \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z,   W_{m,z} = f_z u_z \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z$$
 
 在 x 方向，表面力的做功速率：  
 $$\begin{cases}
@@ -1169,7 +1161,7 @@ $$\frac{\mathrm{d} e_s}{\mathrm{d} t} = f_m \cdot u + \frac{1}{\rho} \nabla (f_s
 *--- 注意：---*  
 1. 傅里叶定律：导热现象中，单位时间内通过给定截面的热量，正比于垂直于该截面方向上的温度梯度  
 和截面面积，而热量传递的方向则与温度升高的方向相反。  
-沿 x 方向的热流密度 $J_{T,x} \,\,(W\cdot m^{-2})$，导热系数 $\kappa \,\,(W\cdot m^{-1}\cdot K^{-1})$，存在  $J_{T,x} = -\kappa \, \frac{\partial T}{\partial x}$ 。
+沿 x 方向的热流密度 $J_{T,x} (W\cdot m^{-2})$，导热系数 $\kappa (W\cdot m^{-1}\cdot K^{-1})$，根据定律  $J_{T,x} = -\kappa \frac{\partial T}{\partial x}$ 。
 
 
 ---------------------------------------------------------------------------
