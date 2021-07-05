@@ -1,10 +1,11 @@
-# OpenOasis
-Open-Oasis，开源绿洲，一个物理世界机理模型的开放实验项目。
+<p align="center">
+  <a href="https://github.com/OurForce2020/OpenOasis"><img src="../Resources/logo/logo.png" alt=""></a>
+</p>
 
 ---------------------------------------------------------------------------
 
 ## XAJ Theory Frame
-*水文学·新安江理论框架*  
+*水文学·新安江概念模型*  
 
 
 
