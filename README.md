@@ -6,7 +6,7 @@
 
 ---------------------------------------------------------------------------
 
-# [开源绿洲 OpenOasis](https://github.com/OurForce2020/OpenOasis)
+# [开源绿洲](https://github.com/OurForce2020/OpenOasis)
 
 简体中文 | [english](./Docs/README_en.md)
 
