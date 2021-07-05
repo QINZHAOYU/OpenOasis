@@ -514,10 +514,10 @@ f_y - \frac{1}{\rho}\frac{\partial p}{\partial y} = 0 \\
 f_z - \frac{1}{\rho}\frac{\partial p}{\partial z} = 0 \\
 \end{cases}$$
 
-因在流场中，加速度为时变加速度和位变加速之和，即   
+因为在流场中，加速度由时变加速度和位变加速两部分组成，即：   
 $$a_i = \frac{\mathrm{d}u_i}{\mathrm{d}t} = \frac{\partial u_i}{\partial t} + \frac{\partial u_i}{\partial x}\frac{\mathrm{d}x}{\mathrm{d}t} + \frac{\partial u_i}{\partial y}\frac{\mathrm{d}y}{\mathrm{d}t} + \frac{\partial u_i}{\partial z}\frac{\mathrm{d}z}{\mathrm{d}t} $$
 
-所以，理想流体的运动方程（欧拉方程）的展开形式为  
+所以，欧拉方程简化：  
 $$\begin{cases}
 f_x - \frac{1}{\rho}\frac{\partial p}{\partial x} = \frac{\partial u_x}{\partial t} + u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} + u_z\frac{\partial u_x}{\partial z} \\
   \\
@@ -1032,10 +1032,58 @@ $$\begin{cases}
 2. 在边界层内的粘性流动，流速自0 增至主流速U0，流速梯度很大，内摩擦力显著，采用 N-S 方程。
 
 在边界层内，与粘性力相比，质量力可以忽略，得到：  
-$$$$
+$$\rho [\frac{\partial \textbf{u}}{\partial t} + (\nabla \cdot \textbf{u}) \textbf{u}] = - \nabla p + \eta \nabla^2 \textbf{u}$$
 
+进一步，考虑恒定二维流动：  
+$$\begin{cases}
+u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} = - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \nu (\frac{\partial^2 u_x}{\partial x^2} + \frac{\partial^2 u_x}{\partial y^2})  \\
+  \\
+u_x\frac{\partial u_y}{\partial x} + u_y\frac{\partial u_y}{\partial y} = - \frac{1}{\rho}\frac{\partial p_{yy}}{\partial x} + \nu (\frac{\partial^2 u_y}{\partial x^2} + \frac{\partial^2 u_y}{\partial y^2})  \\
+  \\
+\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} = 0 \\
+\end{cases}$$
 
+其中，x 为沿固体表面的距离（0 -> l）；y 为边界层厚度（0 -> δ）；ux 为沿固体表面流速（0 -> U0）。   
+同时可知，$\frac{\delta}{l}$ 是一个微小量。
 
+利用边界层内液流的运动特性，对方程各项作 **量纲分析** 和 **数量级分析**：  
+$$y \sim \delta, x \sim l, u_x \sim U_0, \frac{\partial u_x}{\partial y} \sim \frac{U_0}{\delta}, \frac{\partial^2 u_x}{\partial y^2} \sim \frac{U_0}{\delta^2}, \frac{\partial u_x}{\partial x} \sim \frac{U_0}{l}, \frac{\partial^2 u_x}{\partial x^2} \sim \frac{U_0}{l^2}$$
+
+由连续性方程 $\frac{\partial u_x}{\partial x} = - \frac{\partial u_y}{\partial y}$，可知二者具有相同数量级：  
+$$\frac{\partial u_y}{\partial y} \sim \frac{U_0}{l}, \frac{\partial^2 u_y}{\partial y^2} \sim \frac{U_0}{l \delta}$$
+
+又因为 $u_y = \int_{0}^{y} \frac{\partial u_y}{\partial y} \mathrm{d}y$，故：  
+$$u_y \sim \frac{U_0}{l}\delta, \frac{\partial u_y}{\partial x} \sim \frac{U_0\delta}{l^2}，\frac{\partial^2 u_y}{\partial x^2} \sim \frac{U_0\delta}{l^3}$$
+
+根据上列方程组各项的数量级，进行分析比较可以得出 ：  
+1. x 方向，惯性项 $u_x\frac{\partial u_x}{\partial x}, u_y\frac{\partial u_x}{\partial y}$ 为同一数量级，二者相比，无法忽略其中某项；
+2. x 方向，粘性项 $\frac{\partial^2 u_x}{\partial x^2}, \frac{\partial^2 u_x}{\partial y^2}$，二者数量级比例 $\frac{U_0}{l^2} : \frac{U_0}{\delta^2} = (\frac{\delta}{l})^2$ 是一个微小值的平方，故前者可以忽略；  
+3. y 方向，惯性项 $u_x\frac{\partial u_y}{\partial x}, u_y\frac{\partial u_y}{\partial y}$ 为同一数量级，二者相比，无法忽略其中某项；  
+4. y 方向，粘性项 $\frac{\partial^2 u_y}{\partial x^2}, \frac{\partial^2 u_y}{\partial y^2}$，二者数量级比例 $\frac{U_0 \delta}{l^3} : \frac{U_0}{l\delta} = (\frac{\delta}{l})^2$ 是一个微小值的平方，故前者可以忽略；
+
+经此，方程继续简化：  
+$$\begin{cases}
+u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} = - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \nu \frac{\partial^2 u_x}{\partial y^2}  \\
+  \\
+u_x\frac{\partial u_y}{\partial x} + u_y\frac{\partial u_y}{\partial y} = - \frac{1}{\rho}\frac{\partial p_{yy}}{\partial x} + \nu \frac{\partial^2 u_y}{\partial y^2}  \\
+  \\
+\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} = 0 \\
+\end{cases}$$
+
+继续分析，可以发现：
++ y 方向的惯性项相比 x 方向的惯性项，比例 $\frac{\delta}{l}$ 是一个微小量，故忽略前者对方程解的精确度并无影响；
++ y 方向的粘性项相比 x 方向的黏性项，比例 $\frac{\delta}{l}$ 是一个微小量，故忽略前者对方程解的精确度并无影响；
+
+因此方程进一步简化，得到恒定二维流场的 **边界层微分方程**：
+$$\begin{cases}
+u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} = - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \nu \frac{\partial^2 u_x}{\partial y^2}  \\
+  \\
+\frac{\partial p_{yy}}{\partial x} = 0 \\
+  \\
+\frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} = 0 \\
+\end{cases}$$
+
+方程基于平面绕流推导，但一般可用于曲率较小的曲面边界层：取固体表面曲线为 x 轴，曲线法向为 y 轴。
 
 </div>
 
@@ -1173,6 +1221,13 @@ $$\frac{\mathrm{d} e_s}{\mathrm{d} t} = f_m \cdot u + \frac{1}{\rho} \nabla (f_s
 和截面面积，而热量传递的方向则与温度升高的方向相反。  
 沿 x 方向的热流密度 $J_{T,x} (W\cdot m^{-2})$，导热系数 $\kappa (W\cdot m^{-1}\cdot K^{-1})$，根据定律  $J_{T,x} = -\kappa \frac{\partial T}{\partial x}$ 。
 
-
 ---------------------------------------------------------------------------
 
+### References
+
+*参考文献*
+
+[1] 吴持恭. 水力学：下册[J]. 高等教育出版社, 2007.
+[2] 李福宝,李勤,等. 流体力学[J]. 冶金工业出版社, 2010.
+
+---------------------------------------------------------------------------
