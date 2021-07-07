@@ -1,8 +1,6 @@
-<center>
-  
-![logo](./Resources/logo/logo.png)  
-
-</center>
+<p align="center">
+  <a href="https://github.com/OurForce2020/OpenOasis"><img src="./Resources/logo/logo.png" alt=""></a>
+</p>
 
 ---------------------------------------------------------------------------
 
@@ -27,7 +25,7 @@
 我们可以尝试学习和更深入理解周围的自然和城市环境。
 
 [系统水循环](./SystemWaterCirculation/README.md)  
-[系统热流动](./SystemThermalCirculation/README.md)  
+[系统热流动](./SystemHeatCirculation/README.md)  
 [系统碳循环](./SystemCarbonCirculation/README.md)
 
 ---------------------------------------------------------------------------
@@ -44,10 +42,8 @@
 ## 开源绿洲 · 数据
 
 当前的数据大爆炸，然而如何提取我们需要的数据、如何评估数据质量、如何高效展示数据？  
-
-[数据提取方案](./DataExtractScheme/README.md)  
-[数据分析方案](./DataAnalyseScheme/README.md)  
-[数据展示方案](./DataVisualizeScheme/README.md)  
+ 
+[数据分析工具](./DataAnalysisKit/README.md)  
 
 ---------------------------------------------------------------------------
 
@@ -59,10 +55,10 @@
 [资源](./Resources/README.md)
 
 ---------------------------------------------------------------------------
-<center>
+<div align="center">
 
-[------------*------------ 加入我们，一起探索绿洲世界！------------*------------](https://www.wjx.cn/jq/50964691.aspx)
+**------------*------------ 加入我们，一起探索绿洲世界！------------*------------**
 
-</center>
+</div>
 
 ---------------------------------------------------------------------------
