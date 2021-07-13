@@ -1036,9 +1036,9 @@ $$\rho [\frac{\partial \textbf{u}}{\partial t} + (\nabla \cdot \textbf{u}) \text
 
 进一步，考虑恒定二维流动：  
 $$\begin{cases}
-u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} = - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \nu (\frac{\partial^2 u_x}{\partial x^2} + \frac{\partial^2 u_x}{\partial y^2})  \\
+u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} = - \frac{1}{\rho}\frac{\partial p}{\partial x} + \nu (\frac{\partial^2 u_x}{\partial x^2} + \frac{\partial^2 u_x}{\partial y^2})  \\
   \\
-u_x\frac{\partial u_y}{\partial x} + u_y\frac{\partial u_y}{\partial y} = - \frac{1}{\rho}\frac{\partial p_{yy}}{\partial x} + \nu (\frac{\partial^2 u_y}{\partial x^2} + \frac{\partial^2 u_y}{\partial y^2})  \\
+u_x\frac{\partial u_y}{\partial x} + u_y\frac{\partial u_y}{\partial y} = - \frac{1}{\rho}\frac{\partial p}{\partial x} + \nu (\frac{\partial^2 u_y}{\partial x^2} + \frac{\partial^2 u_y}{\partial y^2})  \\
   \\
 \frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} = 0 \\
 \end{cases}$$
@@ -1063,9 +1063,9 @@ $$u_y \sim \frac{U_0}{l}\delta, \frac{\partial u_y}{\partial x} \sim \frac{U_0\d
 
 经此，方程继续简化：  
 $$\begin{cases}
-u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} = - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \nu \frac{\partial^2 u_x}{\partial y^2}  \\
+u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} = - \frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \frac{\partial^2 u_x}{\partial y^2}  \\
   \\
-u_x\frac{\partial u_y}{\partial x} + u_y\frac{\partial u_y}{\partial y} = - \frac{1}{\rho}\frac{\partial p_{yy}}{\partial x} + \nu \frac{\partial^2 u_y}{\partial y^2}  \\
+u_x\frac{\partial u_y}{\partial x} + u_y\frac{\partial u_y}{\partial y} = - \frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \frac{\partial^2 u_y}{\partial y^2}  \\
   \\
 \frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} = 0 \\
 \end{cases}$$
@@ -1076,9 +1076,9 @@ u_x\frac{\partial u_y}{\partial x} + u_y\frac{\partial u_y}{\partial y} = - \fra
 
 因此方程进一步简化，得到恒定二维流场的 **边界层微分方程**：
 $$\begin{cases}
-u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} = - \frac{1}{\rho}\frac{\partial p_{xx}}{\partial x} + \nu \frac{\partial^2 u_x}{\partial y^2}  \\
+u_x\frac{\partial u_x}{\partial x} + u_y\frac{\partial u_x}{\partial y} = - \frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \frac{\partial^2 u_x}{\partial y^2}  \\
   \\
-\frac{\partial p_{yy}}{\partial x} = 0 \\
+\frac{\partial p}{\partial x} = 0 \\
   \\
 \frac{\partial u_x}{\partial x} + \frac{\partial u_y}{\partial y} = 0 \\
 \end{cases}$$
