@@ -188,7 +188,7 @@ $$ \frac{\mathrm{d}x}{u_x} = \frac{\mathrm{d}y}{u_y} = \frac{\mathrm{d}z}{u_z} =
 
 ---------------------------------------------------------------------------
 
-### The Basic Form of Particle Motion
+### The Basic Performance of Particle Motion
 
 *质点运动的基本形式*
 
@@ -288,7 +288,7 @@ $$\begin{cases}
 
 ---------------------------------------------------------------------------
 
-### Eddy & Potenial Flow
+### Vortex Flow & Potential Flow
 
 *涡流 和 势流*
 
@@ -769,7 +769,7 @@ $$z + \frac{p}{\rho g} + \frac{u^2}{2g} + \frac{1}{g}\int \frac{\partial u}{\par
 
 ---------------------------------------------------------------------------
 
-### The Motion Equation of Actual Fluid
+### The Motion Equation of Real Fluid
 
 *实际流体的运动方程*
 
@@ -1140,7 +1140,7 @@ $$\nabla^2 u = \nabla \cdot (\nabla u) = \frac{\partial^2 u}{\partial x^2} + \fr
 
 ---------------------------------------------------------------------------
 
-### The Enerty Equation of Actual Fluid
+### The Energy Equation of Real Fluid
 
 *实际流体的能量方程*
 
@@ -1182,7 +1182,9 @@ $$W_{m,x} = f_x u_x \rho \mathrm{d}x\mathrm{d}y\mathrm{d}z,   W_{m,y} = f_y u_y 
 在 x 方向，表面力的做功速率：  
 $$\begin{cases}
 \textbf{x 方向前后切面}，(p_{xx} + \frac{\partial p_{xx}}{\partial x}\mathrm{d}x) \mathrm{d}y\mathrm{d}z (u_x + \frac{\partial u_x}{\partial x}\mathrm{d}x) - p_{xx} u_x \mathrm{d}y\mathrm{d}z; \\
+  \\
 \textbf{x 方向左右切面}，(\tau_{yx} + \frac{\partial \tau_{yx}}{\partial y}\mathrm{d}y) \mathrm{d}x\mathrm{d}z (u_x + \frac{\partial u_x}{\partial y}\mathrm{d}y) - \tau_{yx} u_x \mathrm{d}x\mathrm{d}z; \\
+  \\
 \textbf{x 方向上下切面}，(\tau_{zx} + \frac{\partial \tau_{zx}}{\partial z}\mathrm{d}z) \mathrm{d}x\mathrm{d}y (u_x + \frac{\partial u_x}{\partial z}\mathrm{d}z) - \tau_{zx} u_x \mathrm{d}x\mathrm{d}y; \\
 \end{cases}$$
 
@@ -1191,7 +1193,9 @@ $$\Rightarrow (\frac{\partial p_{xx} u_x}{\partial x} + \frac{\partial \tau_{yx}
 由此类推得，**表面力做功速率**：  
 $$\begin{cases}
 W_{s,x} = (\frac{\partial p_{xx} u_x}{\partial x} + \frac{\partial \tau_{yx} u_x}{\partial y} + \frac{\partial \tau_{zx} u_x}{\partial z}) \mathrm{d}x\mathrm{d}y\mathrm{d}z  \\
+  \\
 W_{s,y} = (\frac{\partial p_{yy} u_y}{\partial y} + \frac{\partial \tau_{xy} u_y}{\partial x} + \frac{\partial \tau_{zy} u_y}{\partial z}) \mathrm{d}x\mathrm{d}y\mathrm{d}z  \\
+  \\
 W_{s,z} = (\frac{\partial p_{zz} u_z}{\partial z} + \frac{\partial \tau_{xz} u_z}{\partial x} + \frac{\partial \tau_{yz} u_z}{\partial x}) \mathrm{d}x\mathrm{d}y\mathrm{d}z  \\
 \end{cases}$$
 
