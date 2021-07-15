@@ -79,11 +79,52 @@
 
 </div>
 
+*--- 注意：---* 
+1. 压力管道中非恒定流波的传播是靠压力差的作用，称为压力传播；  
+明渠中非恒定流波的传播是靠重力作用，又称重力传播。
+
+2. 对于不连续波，波峰处水面很陡、水力要素不连续，但波体部分水面仍较为平缓，可近似看作渐变流。
+
 ---------------------------------------------------------------------------
 
-### The Continuity Equation of Unsteady Gradually Varied Open Channel Flow
+### The Continuity Equation of Unsteady Flow
 
-*明渠非恒定渐变流连续性方程*
+*非恒定流连续性方程*
+
+<div align="center">
+
+<img src="./imgs/23.jpg" width=600 height=240>
+
+在非恒定水流中取出长度为 ds 的微分段作为控制体，两端断面为 n-n、m-m。  
+设 n-n 断面的面积为 A，流速为 v，水流密度为 ρ。  
+
+在 dt 时段内，流段上  
+通过 n-n 断面流入的水体质量为 $\rho v A \mathrm{d}t$，通过 m-m 断面流出的水体质量 $\rho v A \mathrm{d}t + \frac{\partial}{\partial s}(\rho v A \mathrm{d}t) \mathrm{d}s$；  
+$$\Rightarrow \rho v A \mathrm{d}t - [\rho v A \mathrm{d}t + \frac{\partial}{\partial s}(\rho v A \mathrm{d}t) \mathrm{d}s] = \frac{\partial}{\partial t}(\rho A \mathrm{d}s) \mathrm{d}t$$
+
+由此，**非恒定流连续方程** 的普遍形式：  
+$$\frac{\partial}{\partial t}(\rho A) + \frac{\partial}{\partial s}(\rho v A) = 0$$
+
+方程适用于压力管道非恒定流、弹性管壁压力管道非恒定流以及明渠非恒定流；适用可压缩**水击**水流。
+
+对于明渠不可压缩的非恒定流，则有：  
+$$\frac{\partial A}{\partial t} + \frac{\partial v A}{\partial s} = \frac{\partial A}{\partial t} + \frac{\partial Q}{\partial s} = 0 $$
+
+对于不考虑管壁弹性的管道非恒定流：
+$$v A = f(t)$$
+
+该方程表明管道非恒定流的流量只随时间变化，在同一时刻下流量沿程不变（如调压系统液面震荡）。
+
+
+</div>
+
+*--- 注意：---* 
+
+---------------------------------------------------------------------------
+
+### The Motion Equation of Unsteady Flow
+
+*非恒定流运动方程*
 
 <div align="center">
 
