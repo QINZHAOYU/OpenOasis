@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/OurForce2020/OpenOasis"><img src="../Resources/logo/logo.png" alt=""></a>
+  <a href="https://github.com/OurForce2020/OpenOasis"><img src="../Resources/Logo/logo.png" alt=""></a>
 </p>
 
 ---------------------------------------------------------------------------
@@ -45,7 +45,7 @@
 对于明渠非恒定流的波动，其是由于在非恒定流明渠的某一位置流量和水位发生改变而形成的，  
 以重力、通过水流质点的位移形成波的传播，在波所及区域内引起当地流量和水位的变化，称为 **变位波**。
 
-<img src="./imgs/19.jpg" width=400 height=200>
+<img src="./Imgs/19.jpg" width=400 height=200>
 
 明渠非恒定流的波由两部分组成：**波峰** 和 **波体**。波峰推进速度 Vw 称为 **波速**，v 为过水断面平均流速。
 
@@ -53,8 +53,8 @@
 + **连续波**，又称 **非恒定渐变流**，要素变化平缓，波高相对波长很小，水流瞬时流线近乎成平行直线；
 + **间断波**，又称 **非恒定急变流**，要素变化剧烈，波高较大，波峰处水面很陡、要素不再是连续函数；
 
-<img src="./imgs/20.jpg" width=350 height=200>
-<img src="./imgs/21.jpg" width=350 height=200>
+<img src="./Imgs/20.jpg" width=350 height=200>
+<img src="./Imgs/21.jpg" width=350 height=200>
 
 **涨水波**，当波到达后引起明渠水位抬高；**落水波**，当波到达后引起明渠水位下降。  
 **顺波**，波的传播方向与水流方向一致；反之，则为 **逆波**。  
@@ -63,7 +63,7 @@
 致下游水位迅速上涨，形成涨水顺波向下游传播；上游因泄流增加，水位下降，有落水逆波向上传播。  
 同理，当明渠上水闸快速关闭时，上游将产生涨水逆波向上游传播，下游将产生落水顺波向下游传播。
 
-<img src="./imgs/22.jpg" width=700 height=200>
+<img src="./Imgs/22.jpg" width=700 height=200>
 
 在稳定的没有冲淤变化的明渠内，当水流为恒定流时，因水面坡度为定值，故水位与流量呈单值关系。  
 对于明渠非恒定流，由于  
@@ -93,7 +93,7 @@
 
 <div align="center">
 
-<img src="./imgs/23.jpg" width=600 height=240>
+<img src="./Imgs/23.jpg" width=600 height=240>
 
 在非恒定水流中取出长度为 ds 的微分段作为控制体，两端断面为 n-n、m-m。  
 设 n-n 断面的面积为 A，流速为 v，水流密度为 ρ。  
@@ -132,7 +132,7 @@ $$v A = f(t)$$
 
 <div align="center">
 
-<img src="./imgs/24.jpg" width=600 height=240>
+<img src="./Imgs/24.jpg" width=600 height=240>
 
 在非恒定流中取长度为 ds 的微小流束，s 轴取于恒定流时水流方向一致，轴线与水平线夹角为 θ。  
 n-n 断面上密度为 $\rho$，过水面积为 $A$，湿周为 $\chi$，压强为 $p$;  

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/OurForce2020/OpenOasis"><img src="../Resources/logo/logo.png" alt=""></a>
+  <a href="https://github.com/OurForce2020/OpenOasis"><img src="../Resources/Logo/logo.png" alt=""></a>
 </p>
 
 ---------------------------------------------------------------------------
@@ -56,7 +56,7 @@ u_z = f_z(x, y, z, t) \\
 + 同一空间点上不同质点通过时的速度是不同的，即流速随时间变化；
 + 同一瞬间下不同空间点的流速也是不同的，即流速随空间位置变化。
 
-<img src="./imgs/1.jpg" width=440 height=200>
+<img src="./Imgs/1.jpg" width=440 height=200>
 
 在时刻 t，流场中 $ A, A' $ 点 x 方向投影流速分别为 $ u_x, u_x + \frac{\partial u_x}{\partial x}\mathrm{d}x $；    
 在时刻 t+dt，流场中 $ A, A' $ 点 x 方向投影流速分别为 $ u_x + \frac{\partial u_x}{\partial t}\mathrm{d}t $, $ (u_x + \frac{\partial u_x}{\partial x}\mathrm{d}x) + \frac{\partial }{\partial t}(u_x + \frac{\partial u_x}{\partial x}\mathrm{d}x)\mathrm{d}t $。    
@@ -143,7 +143,7 @@ u_z = f_z(t) \\
 
 **流线**，是某一时刻下流速场内的一条几何曲线，在该曲线上每个流体质点的速度向量与该曲线相切。  
 
-<img src="./imgs/2.jpg" width=440 height=200>
+<img src="./Imgs/2.jpg" width=440 height=200>
 
 如图所示，若在流线 AB 上取一微分段 ds，因其无限小，所以可以看作是直线。根据流线的定义可知，  
 A 点处的流速向量 u 与此流线微分段相切。  
@@ -159,7 +159,7 @@ $$ \frac{dx}{u_x} = \frac{dy}{u_y} = \frac{dz}{u_z} = \frac{ds}{u} $$
 
 其中，$ u_i $ 都是 x, y, z, t 的函数；求取流速场内某时刻 t 下流线时，把 t 作为常数代入该方程，积分即可。  
 
-<img src="./imgs/10.jpg" width=420 height=180>
+<img src="./Imgs/10.jpg" width=420 height=180>
 
 **流束**，流场中任意取一微小面积，通过该面积上的各点作出的一束流线群；**流管**，即流束空间的表面积。  
 
@@ -194,8 +194,8 @@ $$ \frac{\mathrm{d}x}{u_x} = \frac{\mathrm{d}y}{u_y} = \frac{\mathrm{d}z}{u_z} =
 
 <div align="center">
 
-<img src="./imgs/3.jpg" width=240 height=280>
-<img src="./imgs/4.jpg" width=440 height=280>
+<img src="./Imgs/3.jpg" width=240 height=280>
+<img src="./Imgs/4.jpg" width=440 height=280>
 
 在流体中取一个微分平行六面体，各边长 dx, dy, dz；其中，角点 P(x, y, z) 处速度矢量 u(ux, uy, uz)；   
 其它角点处速度可以通过 **泰勒级数** 表达。  
@@ -297,7 +297,7 @@ $$\begin{cases}
 按照流体质点本身有无旋转，将流体运动分为 **有涡流** 和 **无涡流**。  
 涡是指流体质点绕其自身轴旋转的运动，与通常的旋转运动不同。  
 
-<img src="./imgs/6.jpg" width=400 height=180>
+<img src="./Imgs/6.jpg" width=400 height=180>
 
 对于无涡流，  
 $$\begin{cases}
@@ -335,7 +335,7 @@ $$\begin{gathered}
 \mathrm{d}\varphi = u_x\mathrm{d}x + u_y\mathrm{d}y + u_z\mathrm{d}z \end{gathered}$$
 
 
-<img src="./imgs/7.jpg" width=440 height=240>
+<img src="./Imgs/7.jpg" width=440 height=240>
 
 有涡流可用旋转角速度的矢量来表征，即 **涡流场**；类似流速场，可以引入 涡线 和 涡束等概念。  
 **涡线**，某一瞬时涡量场中一条几何曲线，线上各质点在同一瞬时的旋转角速度都与该曲线相切。  
@@ -347,7 +347,7 @@ $$ \frac{\mathrm{d}x}{\omega_x} = \frac{\mathrm{d}y}{\omega_y} = \frac{\mathrm{d
 在微小涡束断面上各点的旋转角速度可以认为是相等的。  
 **涡旋通量**，类似于流量，是微小涡束的横断面的面积与其上的旋转角速度之积，又称 **涡旋强度**。  
 
-<img src="./imgs/8.jpg" width=440 height=260>
+<img src="./Imgs/8.jpg" width=440 height=260>
 
 在流场中取任意的封闭周线，将流速矢量沿周线的积分，称为 **速度环量** ，可以表示涡旋强度。  
 在上图中，封闭周线 C 上取微小弧段 Δs，弧段上流速 u 与左手定则绕行下的切线的夹角为 α，  
@@ -397,7 +397,7 @@ $$\begin{aligned}
 如果流体是不可压缩的均质流体，则封闭空间流进与流出的流体质量应该相等。  
 以上质量守恒关系以数学分析表达成微分方程，即称为**流体运动的连续性方程**。  
 
-<img src="./imgs/9.jpg" width=440 height=220>
+<img src="./Imgs/9.jpg" width=440 height=220>
 
 流场中一微分平行六面体，边长为 dx, dy, dz，形心A(x,y,z) 速度 u(ux,uy,uz)、密度 ρ。经微小时段 dt，  
 
@@ -479,7 +479,7 @@ Q_i = Q_o
 1. 动水压强总是沿着作用面的内法线方向。因为 “无粘假设”，故流体内无切应力，故作用面上仅压应力。
 2. 在理想流体中，任何点的动水压强在各个方向上的大小均相等（与静水压强相同）。
 
-<img src="./imgs/12.jpg" width=440 height=240>
+<img src="./Imgs/12.jpg" width=440 height=240>
 
 在理想流体流场中任意一点A(x, y, z) 处动水压强为 p，速度 ux, uy, uz。以A 为中心取一微分平行六面体，  
 其边长为 dx, dy, dz，分别平行于 x, y, z 轴。同时，  
@@ -596,7 +596,7 @@ $$\begin{cases}
 将热力学第一定律应用于流体流动，把以上热力学关系以数学表达成微分方程，称为 **流体运动的能量方程**。  
 理想流体由于无粘性、不可压缩，所以没有内能损耗，其能量方程反应的是外部做功与流体机械能的关系 。  
 
-<img src="./imgs/12.jpg" width=440 height=240>
+<img src="./Imgs/12.jpg" width=440 height=240>
 
 在理想流体流场中任意一点A(x, y, z) 处动水压强为 p，速度 ux, uy, uz。以A 为中心取一微分平行六面体，  
 其边长为 dx, dy, dz，分别平行于 x, y, z 轴。同时，  
@@ -788,7 +788,7 @@ Pz 在 x, y, z 三个方向均有分量：
 + 第一个脚号表示应力作用的面与哪个轴垂直；
 + 第二个脚号表示应力作用方向与哪个轴平行。
 
-<img src="./imgs/17.jpg" width=560 height=240>
+<img src="./Imgs/17.jpg" width=560 height=240>
 
 在实际流体中分离一个微分平行六面体，密度 ρ，各边长 dx, dy, dz；假设，速度沿各轴的正方向增大。  
 在 x 方向，动力平衡方程：    
@@ -1152,7 +1152,7 @@ $$
 \textbf{外界传热速率} + \textbf{外界做功速率}
 $$
 
-<img src="./imgs/17.jpg" width=560 height=240>
+<img src="./Imgs/17.jpg" width=560 height=240>
 
 在实际流体中取一个微分平行六面体，密度 ρ，各边长 dx, dy, dz；假设，速度、温度沿各轴的正方向增大。
 
