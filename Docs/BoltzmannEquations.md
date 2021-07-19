@@ -25,8 +25,38 @@
 
 *计算流体力学的学习，明其全而析其微。*
 
-“明其全”，对所学的数值方法在原理上有较透彻的掌握；“析其微”，对采用的数值方法在实施过程中的细节有较好的了解。
+“明其全”，要对所学的数值方法在原理上有较透彻的掌握；“析其微”，要对采用的数值方法在实施中的细节有较深入的了解。
 
 </div>
 
 ---------------------------------------------------------------------------
+
+### Macroscopic Continuous Model
+
+*宏观连续模型*
+
+<div align="center"> 
+
+衡量连续介质假设是否合理的特征参数是 **努森数（Knudsen Number）**，即分子平均自由程与流动的宏观特征长度之比：
+$$K_n = \frac{\lambda}{L}$$
+
+$\lambda$ 可以理解为分子在两次连续碰撞之间的平均飞行距离；$L$ 通常取为流场或物体的尺寸，或者采用密度的梯度 $L = \frac{\rho}{|\Delta \rho|}$。  
+只有当努森数很小时（一般< 0.001），流体才可以视为是连续的。
+
+基于连续介质假设，流体运动遵循质量、动量和能量的守恒定律：  
+$$\begin{aligned}
+&\Rightarrow \frac{\partial \rho}{\partial t} + \nabla(\rho \textbf{u}) = 0 \\
+&\Rightarrow \frac{\partial (\rho \textbf{u})}{\partial t} + \nabla \cdot (\rho \textbf{u} \textbf{u}) = \nabla \cdot \pmb{\sigma} \\
+&\Rightarrow \frac{\partial (\rho e)}{\partial t} + \nabla \cdot (\rho e \textbf{u}) \ = \pmb{\sigma} : \nabla \textbf{u} - \nabla \cdot \textbf{q}
+\end{aligned}$$
+
+其中，$\rho, u, e$ 分别为流体的密度、速度和单位质量的内能，$\sigma$ 为流体的应力张量，$q$ 为由热传导和热辐射引起的热通量。
+
+</div>
+
+---------------------------------------------------------------------------
+
+
+
+
+
