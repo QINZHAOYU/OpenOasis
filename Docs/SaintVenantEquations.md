@@ -105,10 +105,13 @@ $$\Rightarrow \rho v A \mathrm{d}t - [\rho v A \mathrm{d}t + \frac{\partial}{\pa
 由此，**非恒定流连续方程** 的普遍形式：  
 $$\frac{\partial}{\partial t}(\rho A) + \frac{\partial}{\partial s}(\rho v A) = 0$$
 
-方程适用于压力管道非恒定流、弹性管壁压力管道非恒定流以及明渠非恒定流；适用可压缩**水击**水流。
+方程适用于压力管道非恒定流、弹性管壁压力管道非恒定流以及明渠非恒定流；适用可压缩 **水击**水流。
 
 对于明渠不可压缩的非恒定流，则有：  
-$$\frac{\partial A}{\partial t} + \frac{\partial v A}{\partial s} = \frac{\partial A}{\partial t} + \frac{\partial Q}{\partial s} = 0 $$
+$$\frac{\partial A}{\partial t} + \frac{\partial v A}{\partial s} = \frac{\partial A}{\partial t} + \frac{\partial Q}{\partial s} = \frac{\partial A}{\partial t} + v \frac{\partial A}{\partial s} + A \frac{\partial v}{\partial s}=0 $$
+
+该方程表明$ \frac{\partial Q}{\partial s} < 0 \rightarrow \frac{\partial A}{\partial t} > 0$，流入多于流出，区间内水位将上升产生涨水波；反之，产生落水波。
+
 
 对于不考虑管壁弹性的管道非恒定流：
 $$v A = f(t)$$
@@ -136,6 +139,7 @@ $$v A = f(t)$$
 
 在非恒定流中取长度为 ds 的微小流束，s 轴取于恒定流时水流方向一致，轴线与水平线夹角为 θ。  
 n-n 断面上密度为 $\rho$，过水面积为 $A$，湿周为 $\chi$，压强为 $p$;  
+
 m-m 断面上密度为 $\rho + \frac{\partial \rho}{\partial s}\mathrm{d}s$，过水面积为 $A + \frac{\partial A}{\partial s}\mathrm{d}s$，湿周为 $\chi + \frac{\partial \chi}{\partial s}\mathrm{d}s$，压强为 $p + \frac{\partial p}{\partial s}\mathrm{d}s$。
 
 应用牛顿第二定律，分析微小流束的受力：  
@@ -148,36 +152,55 @@ $$\begin{aligned}
 \end{aligned}$$
 
 根据牛顿第二定律，流段流体动量变化率：   
-$$(\rho + \frac{\partial \rho}{\partial s} \frac{\mathrm{d}s}{2})(A + \frac{\partial A}{\partial s}\frac{\mathrm{d}s}{2}) g \mathrm{d}s \cdot \frac{\mathrm{d} u}{\mathrm{d} t} \quad And \quad \frac{\mathrm{d} u}{\mathrm{d} t} = \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial s}$$
+$$(\rho + \frac{\partial \rho}{\partial s} \frac{\mathrm{d}s}{2})(A + \frac{\partial A}{\partial s}\frac{\mathrm{d}s}{2}) g \mathrm{d}s \cdot \frac{\mathrm{d} v}{\mathrm{d} t} \quad And \quad \frac{\mathrm{d} v}{\mathrm{d} t} = \frac{\partial v}{\partial t} + v \frac{\partial v}{\partial s}$$
 
 代入，得到 **微小流束非恒定流的运动方程**：  
-$$\frac{\partial}{\partial s}(z + \frac{p}{\rho g} + \frac{u^2}{2g}) = - \frac{\tau \chi}{\rho g A} - \frac{1}{g} \frac{\partial u}{\partial t}$$
+$$\frac{\partial}{\partial s}(z + \frac{p}{\rho g} + \frac{v^2}{2g}) = - \frac{\tau \chi}{\rho g A} - \frac{1}{g} \frac{\partial v}{\partial t}$$
 
 设总流为渐变流，对整个总流过水断面积分，略去断面上流速分布不均匀的影响，得到 **非恒定总流的运动方程**：      
-$$\frac{\partial}{\partial s}(z + \frac{p}{\rho g} + \frac{u^2}{2g}) = - \frac{\tau_0 \chi_0}{\rho g A} - \frac{1}{g} \frac{\partial u}{\partial t}$$
+$$\frac{\partial}{\partial s}(z + \frac{p}{\rho g} + \frac{v^2}{2g}) = - \frac{\tau_0 \chi_0}{\rho g A} - \frac{1}{g} \frac{\partial v}{\partial t}$$
 
-$z, p, v$ 分别为总流过水断面的平均高程、压强及流速；$A$ 为过水面积；$\chi_0$ 为湿周；$\tau_0$ 为断面周界上平均切应力。 
+$z, p, v$ 分别为总流过水断面的平均高程、压强及流速；$A$ 过水面积；$\chi_0$ 为湿周；$\tau_0$ 为断面周界上平均切应力。 
 
 *------------------ * ------------------*
 
-对于不可压缩流体，$\rho g$ 为常数，将方程各项乘以 ds，从断面 1-1 至 2-2 积分，进而得到 **非恒定总流的能量方程**：
-$$z_1 + \frac{p_1}{\rho g} + \frac{{u_1}^2}{2g} = z_2 + \frac{p_2}{\rho g} + \frac{{u_2}^2}{2g} + \int_{1}^{2} \frac{\tau_0 \chi_0}{\rho g A} \mathrm{d}s + \frac{1}{g} \int_{1}^{2} \frac{\partial u}{\partial t} \mathrm{d}s$$
+对不可压缩流体，$\rho g$ 为常数，将方程各项乘以 ds，从断面 1-1 至 2-2 积分，进而得到 **非恒定总流的能量方程**：
+$$z_1 + \frac{p_1}{\rho g} + \frac{{v_1}^2}{2g} = z_2 + \frac{p_2}{\rho g} + \frac{{v_2}^2}{2g} + \int_{1}^{2} \frac{\tau_0 \chi_0}{\rho g A} \mathrm{d}s + \frac{1}{g} \int_{1}^{2} \frac{\partial v}{\partial t} \mathrm{d}s$$
 
 其中，  
-+ $\int_{1}^{2} \frac{\tau_0 \chi_0}{\rho g A} \mathrm{d}s$，代表总流单位质量流体的阻力在断面 1-1 至 2-2 间所作的功，即**内能耗散** $h_w$；  
-+ $\int_{1}^{2} \frac{\partial u}{\partial t} \mathrm{d}s$，代表单位质量流体因当地加速度 $\frac{\partial u}{\partial t}$ 而引起的惯性力在断面 1-1 至 2-2 间所作功，即**惯性水头** $h_a$；
++ $\int_{1}^{2} \frac{\tau_0 \chi_0}{\rho g A} \mathrm{d}s$，代表总流单位质量流体的阻力在断面 1-1 至 2-2 间所作的功，即**内能耗散** $h_f$；  
++ $\int_{1}^{2} \frac{\partial v}{\partial t} \mathrm{d}s$，代表单位质量流体因当地加速度 $\frac{\partial v}{\partial t}$ 而引起的惯性力在断面 1-1 至 2-2 间所作功，即**惯性水头** $h_a$；
+
+*------------------ * ------------------*
+
+对于明渠渐变流，自由表面压力为 0，得到 **明渠非恒定渐变总流的运动方程**：  
+$$-\frac{\partial z}{\partial s} = \frac{\partial h_f}{\partial s} + \frac{1}{g} \frac{\partial v}{\partial t} + \frac{v}{g}\frac{\partial v}{\partial s}$$
+
+其中，各项含义：  
++ $\frac{\partial z}{\partial s}$，表示水面坡度 $J$，代表单位重量流体的势能沿程的变化率；
+
 
 
 </div>
 
-*--- 注意：---* 
+*--- 注意：---*   
 1. 未考虑微分时段 dt 内 $\rho, A, \chi, p$ 的变化，加入考虑、略去高阶项，推导结果不变。
 
 2. 分析受力时，侧面积计算采用平均面积 $A + \frac{\partial A}{\partial s}\frac{\mathrm{d}s}{2}$；同理，对于密度、压力、湿周、阻力也采用平均值。
 
+3. 测压管水头 $z + \frac{p}{\rho g}$，总水头 $z + \frac{p}{\rho g} + \frac{u^2}{2g}$。
+
 ---------------------------------------------------------------------------
 
+<div align="center">
+
+<img src="./Imgs/24.jpg" width=600 height=240>
 
 
+</div>
 
+
+*--- 注意：---*   
+
+---------------------------------------------------------------------------
 
