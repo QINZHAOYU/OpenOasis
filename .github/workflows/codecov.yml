@@ -1,0 +1,46 @@
+name: codecov
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+    
+jobs:
+  build:
+    name: "OpenOasis code coverage actions"
+    runs-on: ubuntu-latest
+    env:
+      COVERAGE_DATA_PATH: coverage-data/coverage.info    
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mpi4py/setup-mpi@v1
+      - name: Install GCC-10
+        run: |
+          sudo apt-get update
+          sudo apt install gcc-10 g++-10 -y
+          gcc --version
+          g++ --version
+          ls /usr/bin/gcc*
+        shell: bash      
+      - name: CMake Build
+        run: |
+          cd ${{ github.workspace }}
+          mkdir build
+          cd build
+          cmake .. -DENABLE_TESTS=on -DCMAKE_BUILD_TYPE=Debug -DENABLE_CODECOV=on
+          cmake --build .
+        shell: bash 
+      - name: Ctest
+        run: |
+          cd ${{ github.workspace }}/build
+          ctest --output-on-failure -C Debug -VV
+        shell: bash     
+      - name: run test
+        run:  ${{ github.workspace }}/build/bin/OasisTests
+        shell: bash        
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          gcov: true 
+          gcov_ignore: ${{ github.workspace }}/Models/ThirdPart/

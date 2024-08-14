@@ -1,0 +1,52 @@
+name: pyOasis
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  Oasis_Agent_Test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: pip install -r ${{ github.workspace }}/requirements.txt
+
+      - name: Run agent unittest tests
+        run: python -m unittest discover ${{ github.workspace }}/iAgents/tests
+
+      - name: Run dataasst unittest tests
+        run: python -m unittest discover ${{ github.workspace }}/DataAsst/tests  
+      
+      - name: mkdocs
+        if: ${{ matrix.os == 'ubuntu-latest' && github.ref == 'refs/heads/main' }}
+        run: |
+          cd ${{ github.workspace }}
+          pip install mkdocs
+          pip install mkdocstrings[python]
+          pip install mkdocs-material
+          pip install mkdoxy
+          mkdocs serve --no-livereload
+          mkdocs gh-deploy --clean
+        shell: bash      

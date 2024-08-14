@@ -1,0 +1,83 @@
+name: single_precision
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+    windows_sp_test:
+      name: "Windows Single Precision OpenOasis Actions"
+      runs-on: windows-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: mpi4py/setup-mpi@v1
+        - name: CMake Build
+          run: |
+            cd D:/a/OpenOasis/OpenOasis
+            mkdir build
+            cd build
+            cmake .. -DENABLE_TESTS=on -DENABLE_SP=on
+            cmake --build . --config Release
+        - name: Ctest
+          run: |
+            cd D:/a/OpenOasis/OpenOasis/build
+            ctest --output-on-failure -C Release -VV
+          shell: bash 
+
+    linux_sp_test:
+      name: "Linux Single Precision OpenOasis Actions"
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: mpi4py/setup-mpi@v1
+        - name: Install GCC-10
+          run: |
+            sudo apt-get update
+            sudo apt install gcc-10 g++-10 -y
+            gcc --version
+            g++ --version
+            ls /usr/bin/gcc*
+          shell: bash          
+        - name: CMake Build
+          run: |
+            cd ${{ github.workspace }}
+            mkdir build
+            cd build
+            cmake .. -DENABLE_TESTS=on -DENABLE_SP=on -DCMAKE_BUILD_TYPE=Release
+            cmake --build .
+          shell: bash 
+        - name: Ctest
+          run: |
+            cd ${{ github.workspace }}/build
+            ctest --output-on-failure -C Release -VV
+          shell: bash  
+          
+    # macos_sp_test:
+    #   name: "Macos Single Precision OpenOasis Actions"
+    #   runs-on: macos-latest
+    #   steps:
+    #     - uses: actions/checkout@v2
+    #     - uses: mpi4py/setup-mpi@v1
+    #     - name: Install Compiler 
+    #       run: |
+    #         rm '/usr/local/bin/2to3'
+    #         brew install llvm
+    #         brew link --overwrite python@3.11
+    #         ln -s /usr/local/opt/llvm/bin/clang /usr/local/bin/clang-omp
+    #         ln -s /usr/local/opt/llvm/bin/clang++ /usr/local/bin/clang-omp++
+    #       shell: bash
+    #     - name: CMake Build
+    #       run: |
+    #         cd ${{ github.workspace }}
+    #         mkdir build
+    #         cd build
+    #         CC=clang-omp CXX=clang-omp++  cmake .. -DENABLE_TESTS=on -DENABLE_SP=on -DCMAKE_BUILD_TYPE=Release
+    #         cmake --build .
+    #       shell: bash 
+    #     - name: Ctest
+    #       run: |
+    #         cd ${{ github.workspace }}/build
+    #         ctest --output-on-failure -C Release -VV
+    #       shell: bash             

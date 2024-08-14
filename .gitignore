@@ -1,0 +1,18 @@
+# 忽略的文件  
+FolderConfig.h
+*.log
+OasisLog
+
+# 忽略的文件夹
+build/
+.git/
+.vscode/
+Doxygen/
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+reports/
+results/
+__pycache__/
+site/

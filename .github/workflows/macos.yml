@@ -1,0 +1,55 @@
+# This is a basic workflow to help you get started with Actions
+
+name: macos
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    name: "Macos OpenOasis Actions"
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mpi4py/setup-mpi@v1
+      - name: Install Compiler 
+        run: |
+          rm '/usr/local/bin/2to3'
+          brew install llvm
+          brew link --overwrite python@3.11
+          ln -s /usr/local/opt/llvm/bin/clang /usr/local/bin/clang-omp
+          ln -s /usr/local/opt/llvm/bin/clang++ /usr/local/bin/clang-omp++
+        shell: bash
+      - name: Install Third party library
+        run: |
+          git clone https://github.com/pybind/pybind11.git
+          cd  pybind11
+          mkdir build
+          cd build
+          cmake ..
+          cmake --build . --config Release
+          sudo cmake --install .
+        shell: bash
+      - name: CMake Build
+        run: |
+          export pybind11_DIR=/usr/local/share/cmake/pybind11/
+          cd ${{ github.workspace }}
+          mkdir build
+          cd build
+          CC=clang-omp CXX=clang-omp++  cmake .. -DENABLE_TESTS=on -DENABLE_PYLIB=on -DCMAKE_BUILD_TYPE:STRING=Release
+          cmake --build .
+        shell: bash 
+      - name: Ctest
+        run: |
+          cd ${{ github.workspace }}/build
+          ctest --output-on-failure -C Release -VV
+        shell: bash 

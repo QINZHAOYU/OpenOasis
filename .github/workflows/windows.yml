@@ -1,0 +1,50 @@
+# This is a basic workflow to help you get started with Actions
+
+name: windows
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    name: "Windows OpenOasis Actions"
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - uses: mpi4py/setup-mpi@v1
+      - name: Install Third party library
+        run: |
+          cd D:/a
+          git clone https://github.com/pybind/pybind11.git
+          cd pybind11
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_INSTALL_PREFIX=install
+          cmake --build . --config Release
+          cmake --install .
+          echo "pybind11_DIR=D:/a/pybind11/build/install/share/cmake/" | Out-File -FilePath $env:GITHUB_ENV -Append
+      - name: CMake Build
+        run: |
+          cd D:/a/OpenOasis/OpenOasis
+          mkdir build
+          cd build
+          cmake .. -DENABLE_TESTS=on -DENABLE_PYLIB=on 
+          cmake --build . --config Release
+      - name: Ctest
+        run: |
+          cd D:/a/OpenOasis/OpenOasis/build
+          ctest --output-on-failure -C Release -VV
+        shell: bash                  
