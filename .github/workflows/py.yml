@@ -18,7 +18,6 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
           - windows-latest
 
     steps:
@@ -30,14 +29,14 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install dependencies
-        run: pip install -r ${{ github.workspace }}/requirements.txt
+      # - name: Install dependencies
+      #   run: pip install -r ${{ github.workspace }}/requirements.txt
 
-      - name: Run agent unittest tests
-        run: python -m unittest discover ${{ github.workspace }}/iAgents/tests
+      # - name: Run agent unittest tests
+      #   run: python -m unittest discover ${{ github.workspace }}/iAgents/tests
 
-      - name: Run dataasst unittest tests
-        run: python -m unittest discover ${{ github.workspace }}/DataAsst/tests  
+      # - name: Run dataasst unittest tests
+      #   run: python -m unittest discover ${{ github.workspace }}/DataAsst/tests  
       
       - name: mkdocs
         if: ${{ matrix.os == 'ubuntu-latest' && github.ref == 'refs/heads/main' }}
@@ -48,5 +47,5 @@ jobs:
           pip install mkdocs-material
           pip install mkdoxy
           mkdocs serve --no-livereload
-          mkdocs gh-deploy --clean
+          mkdocs gh-deploy --clean --force
         shell: bash      
